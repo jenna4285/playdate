@@ -54,3 +54,23 @@ db.User.deleteMany({})
     console.error(err);
     process.exit(1);
   });
+
+
+  const activitySeed = [
+    {
+        date: 'March 31',
+        location: 'Zilker Park',
+        description: 'Flying kites! BYOK!'
+    }
+]
+
+db.Activity.deleteMany({})
+  .then(() => db.Activity.collection.insertMany(activitySeed))
+  .then((data) => {
+    console.log(data.result.n + ' records inserted!');
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
