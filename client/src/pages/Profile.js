@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
+import Profileform from "../components/Profileform/Profileform";
 
 function Profile(){
     return (
-        <div>
-    <h1>Profile Page</h1>
-
-        </div>
+    <Profileform/>
     )
 }
 
