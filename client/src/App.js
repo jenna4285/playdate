@@ -4,7 +4,7 @@ import Home from './pages/Home'
 // import Books from "./pages/Books";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
+import Nav from "./components/Nav/Nav";
 
 function App() {
   return (
