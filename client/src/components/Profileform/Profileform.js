@@ -10,6 +10,14 @@ function Profileform() {
         <form className="container-fluid">
             <h1>Profile Information:</h1><br></br>
             <div>
+                <div className="p-field p-col-12 p-md-6">
+                    <label htmlFor="firstname">Firstname</label>
+                    <InputText id="firstname" type="text" />
+                </div>
+                <div className="p-field p-col-12 p-md-6">
+                    <label htmlFor="lastname">Lastname</label>
+                    <InputText id="lastname" type="text" />
+                </div>
                 <div className="p-field p-col-12">
                     <label htmlFor="address">Street Address</label>
                     <InputTextarea id="address" type="text" rows="1" />
@@ -27,7 +35,7 @@ function Profileform() {
                     <InputText id="zip" type="text" />
                 </div>
                 <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
-               <Kids />
+                <Kids />
             </div>
         </form>
     )
