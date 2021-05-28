@@ -12,6 +12,7 @@ function Nav() {
           <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
           <li><a href="/dashboard" class="nav-link px-2 text-white">Dashboard</a></li>
           <li><a href="/profile" class="nav-link px-2 text-white">Profile</a></li>
+          <li><a href="/editprofile" class="nav-link px-2 text-white">Edit Profile</a></li>
         </ul>
 
  
