@@ -1,4 +1,5 @@
 import React from "react";
+import { InputText } from 'primereact/inputtext';
 
 function Signup() {
     return(
@@ -17,7 +18,7 @@ function Signup() {
         <InputText id="email" type="email" />
     </div>
     <div className="p-field p-col-12 p-md-6">
-        <label htmlFor="password6">Email</label>
+        <label htmlFor="password6">Password</label>
         <InputText id="password" type="password" />
 </div>
 </div>
