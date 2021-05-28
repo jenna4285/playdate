@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
+import Hero from '../components/Hero/Hero'
+import Signup from '../components/Signup/Signup'
 
 function Home(){
 
 return (
-    <h1>Home Page</h1>
+    <div>
+    <Hero/>
+    <Signup/>
+    </div>
+
+    
 )
 
 }
