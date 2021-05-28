@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Hero from '../components/Hero/Hero'
-import Signup from '../components/Signup/Signup'
+import SignupForm from '../components/SignupForm/SignupForm'
 
 function Home(){
 
 return (
     <div>
     <Hero/>
-    <Signup/>
+    <SignupForm/>
     </div>
 
     
