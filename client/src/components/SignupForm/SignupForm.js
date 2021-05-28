@@ -1,7 +1,7 @@
 import React from "react";
 import { InputText } from 'primereact/inputtext';
 
-function Signup() {
+function SignupForm() {
     return(
         
 <div className="p-fluid p-formgrid p-grid">
@@ -27,4 +27,4 @@ function Signup() {
 }
 
 
-export default Signup;
+export default SignupForm;
