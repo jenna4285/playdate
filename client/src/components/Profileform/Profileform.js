@@ -5,7 +5,7 @@ import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
 
 
-function Profile() {
+function Profileform() {
     return (
         <form className="container-fluid">
             <h1>Profile Information:</h1><br></br>
@@ -33,4 +33,4 @@ function Profile() {
     )
 }
 
-export default Profile;
+export default Profileform;

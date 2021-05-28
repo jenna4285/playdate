@@ -1,6 +1,6 @@
 import React from "react";
 import { InputText } from 'primereact/inputtext';
-import Profile from "../Profile/Profile";
+import Profile from "../Profileform/Profileform";
 
 function SignupForm() {
     return (
@@ -24,7 +24,6 @@ function SignupForm() {
                     <InputText id="password" type="password" />
                 </div>
                 <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
-                <Profile/>
             </div>
         </form>
        
