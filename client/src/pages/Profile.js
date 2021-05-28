@@ -3,7 +3,10 @@ import Profileform from "../components/Profileform/Profileform";
 
 function Profile(){
     return (
-    <Profileform/>
+    <div>
+         <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="editprofile">Edit Profile</button>
+        <Profileform/>
+    </div>
     )
 }
 
