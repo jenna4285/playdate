@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "playdate",
   "version": "0.1.0",
   "private": true,
@@ -22,6 +23,21 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "seed": "node client/seeders/seed.js"
+=======
+  "name": "mern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seed.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+>>>>>>> 63dcb4f8ef9e5d5a362a2d28c34d8df4428ab142
   },
   "author": "",
   "license": "ISC",
