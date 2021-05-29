@@ -12,7 +12,7 @@ import './Profileform.css'
 function Profileform2() {
 
     const [profileInfo, setProfileInfo] = useState({
-        id:"60b1208168a332461c66a701",
+        // MAYBE STORE FROM SESSION HERE
         fullname: "",
         address: "",
         city: "",
@@ -27,6 +27,7 @@ function Profileform2() {
         console.log(profileInfo.username)
         if (profileInfo.fullname && profileInfo.address && profileInfo.city && profileInfo.unitedState && profileInfo.zip && profileInfo.description) {
             API.editUser({
+                //GRAB THIS ID FROM SESSION STORAGE
                 id:"60b1208168a332461c66a701",
                 fullname: profileInfo.fullname,
                 address: profileInfo.address,
@@ -44,6 +45,10 @@ function Profileform2() {
                 .catch(err => console.log(err));
         }
     }
+
+    useEffect(() => {
+
+    })
     // const [unitedState, setUnitedState] = useState({});
     // const [name, setName] = useState();
     // const [address, setAddress] = useState();
