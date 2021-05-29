@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Hero from '../components/Hero/Hero'
 import SignupForm from '../components/SignupForm/SignupForm'
 
