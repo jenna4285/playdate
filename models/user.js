@@ -4,12 +4,17 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
     username: String,
+    password: String,
     first_name: String,
     last_name: String,
-    email: String,
-    password: String,
+    fullname: String,
     address: String,
-    chlid: [{
+    city: String,
+    unitedState: String,
+    zip: Number,
+    email: String,
+    description:String,
+    child: [{
         name: String,
         age: Number,
         gender: String
