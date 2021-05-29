@@ -18,6 +18,6 @@ export default {
     return axios.post("/api/users", userData);
   },
   editUser: function(userData) {
-    return axios.put("api/users" + userData.id, userData)
+    return axios.put("api/users/" + userData.id, userData)
   }
 };
