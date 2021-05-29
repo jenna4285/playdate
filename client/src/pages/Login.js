@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import Loginform from "../components/Loginform/Loginform";
 
 function Login(){
     return (
         <div>
-    <h1>Login Page</h1>
+    <Loginform/>
 
         </div>
     )
