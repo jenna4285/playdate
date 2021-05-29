@@ -52,12 +52,9 @@ function Profile(){
             <div class="col-md-8">
               <Userdetailscard/>
               <div class="row gutters-sm">
-                <div class="col-sm-6 mb-3">
-              <Kidcard/>
-                </div>
-                <div class="col-sm-6 mb-3">
+            <Kidcard/>     
             <Kidcard/>
-                </div>
+            <Kidcard/>
               </div>
 
             </div>
