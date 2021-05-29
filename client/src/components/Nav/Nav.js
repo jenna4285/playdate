@@ -19,7 +19,7 @@ function Nav() {
 
         <div class="text-end">
           <a class="btn btn-outline-light me-2" href="/login">Login</a>
-          <a class="btn btn-warning" href="/signup">Sign-up</a>
+          <a class="btn btn btn-success" href="/signup">Sign-up</a>
         </div>
       </div>
     </div>
