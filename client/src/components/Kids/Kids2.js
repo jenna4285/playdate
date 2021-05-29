@@ -6,6 +6,8 @@ import interests from './interests'
 
 
 function Kids2() {
+    const [kidName, setKidName] = useState();
+    const [kidAge, setKidAge] = useState();
     const [interests, setInterests] = useState();
 
     return (
@@ -26,13 +28,13 @@ function Kids2() {
                                     <h6 className="mb-0">Child's Name</h6>
                                 </div>
                                 <div className="col-sm-9 text-secondary">
-                                    <input type="text" className="form-control" value="Child's Name" id="kidname" />
+                                    <input type="text" className="form-control" value={kidName} id="kidname" onSubmit={(event) => setKidName(event.target.value)}/>
                                 </div>
                                 <div className="col-sm-3">
                                     <h6 className="mb-0">Child's Age</h6>
                                 </div>
                                 <div className="col-sm-9 text-secondary">
-                                    <input type="text" className="form-control" value="Child's Age" id="kidage" />
+                                    <input type="text" className="form-control" value={kidAge} id="kidage" onSubmit={(event) => setKidAge(event.target.value)}/>
                                 </div>
                             </div>
                             <div className="row mb-3">
