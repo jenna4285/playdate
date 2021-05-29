@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+}
+
+.create-profile{
+    align-self: center;
+}
+
+.p-grid{
+    margin-top:30px!important;
+}
+
+.card{
+    margin-top:100px;
+    padding:50px;
+}
