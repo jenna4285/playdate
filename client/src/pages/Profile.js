@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import Profileform from "../components/Profileform/Profileform";
 
 function Profile(){
     return (
-        <div>
-    <h1>Profile Page</h1>
-
-        </div>
+    <div>
+         <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="editprofile">Edit Profile</button>
+        <Profileform/>
+    </div>
     )
 }
 
