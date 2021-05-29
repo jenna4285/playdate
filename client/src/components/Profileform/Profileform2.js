@@ -10,7 +10,11 @@ import './Profileform.css'
 
 function Profileform2() {
 
+    const [name, setName] = useState();
+    const [address, setAddress] = useState();
+    const [city, setCity] = useState();
     const [unitedState, setUnitedState] = useState();
+    const [zip, setZip] = useState();
     const [description, setDescription] = useState();
 
 
@@ -30,7 +34,7 @@ function Profileform2() {
                                     <h6 className="mb-0">Full Name</h6>
                                 </div>
                                 <div className="col-sm-9 text-secondary">
-                                    <input type="text" className="form-control" value="John Doe" id="profilename" />
+                                    <InputText type="text" className="form-control" value={name} id="profilename" onSubmit={(event) => setName(event.target.value)}/>
                                 </div>
                             </div>
                             <div className="row mb-3">
@@ -38,7 +42,7 @@ function Profileform2() {
                                     <h6 className="mb-0">Street Address</h6>
                                 </div>
                                 <div className="col-sm-9 text-secondary">
-                                    <input type="text" className="form-control" value="555 Street Ave." id="profilestreetaddress" />
+                                    <InputText type="text" className="form-control" value={address} id="profilestreetaddress" onSubmit={(event) => setAddress(event.target.value)}/>
                                 </div>
                             </div>
                             <div className="row mb-3">
@@ -46,7 +50,7 @@ function Profileform2() {
                                     <h6 className="mb-0">City</h6>
                                 </div>
                                 <div className="col-sm-9 text-secondary">
-                                    <input type="text" className="form-control" value="Austin" id="profilecity" />
+                                    <InputText type="text" className="form-control" value={city} id="profilecity" onSubmit={(event) => setCity(event.target.value)}/>
                                 </div>
                             </div>
                             <div className="row mb-3">
@@ -65,7 +69,7 @@ function Profileform2() {
                                     <h6 className="mb-0">Zipcode</h6>
                                 </div>
                                 <div className="col-sm-9 text-secondary">
-                                    <input type="text" className="form-control" value="78702" id="profilezip" />
+                                    <InputText type="text" className="form-control" value={zip} id="profilezip" onSubmit={(event) => setZip(event.target.value)}/>
                                 </div>
                             </div>
                             <div className="row mb-3">
