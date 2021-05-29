@@ -11,13 +11,16 @@ import './Profileform.css'
 function Profileform() {
 
     const [unitedState, setUnitedState] = useState();
+    const [description, setDescription] = useState();
 
     
     return (
         <form className="container-fluid">
-            <container class="container">
-                <h1>Profile Information:</h1><br></br>
+        <br/>
+            <container className="title">
+                <h1>Edit Profile</h1><br/>
             </container>
+            <div className = "p-d-flex p-jc-center">
 
             <div className="p-grid p-fluid">
                 <div className="p-field p-col-12 p-md-6">
@@ -58,8 +61,18 @@ function Profileform() {
                         <InputText id="zipcode" type="text" />
                     </div>
                 </div>
+                <div className="p-field p-col-12">
+                    <h5 htmlFor="zipcode">Bio</h5>
+                    <div className="p-inputgroup">
+                        <span className="p-inputgroup-addon">
+                            <i className="pi pi-users"></i>
+                        </span>
+                        <InputTextarea id="zipcode" rows={3} cols={30} value={description} onSubmit={(event) => setDescription(event.target.value)} placeholder="Tell us a little about your family!" />
+                    </div>
+                </div>
 
                 <Kids />
+            </div>
             </div>
         </form>
     )
