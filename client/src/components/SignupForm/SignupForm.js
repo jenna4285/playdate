@@ -28,6 +28,7 @@ function handleBtnClick(event){
             password: "",
           }))
           .then(() => console.log("user saved"))
+          .then(()=> window.location.href="/editprofile")
           .catch(err => console.log(err));
       }
 }
@@ -46,7 +47,7 @@ function handleBtnClick(event){
                 </div>
                 <button type="button" class="btn btn-primary btn-lg px-4 gap-3"
                 disabled={!(signUpInfo.username && signUpInfo.password)}
-                onClick={handleBtnClick}>Primary button</button>
+                onClick={handleBtnClick}>Create Profile</button> 
             </div>
         </form>
        
