@@ -35,15 +35,26 @@ function handleBtnClick(event){
 
     return (
         <form className="container-fluid">
-            <h1>Create an Account!</h1>
-                <div className="p-fluid p-formgrid p-grid">
+        <container class="container"><h1>Create an Account!</h1></container>
+           
+                <div className="p-fluid">
                 <div className="p-field p-col-12 p-md-6">
                     <label htmlFor="username">Username</label>
+                    <div className="p-inputgroup">
+                        <span className="p-inputgroup-addon">
+                            <i className="pi pi-user"></i>
+                        </span>
                     <InputText id="username" type="text" name="username" value={signUpInfo.username} onChange={handleInputChange}/>
+                    </div>
                 </div>
                 <div className="p-field p-col-12 p-md-6">
                     <label htmlFor="password">Password</label>
+                    <div className="p-inputgroup">
+                        <span className="p-inputgroup-addon">
+                            <i className="pi pi-unlock"></i>
+                        </span>
                     <InputText id="password" type="password" name="password" value={signUpInfo.password} onChange={handleInputChange}/>
+                </div>
                 </div>
                 <button type="button" class="btn btn-primary btn-lg px-4 gap-3"
                 disabled={!(signUpInfo.username && signUpInfo.password)}
