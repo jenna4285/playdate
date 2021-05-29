@@ -1,9 +1,9 @@
 import React from "react";
-import Profileform from "../components/Profileform/Profileform";
+import Profileform2 from "../components/Profileform/Profileform2";
 
 function Editprofile(){
     return (
-    <Profileform/>
+    <Profileform2/>
     )
 }
 
