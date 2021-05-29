@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from './pages/Home'
 import Profile from './pages/Profile'
@@ -12,6 +12,14 @@ import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav/Nav";
 
 function App() {
+  
+  // CODE FOR SESSION/TOKEN - JG - Line 17-21 - Discuss w/ Team
+  // const [token, setToken] = useState();
+
+  // if(!token) {
+  //   return <Login setToken={setToken} />
+  // }
+ 
   return (
     <Router>
       <div>
