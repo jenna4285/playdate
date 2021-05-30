@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard'
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav/Nav";
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 function App() {
   
