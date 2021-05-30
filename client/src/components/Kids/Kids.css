@@ -6,6 +6,7 @@ h1{
 
 #add-child, #complete-family{
     background-color: rgb(84, 189, 35);
+    border-color:white;
 }
 
 #kid-form-card{

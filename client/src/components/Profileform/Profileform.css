@@ -8,6 +8,8 @@ h1{
     text-align:center;
 }
 
-#create-profile{
+#save-profile{
     background-color: rgb(84, 189, 35);
+    border-color:white;
+
 }

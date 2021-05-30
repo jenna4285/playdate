@@ -123,7 +123,7 @@ function Profileform2() {
                                         <span classNameName="p-inputgroup-addon">
                                             <i classNameName="pi pi-users"></i>
                                         </span>
-                                        <InputTextarea name="description" id="bio" rows={3} cols={30} value={profileInfo.description} onChange={handleInputChange} placeholder="Tell us a little about your family!" />
+                                        <InputTextarea name="description" id="bio" rows={3} cols={35} value={profileInfo.description} onChange={handleInputChange} placeholder="Tell us a little about your family!" />
                                     </div>
                                     <div className="row">
                                         <div className="col-sm-3"></div>
@@ -134,7 +134,7 @@ function Profileform2() {
                                             
                             </div>
                             <div className="row">
-                            <button id="create-profile" type="button" class="btn btn-success px-4 gap-3"
+                            <button id="save-profile" type="button" class="btn btn-success px-4 gap-3"
                                                 disabled={!(profileInfo.fullname && profileInfo.address && profileInfo.city && profileInfo.unitedState && profileInfo.zip && profileInfo.description)}
                                                 onClick={handleBtnClick}>Save Profile</button>
                             </div>
