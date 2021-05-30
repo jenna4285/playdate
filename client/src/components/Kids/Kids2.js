@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-// import { InputText } from 'primereact/inputtext';
+import { InputText } from 'primereact/inputtext';
 import './Kids.css'
 import { Dropdown } from 'primereact/dropdown';
-import interests from './interests'
+import interestChoices from './interestChoices'
 
 
 function Kids2() {
@@ -14,27 +14,29 @@ function Kids2() {
 
 
         <form classNameName="container-fluid">
-            <br />
-            <container classNameName="title">
-                <h1>Edit Kids</h1><br />
-            </container>
+
             <div classNameName="p-d-flex p-jc-center">
 
-                <div className="col-lg-8">
-                    <div className="card">
+                <div id = "kid-form-card" className="card">
+
+                    <h1>Add Kids</h1>
+
+                    <div className="p-field p-col-12 p-md-12">
                         <div className="card-body">
                             <div className="row mb-3">
                                 <div className="col-sm-3">
                                     <h6 className="mb-0">Child's Name</h6>
                                 </div>
                                 <div className="col-sm-9 text-secondary">
-                                    <input type="text" className="form-control" value={kidName} id="kidname" onSubmit={(event) => setKidName(event.target.value)}/>
+                                    <InputText name="kidname" type="text" className="form-control" value={kidName} id="kidname" onChange={(event) => setKidName(event.target.value)} />
                                 </div>
+                            </div>
+                            <div className="row mb-3">
                                 <div className="col-sm-3">
                                     <h6 className="mb-0">Child's Age</h6>
                                 </div>
                                 <div className="col-sm-9 text-secondary">
-                                    <input type="text" className="form-control" value={kidAge} id="kidage" onSubmit={(event) => setKidAge(event.target.value)}/>
+                                    <InputText type="text" className="form-control" value={kidAge} id="kidage" onChange={(event) => setKidAge(event.target.value)} />
                                 </div>
                             </div>
                             <div className="row mb-3">
@@ -45,17 +47,18 @@ function Kids2() {
                                     <span classNameName="p-inputgroup-addon">
                                         <i classNameName="pi pi-map"></i>
                                     </span>
-                                    <Dropdown value={interests} options={interests} onChange={(e) => setInterests(e.value)} placeholder="Select Interests" />
+                                    <Dropdown value={interests} options={interestChoices} onChange={(e) => setInterests(e.value)} placeholder="Select Interests" />
                                 </div>
                             </div>
-                            <div className="row mb-3">
+                            <div className="row">
                                 <div className="col-sm-3">
-                                            <input type="button" className="btn btn-primary px-4" value="Add Child" />
-                                        </div>
-                                        <div className="col-sm-9 text-secondary">
-                                            <input type="button" className="btn btn-primary px-4" value="Family Complete" />
-                                        </div>
-                                    </div>
+                                    <button id="add-child" type="button" className="btn btn-success px-4" 
+                                    value="Add Child" disabled={!(kidName&&kidAge&&interests)}>Add Child</button>
+                                </div>
+                                <div className="col-sm-9 text-secondary">
+                                    <button id="complete-family" type="button" className="btn btn-success px-4" value="Family Complete">Family Complete</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
