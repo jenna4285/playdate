@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper,} from 'google-maps-react';
+import { withGoogleMap, Map, GoogleApiWrapper,} from 'google-maps-react';
+// import withScriptjs from 'react-google-maps/lib/async/withScriptjs';
 
 const mapStyles = {
   width: '100%',
   height: '100%'
 };
+
+// const myMap = withScriptjs(withGoogleMap((props) => (<GoogleMap />)));
 
 export class MapContainer extends Component {
   render() {
