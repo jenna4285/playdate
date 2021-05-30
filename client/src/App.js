@@ -41,7 +41,7 @@ const { isAuthenticated, user } = useAuth0();
   // }
  
   return (
-    <UserContext.Provider value={{dbUser}}>
+    <UserContext.Provider value={dbUser.data}>
     <Router>
       <div>
         <Nav />
