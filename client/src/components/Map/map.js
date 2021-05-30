@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withGoogleMap, Map, GoogleApiWrapper,} from 'google-maps-react';
+require('dotenv').config();
 
 const mapStyles = {
   width: '100%',
