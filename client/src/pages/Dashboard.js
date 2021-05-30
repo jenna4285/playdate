@@ -1,5 +1,5 @@
 import React from "react";
-import Map  from "../components/Map/map";
+import Map from "../components/Map/map";
 import Usercard from "../components/Usercard/Usercard";
 import Kidcard from "../components/Kidcard/Kidcard";
 

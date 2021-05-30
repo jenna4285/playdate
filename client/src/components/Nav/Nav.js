@@ -1,6 +1,11 @@
 import React from "react";
+import Loginbutton from "../Loginbutton/Loginbutton.js"
+import Logoutbutton from "../Logoutbutton/Logoutbutton.js"
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Nav() {
+  const { isAuthenticated, user } = useAuth0();
+  console.log(user)
   return (
     <header class="p-3 bg-dark text-white">
 <div class="container">
@@ -16,10 +21,10 @@ function Nav() {
         </ul>
 
  
-
+        
         <div class="text-end">
-          <a class="btn btn-outline-light me-2" href="/login">Login</a>
-          <a class="btn btn btn-success" href="/signup">Sign-up</a>
+            {isAuthenticated? <Logoutbutton/> :
+            <Loginbutton/>}
         </div>
       </div>
     </div>
