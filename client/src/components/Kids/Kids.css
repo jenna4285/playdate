@@ -3,3 +3,11 @@
 h1{
     font-family: 'Lato', sans-serif;
 }
+
+#add-child, #complete-family{
+    background-color: rgb(84, 189, 35);
+}
+
+#kid-form-card{
+    margin-bottom: 30px;
+}

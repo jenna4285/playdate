@@ -28,7 +28,7 @@ function Profileform2() {
         if (profileInfo.fullname && profileInfo.address && profileInfo.city && profileInfo.unitedState && profileInfo.zip && profileInfo.description) {
             API.editUser({
                 //GRAB THIS ID FROM SESSION STORAGE
-                id:"60b2da808cff5559c03e8ac7",
+                id: "60b2da808cff5559c03e8ac7",
                 fullname: profileInfo.fullname,
                 address: profileInfo.address,
                 city: profileInfo.city,
@@ -65,13 +65,11 @@ function Profileform2() {
     return (
         <form classNameName="container-fluid">
             <br />
-            <container classNameName="title">
-                <h1>Edit Main User/Family Profile</h1><br />
-            </container>
             <div classNameName="p-d-flex p-jc-center">
 
-                <div className="col-lg-8">
+                <div className="col-lg-6">
                     <div className="card">
+                        <h1>Edit Main User/Family Profile</h1><br />
                         <div className="card-body">
                             <div className="row mb-3">
                                 <div className="col-sm-3">
@@ -130,13 +128,17 @@ function Profileform2() {
                                     <div className="row">
                                         <div className="col-sm-3"></div>
                                         <div className="col-sm-9 text-secondary">
-                                            <button id="create-profile" type="button" class="btn btn-success px-4 gap-3"
-                                                disabled={!(profileInfo.fullname && profileInfo.address && profileInfo.city && profileInfo.unitedState && profileInfo.zip && profileInfo.description)}
-                                                onClick={handleBtnClick}>Save Profile</button>
                                         </div>
                                     </div>
                                 </div>
+                                            
                             </div>
+                            <div className="row">
+                            <button id="create-profile" type="button" class="btn btn-success px-4 gap-3"
+                                                disabled={!(profileInfo.fullname && profileInfo.address && profileInfo.city && profileInfo.unitedState && profileInfo.zip && profileInfo.description)}
+                                                onClick={handleBtnClick}>Save Profile</button>
+                            </div>
+
                         </div>
                     </div>
                     <Kids2 />

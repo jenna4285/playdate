@@ -7,3 +7,7 @@ h1{
 .title{
     text-align:center;
 }
+
+#create-profile{
+    background-color: rgb(84, 189, 35);
+}
