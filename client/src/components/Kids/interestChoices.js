@@ -1,4 +1,4 @@
-const interests = [
+const interestChoices = [
     { "label": "Riding Bikes", "value": "Riding Bikes" },
     { "label": "Playground", "value": "Playground" },
     { "label": "Swimming", "value": "Swimming" },
@@ -10,4 +10,4 @@ const interests = [
 
     ]
     
-    export default interests;
+    export default interestChoices;

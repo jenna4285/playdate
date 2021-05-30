@@ -7,3 +7,9 @@ h1{
 .title{
     text-align:center;
 }
+
+#save-profile{
+    background-color: rgb(84, 189, 35);
+    border-color:white;
+
+}
