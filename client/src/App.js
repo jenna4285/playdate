@@ -26,8 +26,7 @@ const { isAuthenticated, user } = useAuth0();
   useEffect(() => {
     if(!user) return;
     const pullFromDb = async () => {await API.getUserByEmail(user.email).then(userInfo => {
-      setDbUser(userInfo);
-      console.log("Hello");
+      setDbUser(userInfo.data);
     });
   }
   pullFromDb();
@@ -41,7 +40,7 @@ const { isAuthenticated, user } = useAuth0();
   // }
  
   return (
-    <UserContext.Provider value={dbUser.data}>
+    <UserContext.Provider value={{dbUser}}>
     <Router>
       <div>
         <Nav />
