@@ -20,8 +20,11 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^1.5.0",
+    "auth0-react": "^3.1.0",
     "axios": "^0.18.0",
-    "express": "^4.16.3",
+    "express": "^4.17.1",
+    "express-openid-connect": "^2.4.0",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
     "primeflex": "^2.0.0",
