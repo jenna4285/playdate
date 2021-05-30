@@ -9,6 +9,9 @@ export default {
   getUser: function(id) {
     return axios.get("/api/users/" + id);
   },
+  getUserByEmail: function(email) {
+    return axios.get("/api/users/" + email)
+  },
   // Deletes the user with the given id
   deleteUser: function(id) {
     return axios.delete("/api/users/" + id);
