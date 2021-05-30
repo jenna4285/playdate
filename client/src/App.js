@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from './pages/Home'
 import Profile from './pages/Profile'
@@ -11,9 +11,28 @@ import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav/Nav";
 import { Map, GoogleApiWrapper } from 'google-maps-react';
+import UserContext from "./utils/userContext";
+import API from "./utils/API"
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 function App() {
-  
+const [dbUser, setDbUser]=useState({
+
+});
+const { isAuthenticated, user } = useAuth0();
+
+
+  useEffect(() => {
+    if(!user) return;
+    const pullFromDb = async () => {await API.getUserByEmail(user.email).then(userInfo => {
+      setDbUser(userInfo);
+      console.log("Hello");
+    });
+  }
+  pullFromDb();
+  }, [isAuthenticated]);
+
   // CODE FOR SESSION/TOKEN - JG - Line 17-21 - Discuss w/ Team
   // const [token, setToken] = useState();
 
@@ -22,6 +41,7 @@ function App() {
   // }
  
   return (
+    <UserContext.Provider value={{dbUser}}>
     <Router>
       <div>
         <Nav />
@@ -39,6 +59,7 @@ function App() {
         </Switch>
       </div>
     </Router>
+    </UserContext.Provider>
   );
 }
 
