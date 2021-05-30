@@ -1,5 +1,5 @@
 import React from "react";
-import { MapContainer } from "../components/Map/map";
+import Map  from "../components/Map/map";
 import Usercard from "../components/Usercard/Usercard";
 import Kidcard from "../components/Kidcard/Kidcard";
 
@@ -9,7 +9,7 @@ function Dashboard() {
             <h1>Dashboard Page</h1>
             <div class="container">
             <Usercard />
-            <Kidcard /> <MapContainer />
+            <Kidcard /> <Map />
             </div>
             
         </div>
