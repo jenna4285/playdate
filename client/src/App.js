@@ -23,16 +23,22 @@ const [dbUser, setDbUser]=useState({
 const { isAuthenticated, user } = useAuth0();
 
 
-  useEffect(() => {
-    if(!user) return;
-    const pullFromDb = async () => {await API.getUserByEmail(user.email).then(userInfo => {
-      setDbUser(userInfo);
-      console.log("Hello");
-    });
-  }
-  pullFromDb();
-  }, [isAuthenticated]);
+useEffect(() => {
+  if(!user) return;
+  const pullFromDb = async () => {await API.getUserByEmail(user.email).then(userInfo => {
+    if(!userInfo.data) {
+      API.saveUser(user);
+      window.location.replace('/editprofile')
+    }
+    console.log(userInfo)
+    setDbUser(userInfo.data);
+  });
+}
+pullFromDb();
+}, [isAuthenticated]);
 
+
+  
   // CODE FOR SESSION/TOKEN - JG - Line 17-21 - Discuss w/ Team
   // const [token, setToken] = useState();
 

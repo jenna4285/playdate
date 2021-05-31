@@ -22,5 +22,8 @@ export default {
   },
   editUser: function(userData) {
     return axios.put("api/users/" + userData.id, userData)
+  },
+  editUserByEmail: function(userData) {
+    return axios.put("api/users/email/" + userData.email, userData)
   }
 };
