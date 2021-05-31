@@ -3,6 +3,9 @@ import Profileform2 from "../components/Profileform/Profileform2";
 import Kids2 from "../components/Kids/Kids2";
 import Currentprofilecard from "../components/Currentprofilecard/Currentprofilecard"
 import Minikidcard from "../components/Minikidcard/Minikidcard"
+import MiniCardContainer from "../components/MiniCardContainer/MiniCardContainer"
+
+
 
 function Editprofile() {
 
@@ -23,8 +26,8 @@ function Editprofile() {
                 </div>
                 <div id="kid-column" className="col">
                     <div id="kid-card-container">
-                        <Minikidcard />
-                        <Minikidcard />
+                        <MiniCardContainer />
+
                     </div>
 
                 </div>
