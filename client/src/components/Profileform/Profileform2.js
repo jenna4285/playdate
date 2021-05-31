@@ -8,6 +8,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import unitedStates from './unitedstates';
 import 'primeflex/primeflex.css';
 import './Profileform.css'
+import Geocode from "react-geocode";
+
+Geocode.setApiKey("AIzaSyAQACrt018ybMocp5ofJnmPmB7XPiX23Yg");
 
 
 function Profileform2() {
@@ -28,10 +31,33 @@ function Profileform2() {
     });
 
 
-    function handleBtnClick(event) {
+    async function handleBtnClick(event) {
         event.preventDefault();
         console.log(profileInfo.username)
+        
+        const fullAddress = [profileInfo.address, profileInfo.city, profileInfo.unitedState, profileInfo.zip].join(",");
+        
+        // pass full address to geohook to get lat lon for db
+        let lat = "";
+        let lng = "";
+
+        function latLon() {
+            Geocode.fromAddress(fullAddress).then(
+            (response) => {
+              let { lat, lng } = response.results[0].geometry.location;
+              return(data-lat, data-lng);
+              
+            },
+            (error) => {
+              console.error(error);
+            }
+          )
+        };
+        await latLon();    
+        console.log(data-lat, data-lng);
+        
         if (profileInfo.fullname && profileInfo.address && profileInfo.city && profileInfo.unitedState && profileInfo.zip && profileInfo.description) {
+            
             API.editUserByEmail({
                 //GRABBING INFO FROM STATE
                 email: user.email,
@@ -41,13 +67,16 @@ function Profileform2() {
                 unitedState: profileInfo.unitedState,
                 zip: profileInfo.zip,
                 description: profileInfo.description,
-            })
+                picture: user.picture,
+                lat: lat,
+                lng: lng,
+                })
                 // .then(() => setProfileInfo({
                 //     username: "",
                 //     password: "",
                 // }))
                 .then(() => console.log("profile edited"))
-                .then(() => window.location.href = "/dashboard")
+                // .then(() => window.location.href = "/dashboard")
                 .catch(err => console.log(err));
         }
     }
