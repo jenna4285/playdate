@@ -18,7 +18,7 @@ function Kids2() {
     return (
         <form className="container-fluid">
 
-            <div className="p-d-flex">
+            <div className="flex">
 
 
 
@@ -43,7 +43,7 @@ function Kids2() {
                             <div className="row mb-3">
 
                                 <div className="col text-secondary">
-                                <MultiSelect value={interests} options={interestChoices} onChange={(e) => setInterests(e.value)} placeholder="Child's Interests" />
+                                <MultiSelect value={interests} display="chip" options={interestChoices} onChange={(e) => setInterests(e.value)} placeholder="Child's Interests" />
                                 </div>
                             </div>
                             <div className="row">
