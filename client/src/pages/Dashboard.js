@@ -8,10 +8,20 @@ function Dashboard() {
         <div>
             <h1>Dashboard Page</h1>
             <div class="container">
-            <Usercard />
-            <Kidcard /> <Map />
+                <div className="row">
+                    <div className="col">
+                        <Usercard />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <Kidcard />
+                    </div>
+                </div>
+                <div className="row">
+                    <Map />
+                </div>
             </div>
-            
         </div>
     )
 }

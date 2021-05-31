@@ -3,7 +3,7 @@ import Profileform from "../components/Profileform/Profileform";
 import Usercard from "../components/Usercard/Usercard"
 import Userdetailscard from "../components/Userdetailscard/Userdetailscard"
 import Kidcard from "../components/Kidcard/Kidcard"
-import Currentprofilecard from "../components/Currentprofilecard/Currentprofilecard"
+import CurrentProfileCard from "../components/CurrentProfileCard/CurrentProfileCard"
 import '../pages/Profile.css'
 
 function Profile() {
@@ -22,7 +22,7 @@ function Profile() {
             <Usercard />
           </div>
           <div className="col-md-8">
-            <Currentprofilecard />
+            <CurrentProfileCard />
             <div className="row gutters-sm">
               <Kidcard />
               <Kidcard />
