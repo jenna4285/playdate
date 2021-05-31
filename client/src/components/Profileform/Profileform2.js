@@ -145,7 +145,6 @@ function Profileform2() {
                         </div>
                     </form>
                 </div>
-{/* THE BELOW IS A DYNAMIC VERSION OF THE USER DETAILS CARD COMPONENT */}
             </div>
 
 

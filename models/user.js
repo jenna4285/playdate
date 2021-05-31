@@ -13,6 +13,7 @@ const userSchema = new Schema({
     unitedState: String,
     zip: Number,
     email: String,
+    picture:String,
     description:String,
     child: [{
         name: String,
