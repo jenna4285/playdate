@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { InputText } from 'primereact/inputtext';
 import './Kids.css'
+import { MultiSelect } from 'primereact/multiselect';
 import { Dropdown } from 'primereact/dropdown';
 import interestChoices from './interestChoices'
 
@@ -10,12 +11,12 @@ function Kids2() {
     const [kidAge, setKidAge] = useState();
     const [interests, setInterests] = useState();
 
+// itemTemplate((options)=>{
+
+//     });
+
     return (
         <form className="container-fluid">
-
-            <div className="p-d-flex p-jc-center">
-
-
 
                 <div id = "kid-form-card" className="card">
 
@@ -27,7 +28,7 @@ function Kids2() {
                                 <div className="col-sm-3">
                                     <h6 className="mb-0">Child's Name</h6>
                                 </div>
-                                <div className="col-sm-9 text-secondary">
+                                <div className="col-sm-6 text-secondary">
                                     <InputText name="kidname" type="text" className="form-control" value={kidName} id="kidname" onChange={(event) => setKidName(event.target.value)} />
                                 </div>
                             </div>
@@ -35,7 +36,7 @@ function Kids2() {
                                 <div className="col-sm-3">
                                     <h6 className="mb-0">Child's Age</h6>
                                 </div>
-                                <div className="col-sm-9 text-secondary">
+                                <div className="col-sm-6 text-secondary">
                                     <InputText type="text" className="form-control" value={kidAge} id="kidage" onChange={(event) => setKidAge(event.target.value)} />
                                 </div>
                             </div>
@@ -44,14 +45,18 @@ function Kids2() {
                                     <h6 className="mb-0">Interests</h6>
                                 </div>
                                 <div className="col-sm-9 text-secondary">
-                                    <Dropdown value={interests} options={interestChoices} onChange={(e) => setInterests(e.value)} placeholder="Select Interests" />
+                                <MultiSelect value={interests} options={interestChoices} onChange={(e) => setInterests(e.value)} />
                                 </div>
                             </div>
+                            <div className="row">
+                                    {interests}
+                                </div>
                             <div className="row">
                                 <div className="col">
                                     <button id="add-child" type="button" className="btn btn-success px-4" 
                                     value="Add Child" disabled={!(kidName&&kidAge&&interests)}>Add Child</button>
                                 </div>
+
                                 <div className="col text-secondary">
                                     <button id="complete-family" type="button" className="btn btn-success px-4" value="Family Complete">Family Complete</button>
                                 </div>
@@ -59,7 +64,7 @@ function Kids2() {
                         </div>
                     </div>
                 </div>
-            </div>
+
         </form>
 
     )
