@@ -4,6 +4,7 @@ import Minikidcard from "../Minikidcard/Minikidcard"
 function MiniCardContainer(){
     return(
     <div>
+    {/* This should be mapped */}
     <Minikidcard/>
     </div> 
     )
