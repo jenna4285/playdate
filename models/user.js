@@ -15,6 +15,8 @@ const userSchema = new Schema({
     email: String,
     picture:String,
     description:String,
+    lat: Number,
+    lng: Number,
     child: [{
         name: String,
         age: Number,

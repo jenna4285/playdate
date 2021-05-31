@@ -31,7 +31,7 @@ function Profileform2() {
     });
 
 
-    function handleBtnClick(event) {
+    async function handleBtnClick(event) {
         event.preventDefault();
         console.log(profileInfo.username)
         
@@ -40,12 +40,12 @@ function Profileform2() {
         // pass full address to geohook to get lat lon for db
         let lat = "";
         let lng = "";
-        
-      function latLon() {
+
+        function latLon() {
             Geocode.fromAddress(fullAddress).then(
             (response) => {
               let { lat, lng } = response.results[0].geometry.location;
-              console.log(lat, lng);
+              return(data-lat, data-lng);
               
             },
             (error) => {
@@ -53,8 +53,9 @@ function Profileform2() {
             }
           )
         };
-        latLon();
-
+        await latLon();    
+        console.log(data-lat, data-lng);
+        
         if (profileInfo.fullname && profileInfo.address && profileInfo.city && profileInfo.unitedState && profileInfo.zip && profileInfo.description) {
             
             API.editUserByEmail({
@@ -66,6 +67,7 @@ function Profileform2() {
                 unitedState: profileInfo.unitedState,
                 zip: profileInfo.zip,
                 description: profileInfo.description,
+                picture: user.picture,
                 lat: lat,
                 lng: lng,
                 })
@@ -74,7 +76,7 @@ function Profileform2() {
                 //     password: "",
                 // }))
                 .then(() => console.log("profile edited"))
-                .then(() => window.location.href = "/dashboard")
+                // .then(() => window.location.href = "/dashboard")
                 .catch(err => console.log(err));
         }
     }
