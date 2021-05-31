@@ -11,7 +11,7 @@ function Userdetailscard (){
               <h6 class="mb-0">Full Name</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-          {dbUser.first_name}<span> </span>{dbUser.last_name}
+          {dbUser.fullname}
             </div>
           </div>
           <hr/>
