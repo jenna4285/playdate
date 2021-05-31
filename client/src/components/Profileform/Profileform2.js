@@ -26,36 +26,14 @@ function Profileform2() {
         city: "",
         unitedState: "",
         zip: "",
-        description: ""
+        description: "",
+        lat:"",
+        lng:""
 
     });
 
 
-    async function handleBtnClick(event) {
-        event.preventDefault();
-        console.log(profileInfo.username)
-        
-        const fullAddress = [profileInfo.address, profileInfo.city, profileInfo.unitedState, profileInfo.zip].join(",");
-        
-        // pass full address to geohook to get lat lon for db
-        let lat = "";
-        let lng = "";
-
-        function latLon() {
-            Geocode.fromAddress(fullAddress).then(
-            (response) => {
-              let { lat, lng } = response.results[0].geometry.location;
-              return(lat, lng);
-              
-            },
-            (error) => {
-              console.error(error);
-            }
-          )
-        };
-        await latLon();    
-        console.log(lat, lng);
-        
+    function saveToDatabase(){
         if (profileInfo.fullname && profileInfo.address && profileInfo.city && profileInfo.unitedState && profileInfo.zip && profileInfo.description) {
             
             API.editUserByEmail({
@@ -68,8 +46,8 @@ function Profileform2() {
                 zip: profileInfo.zip,
                 description: profileInfo.description,
                 picture: user.picture,
-                lat: lat,
-                lng: lng,
+                lat: profileInfo.lat,
+                lng: profileInfo.lng,
                 })
                 // .then(() => setProfileInfo({
                 //     username: "",
@@ -79,6 +57,36 @@ function Profileform2() {
                 // .then(() => window.location.href = "/dashboard")
                 .catch(err => console.log(err));
         }
+    }
+
+    function handleBtnClick(event) {
+        event.preventDefault();
+        console.log(profileInfo.username)
+        
+        const fullAddress = [profileInfo.address, profileInfo.city, profileInfo.unitedState, profileInfo.zip].join(",");
+        
+        // pass full address to geohook to get lat lon for db
+        let lat = "";
+        let lng = "";
+
+
+        function latLon() {
+            Geocode.fromAddress(fullAddress).then(
+            (response) => {
+              let { lat, lng } = response.results[0].geometry.location;
+              setProfileInfo({...profileInfo, lat, lng});
+              
+            },
+            (error) => {
+              console.error(error);
+            }
+          )
+        };
+        latLon();    
+        console.log(lat, lng);
+        
+        saveToDatabase();
+      
     }
 
     useEffect(() => {
@@ -138,7 +146,7 @@ function Profileform2() {
                                             <h6 className="mb-0">Zipcode</h6>
                                         </div>
                                         <div className="col-sm-9 text-secondary">
-                                            <InputText name="zip" type="text" className="form-control" value={profileInfo.zip} id="profilezip" onChange={handleInputChange} />
+                                            <InputText name="zip" type="text" className="form-control" value={profileInfo.zip} id="profilezip" onChange={handleInputChange}/>
                                         </div>
                                     </div>
                                     <div className="row mb-3">
