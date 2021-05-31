@@ -18,6 +18,10 @@ function Kids2() {
     return (
         <form className="container-fluid">
 
+            <div className="p-d-flex">
+
+
+
                 <div id = "kid-form-card" className="card">
 
                     <h1>Add Kids</h1>
@@ -25,32 +29,23 @@ function Kids2() {
                     <div className="p-field p-col-12 p-md-12">
                         <div className="card-body">
                             <div className="row mb-3">
-                                <div className="col-sm-3">
-                                    <h6 className="mb-0">Child's Name</h6>
-                                </div>
-                                <div className="col-sm-6 text-secondary">
-                                    <InputText name="kidname" type="text" className="form-control" value={kidName} id="kidname" onChange={(event) => setKidName(event.target.value)} />
+
+                                <div className="col text-secondary">
+                                    <InputText name="kidname" type="text" className="form-control" value={kidName} id="kidname" onChange={(event) => setKidName(event.target.value)} placeholder="Child's Name" />
                                 </div>
                             </div>
                             <div className="row mb-3">
-                                <div className="col-sm-3">
-                                    <h6 className="mb-0">Child's Age</h6>
-                                </div>
-                                <div className="col-sm-6 text-secondary">
-                                    <InputText type="text" className="form-control" value={kidAge} id="kidage" onChange={(event) => setKidAge(event.target.value)} />
+
+                                <div className="col text-secondary">
+                                    <InputText type="text" className="form-control" value={kidAge} id="kidage" onChange={(event) => setKidAge(event.target.value)} placeholder="Child's Age" />
                                 </div>
                             </div>
                             <div className="row mb-3">
-                                <div className="col-sm-3">
-                                    <h6 className="mb-0">Interests</h6>
-                                </div>
-                                <div className="col-sm-9 text-secondary">
-                                <MultiSelect value={interests} options={interestChoices} onChange={(e) => setInterests(e.value)} />
+
+                                <div className="col text-secondary">
+                                <MultiSelect value={interests} options={interestChoices} onChange={(e) => setInterests(e.value)} placeholder="Child's Interests" />
                                 </div>
                             </div>
-                            <div className="row">
-                                    {interests}
-                                </div>
                             <div className="row">
                                 <div className="col">
                                     <button id="add-child" type="button" className="btn btn-success px-4" 
@@ -64,7 +59,7 @@ function Kids2() {
                         </div>
                     </div>
                 </div>
-
+            </div>
         </form>
 
     )
