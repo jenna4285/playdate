@@ -21,9 +21,9 @@ function Editprofile() {
                     <Kids2 />
                 </div>
                 <div className="col">
-                <container className="card">    
+                <div className="card">    
                 <h1>Kid Cards Go Here</h1>
-                </container>
+                </div>
                 </div>
             </div>
 

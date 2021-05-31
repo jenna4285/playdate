@@ -64,8 +64,8 @@ function Profileform2() {
 
     return (
 
-            <div class="row">
-                <div class="col">
+            <div className="row">
+                <div className="col">
                     <form>
                         <br />
                         <div>
@@ -101,8 +101,8 @@ function Profileform2() {
                                             <h6 className="mb-0">State</h6>
                                         </div>
                                         <div className="col-sm-9 text-secondary">
-                                            <span classNameName="p-inputgroup-addon">
-                                                <i classNameName="pi pi-map"></i>
+                                            <span className="p-inputgroup-addon">
+                                                <i className="pi pi-map"></i>
                                             </span>
                                             <Dropdown name="unitedState" value={profileInfo.unitedState} options={unitedStates} onChange={handleInputChange} placeholder="Select a State" />
                                         </div>
@@ -120,9 +120,9 @@ function Profileform2() {
                                             <h6 className="mb-0">Bio</h6>
                                         </div>
                                         <div className="col-sm-9 text-secondary">
-                                            <div classNameName="p-inputgroup">
-                                                <span classNameName="p-inputgroup-addon">
-                                                    <i classNameName="pi pi-users"></i>
+                                            <div className="p-inputgroup">
+                                                <span className="p-inputgroup-addon">
+                                                    <i className="pi pi-users"></i>
                                                 </span>
                                                 <InputTextarea name="description" id="bio" rows={3} cols={35} value={profileInfo.description} onChange={handleInputChange} placeholder="Tell us a little about your family!" />
                                             </div>
@@ -135,7 +135,7 @@ function Profileform2() {
 
                                     </div>
                                     <div className="row">
-                                        <button id="save-profile" type="button" class="btn btn-success px-4 gap-3"
+                                        <button id="save-profile" type="button" className="btn btn-success px-4 gap-3"
                                             disabled={!(profileInfo.fullname && profileInfo.address && profileInfo.city && profileInfo.unitedState && profileInfo.zip && profileInfo.description)}
                                             onClick={handleBtnClick}>Save Profile</button>
                                     </div>
