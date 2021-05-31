@@ -45,7 +45,7 @@ function Profileform2() {
             Geocode.fromAddress(fullAddress).then(
             (response) => {
               let { lat, lng } = response.results[0].geometry.location;
-              return(data-lat, data-lng);
+              return(lat, lng);
               
             },
             (error) => {
@@ -54,7 +54,7 @@ function Profileform2() {
           )
         };
         await latLon();    
-        console.log(data-lat, data-lng);
+        console.log(lat, lng);
         
         if (profileInfo.fullname && profileInfo.address && profileInfo.city && profileInfo.unitedState && profileInfo.zip && profileInfo.description) {
             
