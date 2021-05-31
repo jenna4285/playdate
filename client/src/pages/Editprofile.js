@@ -23,7 +23,6 @@ function Editprofile() {
                 </div>
                 <div id="kid-column" className="col">
                     <div id="kid-card-container">
-
                         <Minikidcard />
                         <Minikidcard />
                     </div>
