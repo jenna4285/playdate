@@ -7,13 +7,18 @@ import { Dropdown } from 'primereact/dropdown';
 import unitedStates from './unitedstates';
 import 'primeflex/primeflex.css';
 import './Profileform.css'
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 function Profileform2() {
+    
+    const { isAuthenticated, user } = useAuth0();
 
     const [profileInfo, setProfileInfo] = useState({
-        // MAYBE STORE FROM SESSION HERE
+        // Grabbing user.email from auth0
+        // email:"",
         fullname: "",
+        username:"",
         address: "",
         city: "",
         unitedState: "",
@@ -22,13 +27,14 @@ function Profileform2() {
 
     });
 
+
     function handleBtnClick(event) {
         event.preventDefault();
         console.log(profileInfo.username)
         if (profileInfo.fullname && profileInfo.address && profileInfo.city && profileInfo.unitedState && profileInfo.zip && profileInfo.description) {
-            API.editUser({
-                //GRAB THIS ID FROM SESSION STORAGE
-                id: "60b2da808cff5559c03e8ac7",
+            API.editUserByEmail({
+                //GRABBING INFO FROM STATE
+                email: user.email,
                 fullname: profileInfo.fullname,
                 address: profileInfo.address,
                 city: profileInfo.city,
