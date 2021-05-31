@@ -11,11 +11,11 @@ function Kids2() {
     const [interests, setInterests] = useState();
 
     return (
-
-
         <form classNameName="container-fluid">
 
             <div classNameName="p-d-flex p-jc-center">
+
+
 
                 <div id = "kid-form-card" className="card">
 
