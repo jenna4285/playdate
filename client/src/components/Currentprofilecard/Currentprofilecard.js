@@ -29,6 +29,15 @@ function Dynamicprofile() {
           <hr/>
           <div className="row">
             <div className="col-sm-3">
+              <h6 className="mb-0">Address</h6>
+            </div>
+            <div className="col-sm-9 text-secondary">
+              {dbUser.address}
+            </div>
+          </div>
+          <hr/>
+          <div className="row">
+            <div className="col-sm-3">
               <h6 className="mb-0">City</h6>
             </div>
             <div className="col-sm-9 text-secondary">
@@ -63,15 +72,7 @@ function Dynamicprofile() {
             </div>
           </div>
           <hr/>
-          <div className="row">
-            <div className="col-sm-3">
-              <h6 className="mb-0">Address</h6>
-            </div>
-            <div className="col-sm-9 text-secondary">
-              {dbUser.address}
-            </div>
-          </div>
-          <hr/>
+          
         </div>
       </div>
     )
