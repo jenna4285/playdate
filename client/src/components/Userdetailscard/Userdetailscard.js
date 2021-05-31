@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
+import UserContext from "../../utils/userContext";
 
 function Userdetailscard (){
+  const {name} = useContext (UserContext);
     return(
+      <UserContext.Consumer>
         <div class="card mb-3">
         <div class="card-body">
           <div class="row">
@@ -9,7 +12,7 @@ function Userdetailscard (){
               <h6 class="mb-0">Full Name</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-              Kenneth Valdez
+              {name}
             </div>
           </div>
           <hr/>
@@ -56,6 +59,7 @@ function Userdetailscard (){
           </div>
         </div>
       </div>
+      </UserContext.Consumer>
     )
 }
 
