@@ -1,7 +1,7 @@
 import Geocode from "react-geocode";
 
-export function latLon() {
-    Geocode.fromAddress(`${user.address}`).then(
+function latLon(address) {
+    Geocode.fromAddress(address).then(
     (response) => {
       const { lat, lng } = response.results[0].geometry.location;
       console.log(lat, lng);
@@ -11,3 +11,5 @@ export function latLon() {
     }
   )
 };
+
+export default latLon;
