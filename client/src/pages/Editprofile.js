@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Profileform2 from "../components/Profileform/Profileform2";
 import Kids2 from "../components/Kids/Kids2";
 import Currentprofilecard from "../components/Currentprofilecard/Currentprofilecard"
+import Minikidcard from "../components/Minikidcard/Minikidcard"
 
 function Editprofile() {
 
@@ -20,10 +21,13 @@ function Editprofile() {
                 <div className="col">
                     <Kids2 />
                 </div>
-                <div className="col">
-                <div className="card">    
-                <h1>Kid Cards Go Here</h1>
-                </div>
+                <div id="kid-column" className="col">
+                    <div id="kid-card-container">
+
+                        <Minikidcard />
+                        <Minikidcard />
+                    </div>
+
                 </div>
             </div>
 
