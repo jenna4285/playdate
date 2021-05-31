@@ -101,9 +101,6 @@ function Profileform2() {
                                             <h6 className="mb-0">State</h6>
                                         </div>
                                         <div className="col-sm-9 text-secondary">
-                                            <span className="p-inputgroup-addon">
-                                                <i className="pi pi-map"></i>
-                                            </span>
                                             <Dropdown name="unitedState" value={profileInfo.unitedState} options={unitedStates} onChange={handleInputChange} placeholder="Select a State" />
                                         </div>
                                     </div>

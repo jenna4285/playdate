@@ -44,18 +44,15 @@ function Kids2() {
                                     <h6 className="mb-0">Interests</h6>
                                 </div>
                                 <div className="col-sm-9 text-secondary">
-                                    <span className="p-inputgroup-addon">
-                                        <i className="pi pi-map"></i>
-                                    </span>
                                     <Dropdown value={interests} options={interestChoices} onChange={(e) => setInterests(e.value)} placeholder="Select Interests" />
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-sm-3">
+                                <div className="col">
                                     <button id="add-child" type="button" className="btn btn-success px-4" 
                                     value="Add Child" disabled={!(kidName&&kidAge&&interests)}>Add Child</button>
                                 </div>
-                                <div className="col-sm-9 text-secondary">
+                                <div className="col text-secondary">
                                     <button id="complete-family" type="button" className="btn btn-success px-4" value="Family Complete">Family Complete</button>
                                 </div>
                             </div>
