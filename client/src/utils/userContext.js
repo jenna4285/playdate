@@ -1,7 +1,9 @@
 import React from "react";
 
 const UserContext = React.createContext({
-    dbuser:{}
+    dbuser:{},
+
+    handleBtnClick: () => {},
 });
 
 export default UserContext;
