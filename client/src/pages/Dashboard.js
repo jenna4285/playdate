@@ -4,6 +4,8 @@ import Usercard from "../components/Usercard/Usercard";
 import Kidcard from "../components/Kidcard/Kidcard";
 import KidCardContainer from "../components/KidCardContainer/KidCardContainer"
 import UserContext from "../utils/userContext"
+import YourActivities from "../components/YourActivities/YourActivities"
+import YourFriends from "../components/YourFriends/YourFriends"
 
 function Dashboard() {
     const { dbUser } = useContext(UserContext);
@@ -19,20 +21,12 @@ function Dashboard() {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-6">
-                        <div className="card">
-                            <h1>Your Friends</h1>
-                        </div>
-                    </div>
-                    <div className="col-6">
-                    <div className="card">
-                        <h1>Your Activities</h1>
-                    </div>
-                    </div>
+                <YourFriends/>
+                <YourActivities/>
                 </div>
-                {/* <div className="row "> */}
+                <div className="d-flex row">
                 <KidCardContainer />
-                {/* </div> */}
+                </div>
                 <div className="row">
                     <Map lat={userLat} lng={userLng} />
                 </div>
