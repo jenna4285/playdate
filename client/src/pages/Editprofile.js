@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
+import UserContext from "../utils/userContext"
+
 import Profileform2 from "../components/Profileform/Profileform2";
 import Kids2 from "../components/Kids/Kids2";
-import CurrentProfileCard from "../components/Currentprofilecard/Currentprofilecard"
+import CurrentProfileCard from "../components/CurrentProfileCard/CurrentProfileCard"
 import Minikidcard from "../components/Minikidcard/Minikidcard"
 import MiniCardContainer from "../components/MiniCardContainer/MiniCardContainer"
 
 
 
 function Editprofile() {
+
+    const {dbUser}=useContext(UserContext);
 
     return (
         <div className="container">
@@ -16,7 +20,7 @@ function Editprofile() {
                     <Profileform2 />
                 </div>
                 <div className="col">
-                    <CurrentProfileCard />
+                   <CurrentProfileCard user={dbUser} />
                 </div>
             </div>
             <div className="row">
