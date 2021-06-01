@@ -9,7 +9,7 @@ import interestChoices from './interestChoices'
 import 'primeflex/primeflex.css';
 import './Kids.css';
 
-function Kids2() {
+function Kids() {
     const { isAuthenticated, user } = useAuth0();
 
     const [kidInfo, setKidInfo] = useState({
@@ -109,4 +109,4 @@ function handleInputChange(event) {
     )
 }
 
-export default Kids2;
+export default Kids;
