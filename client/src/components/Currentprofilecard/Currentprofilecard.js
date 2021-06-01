@@ -9,7 +9,6 @@ function CurrentProfileCard(props) {
   // const {dbUser}=useContext(UserContext);
 
   const dbUser = props.user;
-  const child = props.user.child
 
   return (
     <div>
