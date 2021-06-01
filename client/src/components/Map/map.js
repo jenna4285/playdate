@@ -15,7 +15,7 @@ export class MapContainer extends Component {
     // {if (props.lat && props.lng) }
       <Map
         google={this.props.google}
-        zoom={14}
+        zoom={18}
         style={mapStyles}
         center={
           {

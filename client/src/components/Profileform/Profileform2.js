@@ -146,7 +146,7 @@ function Profileform2() {
                                             <h6 className="mb-0">Zipcode</h6>
                                         </div>
                                         <div className="col-sm-9 text-secondary">
-                                            <InputText name="zip" type="text" className="form-control" value={profileInfo.zip} id="profilezip" onChange={handleInputChange}/>
+                                            <InputText name="zip" type="text" className="form-control" value={profileInfo.zip} id="profilezip" onChange={latLon}/>
                                         </div>
                                     </div>
                                     <div className="row mb-3">
