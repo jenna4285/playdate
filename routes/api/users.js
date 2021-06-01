@@ -18,6 +18,9 @@ router
   .get(userController.findByEmail)
   .put(userController.updateByEmail)
 
-
+  router
+  .route("/email/kid/:email")
+  .put(userController.addKidByEmail)
+  .get(userController.findByEmail)
     
 module.exports = router;
