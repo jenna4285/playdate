@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import UserContext from "../utils/userContext"
 
 import Profileform2 from "../components/Profileform/Profileform2";
-import Kids from "../components/Kids/Kids2";
+import Kids from "../components/Kids/Kids";
 import CurrentProfileCard from "../components/CurrentProfileCard/CurrentProfileCard"
 import Minikidcard from "../components/Minikidcard/Minikidcard"
 import MiniCardContainer from "../components/MiniCardContainer/MiniCardContainer"
