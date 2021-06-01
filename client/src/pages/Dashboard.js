@@ -2,6 +2,7 @@ import React from "react";
 import Map from "../components/Map/map";
 import Usercard from "../components/Usercard/Usercard";
 import Kidcard from "../components/Kidcard/Kidcard";
+import KidCardContainer from "../components/KidCardContainer/KidCardContainer"
 
 function Dashboard() {
     return (
@@ -13,11 +14,9 @@ function Dashboard() {
                         <Usercard />
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col">
-                        <Kidcard />
-                    </div>
-                </div>
+                {/* <div className="row "> */}
+                <KidCardContainer />
+                {/* </div> */}
                 <div className="row">
                     <Map />
                 </div>

@@ -4,6 +4,7 @@ import Usercard from "../components/Usercard/Usercard"
 import Userdetailscard from "../components/Userdetailscard/Userdetailscard"
 import Kidcard from "../components/Kidcard/Kidcard"
 import CurrentProfileCard from "../components/CurrentProfileCard/CurrentProfileCard"
+import KidCardContainer from "../components/KidCardContainer/KidCardContainer"
 import '../pages/Profile.css'
 
 function Profile() {
@@ -24,9 +25,7 @@ function Profile() {
           <div className="col-md-8">
             <CurrentProfileCard />
             <div className="row gutters-sm">
-              <Kidcard />
-              <Kidcard />
-              <Kidcard />
+        <KidCardContainer/>
             </div>
 
           </div>
