@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import Profileform2 from "../components/Profileform/Profileform2";
 import Kids2 from "../components/Kids/Kids2";
-import CurrentProfileCard from "../components/CurrentProfileCard/CurrentProfileCard"
+import CurrentProfileCard from "../components/Currentprofilecard/Currentprofilecard"
 import Minikidcard from "../components/Minikidcard/Minikidcard"
 import MiniCardContainer from "../components/MiniCardContainer/MiniCardContainer"
 
