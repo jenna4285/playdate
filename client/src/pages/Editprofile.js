@@ -26,7 +26,7 @@ function Editprofile() {
             <div className="row">
                 <div className="col">
                     <br />
-                    <Kids2 />
+                        <Kids2 />
                 </div>
                 <div id="kid-column" className="col">
                     <div id="kid-card-container">
