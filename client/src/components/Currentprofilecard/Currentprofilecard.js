@@ -1,8 +1,8 @@
 import React, {useContext} from "react";
 import UserContext from "../../utils/userContext"
-import './Currentprofilecard.css'
+import './CurrentProfileCard.css'
 
-function Dynamicprofile() {
+function CurrentProfileCard () {
 
     const {dbUser}=useContext(UserContext);
     
@@ -80,4 +80,4 @@ function Dynamicprofile() {
 }
 
 
-export default Dynamicprofile;
+export default CurrentProfileCard;
