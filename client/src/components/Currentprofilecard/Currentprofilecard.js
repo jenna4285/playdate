@@ -1,23 +1,29 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import UserContext from "../../utils/userContext"
-import './Currentprofilecard.css'
+import './CurrentProfileCard.css'
 
-function CurrentProfileCard () {
 
-    const {dbUser}=useContext(UserContext);
-    
-    return(
-        <div className="card mb-3 dynamic-profile-card">
+
+function CurrentProfileCard(props) {
+
+  // const {dbUser}=useContext(UserContext);
+
+  const dbUser = props.user;
+  const child = props.user.child
+
+  return (
+    <div>
+      <div className="card mb-3 dynamic-profile-card">
         <div className="card-body">
           <div className="row">
             <div className="col-sm-3">
               <h6 className="mb-0">Full Name</h6>
             </div>
             <div className="col-sm-9 text-secondary">
-          {dbUser.fullname}
+              {dbUser.fullname}
             </div>
           </div>
-          <hr/>
+          <hr />
           <div className="row">
             <div className="col-sm-3">
               <h6 className="mb-0">Email</h6>
@@ -26,7 +32,7 @@ function CurrentProfileCard () {
               {dbUser.email}
             </div>
           </div>
-          <hr/>
+          <hr />
           <div className="row">
             <div className="col-sm-3">
               <h6 className="mb-0">Address</h6>
@@ -35,7 +41,7 @@ function CurrentProfileCard () {
               {dbUser.address}
             </div>
           </div>
-          <hr/>
+          <hr />
           <div className="row">
             <div className="col-sm-3">
               <h6 className="mb-0">City</h6>
@@ -44,7 +50,7 @@ function CurrentProfileCard () {
               {dbUser.city}
             </div>
           </div>
-          <hr/>
+          <hr />
           <div className="row">
             <div className="col-sm-3">
               <h6 className="mb-0">State</h6>
@@ -53,7 +59,7 @@ function CurrentProfileCard () {
               {dbUser.unitedState}
             </div>
           </div>
-          <hr/>
+          <hr />
           <div className="row">
             <div className="col-sm-3">
               <h6 className="mb-0">Zipcode</h6>
@@ -62,7 +68,7 @@ function CurrentProfileCard () {
               {dbUser.zip}
             </div>
           </div>
-          <hr/>
+          <hr />
           <div className="row">
             <div className="col-sm-3">
               <h6 className="mb-0">Bio</h6>
@@ -71,11 +77,24 @@ function CurrentProfileCard () {
               {dbUser.description}
             </div>
           </div>
-          <hr/>
-          
+          <hr />
+
+          {dbUser.child ? (
+          <div className="row">
+            <div className="col-sm-3">
+              <h6 className="mb-0">Child</h6>
+            </div>
+            <div className="col-sm-9 text-secondary">
+              {dbUser.child[0].kidname}
+            </div>
+          </div>
+          ) : ("")}
+          <hr />
+
         </div>
       </div>
-    )
+    </div>
+  )
 
 }
 
