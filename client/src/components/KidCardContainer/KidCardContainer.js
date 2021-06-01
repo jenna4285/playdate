@@ -3,13 +3,11 @@ import Kidcard from "../Kidcard/Kidcard"
 
 function KidCardContainer() {
     return (
-        <div className ="row">
-            <div className="d-flex justify-content-center">
+        <div className ="d-flex row">
                 {/* This should be mapped over adding however many kids there are*/}
                 <Kidcard />
                 <Kidcard />
                 <Kidcard />
-            </div>
         </div>
     )
 }
