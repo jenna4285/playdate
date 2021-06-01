@@ -3,7 +3,7 @@ import Profileform from "../components/Profileform/Profileform";
 import Usercard from "../components/Usercard/Usercard"
 import Userdetailscard from "../components/Userdetailscard/Userdetailscard"
 import Kidcard from "../components/Kidcard/Kidcard"
-import CurrentProfileCard from "../components/Currentprofilecard/Currentprofilecard"
+import CurrentProfileCard from "../components/CurrentProfileCard/CurrentProfileCard"
 import KidCardContainer from "../components/KidCardContainer/KidCardContainer"
 import '../pages/Profile.css'
 
