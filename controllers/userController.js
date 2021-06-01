@@ -45,5 +45,12 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  addKidByEmail: function(req, res) {
+    console.log(req.body.child)
+    db.User
+      .findOneAndUpdate({ email: req.params.email }, {$push: req.body.push})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 };
