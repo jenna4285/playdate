@@ -1,11 +1,8 @@
 import React, { useContext } from "react";
-import UserContext from "../../utils/userContext"
 import "./Minikidcard.css"
 
 
-function Minikidcard() {
-  const { dbUser } = useContext(UserContext);
-
+function Minikidcard(props) {
 // Example card with hardcoded name/age/interests
 // will map over children in the db and render one of these 
 // components for each child first - adding a child will add 
@@ -32,10 +29,10 @@ function Minikidcard() {
 
         <div className="row">
           <div className="col-4">
-            Pebbles
+            {props.name}
           </div>
           <div className="col-4">
-            <div>6
+            <div>{props.age}
           </div>
           </div>
           <div className="col-4">
