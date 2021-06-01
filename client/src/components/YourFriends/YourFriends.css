@@ -1,0 +1,11 @@
+.p-chip.friend-chip{
+    margin-top:5px;
+    margin-bottom:5px;
+    background-color: #c0f8ff;
+    width:min-content;
+}
+
+.p-chip.friend-chip:hover{
+    background-color: #ffffff;
+    cursor:pointer;
+}
