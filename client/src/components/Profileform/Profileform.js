@@ -1,81 +1,188 @@
-import React, { useState, useEffect } from "react";
-import Kids from "../Kids/Kids";
+import React, { useState, useEffect, useContext } from "react";
+import Kids2 from "../Kids/Kids2";
+import API from "../../utils/API"
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { Dropdown } from 'primereact/dropdown';
+import { useAuth0 } from "@auth0/auth0-react";
 import unitedStates from './unitedstates';
 import 'primeflex/primeflex.css';
 import './Profileform.css'
+import Geocode from "react-geocode";
+
+Geocode.setApiKey("AIzaSyAQACrt018ybMocp5ofJnmPmB7XPiX23Yg");
 
 
-function Profileform() {
+function Profileform2() {
 
-    const [unitedState, setUnitedState] = useState();
-    const [description, setDescription] = useState();
+    const { isAuthenticated, user } = useAuth0();
 
-    
+    const [profileInfo, setProfileInfo] = useState({
+        // Grabbing user.email from auth0
+        // email:"",
+        fullname: "",
+        username: "",
+        address: "",
+        city: "",
+        unitedState: "",
+        zip: "",
+        description: "",
+        lat:"",
+        lng:""
+
+    });
+
+
+    function saveToDatabase(){
+        if (profileInfo.fullname && profileInfo.address && profileInfo.city && profileInfo.unitedState && profileInfo.zip && profileInfo.description) {
+            
+            API.editUserByEmail({
+                //GRABBING INFO FROM STATE
+                email: user.email,
+                fullname: profileInfo.fullname,
+                address: profileInfo.address,
+                city: profileInfo.city,
+                unitedState: profileInfo.unitedState,
+                zip: profileInfo.zip,
+                description: profileInfo.description,
+                picture: user.picture,
+                lat: profileInfo.lat,
+                lng: profileInfo.lng,
+                })
+                // .then(() => setProfileInfo({
+                //     username: "",
+                //     password: "",
+                // }))
+                .then(() => console.log("profile edited"))
+                // .then(() => window.location.href = "/dashboard")
+                .catch(err => console.log(err));
+        }
+    }
+
+    function handleBtnClick(event) {
+        event.preventDefault();
+        console.log(profileInfo.username)
+        
+        const fullAddress = [profileInfo.address, profileInfo.city, profileInfo.unitedState, profileInfo.zip].join(",");
+        
+        // pass full address to geohook to get lat lon for db
+        let lat = "";
+        let lng = "";
+
+
+        function latLon() {
+            Geocode.fromAddress(fullAddress).then(
+            (response) => {
+              let { lat, lng } = response.results[0].geometry.location;
+              setProfileInfo({...profileInfo, lat, lng});
+              
+            },
+            (error) => {
+              console.error(error);
+            }
+          )
+        };
+        latLon();    
+        console.log(lat, lng);
+        
+        saveToDatabase();
+      
+    }
+
+    useEffect(() => {
+
+    })
+
+    function handleInputChange(event) {
+        const { name, value } = event.target
+        setProfileInfo({ ...profileInfo, [name]: value })
+    }
+
+
     return (
-        <form className="container-fluid">
-        <br/>
-            <container className="title">
-                <h1>Edit Profile</h1><br/>
-            </container>
-            <div className = "p-d-flex p-jc-center">
 
-            <div className="p-grid p-fluid">
-                <div className="p-field p-col-12 p-md-6">
-                    <h5 htmlFor="address">Street Address</h5>
-                    <div className="p-inputgroup">
-                        <span className="p-inputgroup-addon">
-                            <i className="pi pi-home"></i>
-                        </span>
-                        <InputTextarea id="address" type="text" rows="1" />
+            <div className="row">
+                <div className="col">
+                    <form>
+                        <br />
+                        <div>
+                            <div className="card">
+                                <h1>Edit Main User/Family Profile</h1><br />
+                                <div className="card-body">
+                                    <div className="row mb-3">
+                                        <div className="col-sm-3">
+                                            <h6 className="mb-0">Full Name</h6>
+                                        </div>
+                                        <div className="col-sm-9 text-secondary">
+                                            <InputText name="fullname" type="text" className="form-control" value={profileInfo.name} id="profilename" onChange={handleInputChange} placeholder="Enter Name Here"/>
+                                        </div>
+                                    </div>
+                                    <div className="row mb-3">
+                                        <div className="col-sm-3">
+                                            <h6 className="mb-0">Street Address</h6>
+                                        </div>
+                                        <div className="col-sm-9 text-secondary">
+                                            <InputText name="address" type="text" className="form-control" value={profileInfo.address} id="profilestreetaddress" onChange={handleInputChange} />
+                                        </div>
+                                    </div>
+                                    <div className="row mb-3">
+                                        <div className="col-sm-3">
+                                            <h6 className="mb-0">City</h6>
+                                        </div>
+                                        <div className="col-sm-9 text-secondary">
+                                            <InputText name="city" type="text" className="form-control" value={profileInfo.city} id="profilecity" onChange={handleInputChange} />
+                                        </div>
+                                    </div>
+                                    <div className="row mb-3">
+                                        <div className="col-sm-3">
+                                            <h6 className="mb-0">State</h6>
+                                        </div>
+                                        <div className="col-sm-9 text-secondary">
+                                            <Dropdown name="unitedState" value={profileInfo.unitedState} options={unitedStates} onChange={handleInputChange} placeholder="Select a State" />
+                                        </div>
+                                    </div>
+                                    <div className="row mb-3">
+                                        <div className="col-sm-3">
+                                            <h6 className="mb-0">Zipcode</h6>
+                                        </div>
+                                        <div className="col-sm-9 text-secondary">
+                                            <InputText name="zip" type="text" className="form-control" value={profileInfo.zip} id="profilezip" onChange={latLon}/>
+                                        </div>
+                                    </div>
+                                    <div className="row mb-3">
+                                        <div className="col-sm-3">
+                                            <h6 className="mb-0">Bio</h6>
+                                        </div>
+                                        <div className="col-sm-9 text-secondary">
+                                            <div className="p-inputgroup">
+                                                <span className="p-inputgroup-addon">
+                                                    <i className="pi pi-users"></i>
+                                                </span>
+                                                <InputTextarea name="description" id="bio" rows={3} cols={35} value={profileInfo.description} onChange={handleInputChange} placeholder="Tell us a little about your family!" />
+                                            </div>
+                                            <div className="row">
+                                                <div className="col-sm-3"></div>
+                                                <div className="col-sm-9 text-secondary">
+                                                </div>
+                                            </div>
+                                        </div>
 
-                    </div>
+                                    </div>
+                                    <div className="row">
+                                        <button id="save-profile" type="button" className="btn btn-success px-4 gap-3"
+                                            disabled={!(profileInfo.fullname && profileInfo.address && profileInfo.city && profileInfo.unitedState && profileInfo.zip && profileInfo.description)}
+                                            onClick={handleBtnClick}>Save Profile</button>
+                                    </div>
 
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div className="p-field p-col-12 p-md-6">
-                    <h5 htmlFor="city">City</h5>
-                    <div className="p-inputgroup">
-                        <span className="p-inputgroup-addon">
-                            <i className="pi pi-map-marker"></i>
-                        </span>
-                        <InputText id="city" type="text" />
-                    </div>
-                </div>
-                <div className="p-field p-col-12 p-md-6">
-                    <h5 htmlFor="state">State</h5>
-                    <div className="p-inputgroup">
-                        <span className="p-inputgroup-addon">
-                            <i className="pi pi-map"></i>
-                        </span>
-                        <Dropdown value={unitedState} options={unitedStates} onChange={(e) => setUnitedState(e.value)} placeholder="Select a State" />
-                    </div>
-                </div>
-                <div className="p-field p-col-12 p-md-6">
-                    <h5 htmlFor="zipcode">Zipcode</h5>
-                    <div className="p-inputgroup">
-                        <span className="p-inputgroup-addon">
-                            <i className="pi pi-th-large"></i>
-                        </span>
-                        <InputText id="zipcode" type="text" />
-                    </div>
-                </div>
-                <div className="p-field p-col-12">
-                    <h5 htmlFor="zipcode">Bio</h5>
-                    <div className="p-inputgroup">
-                        <span className="p-inputgroup-addon">
-                            <i className="pi pi-users"></i>
-                        </span>
-                        <InputTextarea id="zipcode" rows={3} cols={30} value={description} onSubmit={(event) => setDescription(event.target.value)} placeholder="Tell us a little about your family!" />
-                    </div>
-                </div>
-
-                <Kids />
             </div>
-            </div>
-        </form>
+
+
     )
 }
 
-export default Profileform;
+export default Profileform2;

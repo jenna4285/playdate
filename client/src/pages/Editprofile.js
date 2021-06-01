@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import UserContext from "../utils/userContext"
 
-import Profileform2 from "../components/Profileform/Profileform2";
+import Profileform from "../components/Profileform/Profileform";
 import Kids from "../components/Kids/Kids";
 import CurrentProfileCard from "../components/CurrentProfileCard/CurrentProfileCard"
 import Minikidcard from "../components/Minikidcard/Minikidcard"
@@ -17,7 +17,7 @@ function Editprofile() {
         <div className="container">
             <div className="row">
                 <div className="col">
-                    <Profileform2 />
+                    <Profileform />
                 </div>
                 <div className="col">
                    <CurrentProfileCard user={dbUser} />
