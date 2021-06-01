@@ -3,7 +3,7 @@ import './Kidcard.css'
 
 function Kidcard() {
   return (
-
+<div className="col-sm-12 col-md-6 col-lg-4">
       <div className="card h-100 kid-card ">
         <div className="card-body">
           <h6 className="d-flex align-items-center mb-3">NAME HERE</h6>
@@ -15,7 +15,7 @@ function Kidcard() {
           <div>INTERESTS HERE</div>
         </div>
       </div>
-
+</div>
   )
 }
 
