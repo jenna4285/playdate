@@ -78,8 +78,6 @@ function CurrentProfileCard(props) {
             </div>
           </div>
           <hr />
-
-
         </div>
       </div>
     </div>
