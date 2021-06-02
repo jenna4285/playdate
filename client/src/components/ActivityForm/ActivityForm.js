@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext,useRef  } from "react";
 import API from "../../utils/API"
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
@@ -8,6 +8,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import 'primeflex/primeflex.css';
 import Geocode from "react-geocode";
 import AutoAddress from "./Autoaddress"
+import { OverlayPanel } from 'primereact/overlaypanel';
+import { Button } from 'primereact/button';
 
 
 Geocode.setApiKey("AIzaSyAQACrt018ybMocp5ofJnmPmB7XPiX23Yg");
@@ -29,6 +31,7 @@ function ActivityForm() {
 
     });
 
+    const op = useRef(null);
 
     function saveToDatabase() {
         if (activityInfo.hostName && activityInfo.description && activityInfo.location && activityInfo.date) {
@@ -99,6 +102,11 @@ function ActivityForm() {
                 <form>
                     <div>
                         <div className="card">
+                        <Button type="button" label="Basic" onClick={(e) => op.current.toggle(e)} />
+
+                                    <OverlayPanel ref={op}>
+                                        FORM GOES HERE
+                                    </OverlayPanel>
                             <h1>Add an Activity!</h1>
                             <div className="row mb-3">
                                 <div className="col-sm-3">
