@@ -27,6 +27,8 @@ function Dashboard() {
                 <div className="d-flex row">
                 <KidCardContainer />
                 </div>
+                <div class="container"></div>
+                <div className="d-flex row"></div>
                 <div className="row">
                     <Map lat={userLat} lng={userLng} />
                 </div>
