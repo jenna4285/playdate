@@ -10,7 +10,7 @@ function MiniCardContainer() {
       {/* This should be mapped */}
       {dbUser.child ? (
         dbUser.child.map((data) => (
-          <Minikidcard name={data.kidname} age={data.kidage} />
+          <Minikidcard key={data._id} name={data.kidname} age={data.kidage} />
         ))
       ) : (
         <p>

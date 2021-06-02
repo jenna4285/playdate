@@ -1,5 +1,6 @@
 .kid-card{
     width:260px;
-    max-height:270px!important;
-    min-width: 200px!important;
+    max-height:240px!important;
+    min-width: 150px!important;
+    margin-bottom:20px !important;
 }

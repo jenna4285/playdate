@@ -21,7 +21,7 @@ function Dashboard() {
                     </div>
                 </div>
                 <div className="row">
-                <YourFriends/>
+                <YourFriends user={dbUser}/>
                 <YourActivities/>
                 </div>
                 <div className="d-flex row">

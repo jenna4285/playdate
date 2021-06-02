@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext} from "react";
+import React, { useState, useEffect, useContext, useRef} from "react";
 import API from "../../utils/API";
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
@@ -8,6 +8,8 @@ import { Dropdown } from 'primereact/dropdown';
 import interestChoices from './interestChoices'
 import 'primeflex/primeflex.css';
 import './Kids.css';
+import { Toast } from 'primereact/toast';
+
 
 function Kids2() {
     const { isAuthenticated, user } = useAuth0();
@@ -20,14 +22,24 @@ function Kids2() {
         gender: "boy"
        });
 
-// itemTemplate((options)=>{
-//     });
+       const toast = useRef(null);
 
+       
+       // itemTemplate((options)=>{
+           //     });
+           
+           
 function handleBtnClick(event) {
     event.preventDefault();
     // console.log(kidInfo.kidage);
     // console.log(kidInfo.kidname);
     // console.log(user.email)
+
+    const showToast = () => {
+        toast.current.show({severity:'success', summary: 'Success!', detail:'Child Added', life: 3000});
+    }
+
+
     if (kidInfo.kidname && kidInfo.kidage) {
         API.addKidByEmail({
             //GRABBING INFO FROM STATE
@@ -43,7 +55,8 @@ function handleBtnClick(event) {
             //     password: "",
             // }))
             .then(() => console.log("kids edited"))
-            .then(() => window.location.href = "/editprofile")
+            .then(() => showToast)
+            .then(() => window.location.href = "/editprofile#kid-form-card")
             .catch(err => console.log(err));
     }
 }
@@ -59,7 +72,7 @@ function handleInputChange(event) {
 
     return (
         <div className="container-fluid">
-​
+​           <Toast ref={toast} />
             <div className="flex">
 ​
 ​
