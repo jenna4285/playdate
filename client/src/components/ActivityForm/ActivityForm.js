@@ -7,7 +7,7 @@ import { Calendar } from 'primereact/calendar';
 import { useAuth0 } from "@auth0/auth0-react";
 import 'primeflex/primeflex.css';
 import Geocode from "react-geocode";
-import AutoAddress from "./Autoaddress"
+import AutoAddress from "../Profileform/AutoAddress"
 
 
 Geocode.setApiKey("AIzaSyAQACrt018ybMocp5ofJnmPmB7XPiX23Yg");
@@ -104,7 +104,7 @@ function ActivityForm() {
                                 <div className="col-sm-3">
                                     <h6 className="mb-0">Event Location</h6>
                                 </div>
-                                <AutoAddress name="fullAddress" type="text" className="form-control" value={activityInfo.fullAddress} id="fullAddress" onChange={handleInputChange} />
+                                <AutoAddress />
                             </div>
                         </div>
                         <div className="row mb-3">
