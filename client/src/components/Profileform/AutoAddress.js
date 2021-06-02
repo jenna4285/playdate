@@ -58,7 +58,7 @@ function AutoAddress() {
 
                 return (
                   <div {...getSuggestionItemProps(suggestion, { style })}>
-                    {suggestion.description}
+                    {suggestion.description} {console.log('object' + suggestion)}
                   </div>
                 );
               })}
