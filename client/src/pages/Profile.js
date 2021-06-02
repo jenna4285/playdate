@@ -2,8 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import UserContext from "../utils/userContext"
 
 import Usercard from "../components/Usercard/Usercard"
-import Userdetailscard from "../components/Userdetailscard/Userdetailscard"
-import Kidcard from "../components/Kidcard/Kidcard"
+
 import CurrentProfileCard from "../components/CurrentProfileCard/CurrentProfileCard"
 import KidCardContainer from "../components/KidCardContainer/KidCardContainer"
 import '../pages/Profile.css'
