@@ -12,54 +12,10 @@ import gender from './gender';
 import { Toast } from 'primereact/toast';
 
 
-function Kids2() {
-    const { isAuthenticated, user } = useAuth0();
-
-    const [kidInfo, setKidInfo] = useState({
-       
-        kidname: "",
-        kidage: '',
-        gender: ""
-       });
-
-       const toast = useRef(null);
-
-           
-function handleBtnClick(event) {
-    event.preventDefault();
- 
-    const showToast = () => {
-        toast.current.show({severity:'success', summary: 'Success!', detail:'Child Added', life: 3000});
-    }
-
-
-    if (kidInfo.kidname && kidInfo.kidage && kidInfo.gender) {
-        API.addKidByEmail({
-            //GRABBING INFO FROM STATE
-            email: user.email,
-            push: {child: {
-                kidname: kidInfo.kidname,
-                kidage: kidInfo.kidage,
-                gender: kidInfo.gender
-                },
-            }})
-           
-            .then(() => console.log("kids edited"))
-            .then(() => showToast)
-            .then(() => window.location.href = "/editprofile")
-            .catch(err => console.log(err));
-    }
-}
-
-
-function handleInputChange(event) {
-    const { name, value } = event.target
-    setKidInfo({ ...kidInfo, [name]: value })
-}
-
+function Kids2(props) {
     return (
         <div className="container-fluid">
-​           <Toast ref={toast} />
+{/* ​           <Toast ref={toast} /> */}
             <div className="flex">
 ​
                 <div id = "kid-form-card" className="card">
@@ -71,18 +27,18 @@ function handleInputChange(event) {
                             <div className="row mb-3">
 ​
                                 <div className="col text-secondary">
-                                    <InputText name="kidname" type="text" className="form-control" value={kidInfo.kidname} id="kidname" onChange={handleInputChange} placeholder="Child's Name" />
+                                    <InputText name="kidname" type="text" className="form-control" value={props.kidInfo.kidname} id="kidname" onChange={props.handleChange} placeholder="Child's Name" />
                                 </div>
                             </div>
                             <div className="row mb-3">
 ​
                                 <div className="col text-secondary">
-                                    <InputText name="kidage" type="text" className="form-control" value={kidInfo.kidage} id="kidage" onChange={handleInputChange} placeholder="Child's Age" />
+                                    <InputText name="kidage" type="text" className="form-control" value={props.kidInfo.kidage} id="kidage" onChange={props.handleChange} placeholder="Child's Age" />
                                 </div>
                                 <div className="row mb-3">
                                         
                                         <div className="col-sm-9 text-secondary">
-                                            <Dropdown name="gender" value={kidInfo.gender} options={gender} onChange={handleInputChange} placeholder="Select a Gender" />
+                                            <Dropdown name="gender" value={props.kidInfo.gender} options={gender} onChange={props.handleChange} placeholder="Select a Gender" />
                                         </div>
                                      </div>
                             </div>
@@ -95,8 +51,8 @@ function handleInputChange(event) {
                             <div className="row">
                                 <div className="col">
                                     <button id="add-child" type="button" className="btn btn-success px-4" 
-                                    value="Add Child" disabled={!(kidInfo.kidname&&kidInfo.kidage)}
-                                    onClick={handleBtnClick}
+                                    value="Add Child" disabled={!(props.kidInfo.kidname&&props.kidInfo.kidage)}
+                                    onClick={props.handleBtnClick}
                                     >Add Child</button>
                                 </div>
 ​
