@@ -10,6 +10,7 @@ import 'primeflex/primeflex.css';
 import './Profileform.css'
 import Geocode from "react-geocode";
 import AutoAddress from "./AutoAddress";
+import { PromiseProvider } from "mongoose";
 
 Geocode.setApiKey("AIzaSyAQACrt018ybMocp5ofJnmPmB7XPiX23Yg");
 
@@ -22,15 +23,8 @@ function Profileform2() {
         // Grabbing user.email from auth0
         // email:"",
         fullname: "",
-        username: "",
-        address: "",
-        city: "",
-        unitedState: "",
-        zip: "",
         description: "",
-        lat:"",
-        lng:""
-
+        address:""
     });
 
 
@@ -41,13 +35,11 @@ function Profileform2() {
                 //GRABBING INFO FROM STATE
                 email: user.email,
                 fullname: profileInfo.fullname,
-                city: profileInfo.city,
-                unitedState: profileInfo.unitedState,
-                zip: profileInfo.zip,
                 description: profileInfo.description,
                 picture: user.picture,
-                lat: profileInfo.lat,
-                lng: profileInfo.lng,
+                //address: profileInfo.address,
+                // lat: latLng.lat,
+                // lng: latLng.lng
                 })
                 // .then(() => setProfileInfo({
                 //     username: "",
@@ -62,31 +54,7 @@ function Profileform2() {
     function handleBtnClick(event) {
         event.preventDefault();
         console.log(profileInfo.username)
-        
-        const fullAddress = [profileInfo.address, profileInfo.city, profileInfo.unitedState, profileInfo.zip].join(",");
-        
-        // pass full address to geohook to get lat lon for db
-        let lat = "";
-        let lng = "";
-
-
-        function latLon() {
-            Geocode.fromAddress(fullAddress).then(
-            (response) => {
-              let { lat, lng } = response.results[0].geometry.location;
-              setProfileInfo({...profileInfo, lat, lng});
-              
-            },
-            (error) => {
-              console.error(error);
-            }
-          )
-        };
-        latLon();    
-        console.log(lat, lng);
-        
         saveToDatabase();
-      
     }
 
     useEffect(() => {

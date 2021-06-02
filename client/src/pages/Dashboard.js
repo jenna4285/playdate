@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Map from "../components/Map/map";
+import MapContainer from "../components/Map/map";
 import Usercard from "../components/Usercard/Usercard";
 import Kidcard from "../components/Kidcard/Kidcard";
 import KidCardContainer from "../components/KidCardContainer/KidCardContainer";
@@ -32,7 +32,7 @@ function Dashboard() {
                 <div class="container"></div>
                 <div className="d-flex row"></div>
                 <div className="row">
-                    <Map lat={userLat} lng={userLng} />
+                    <MapContainer lat={userLat} lng={userLng} />
                 </div>
             </div>
         </div>

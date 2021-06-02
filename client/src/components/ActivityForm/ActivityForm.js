@@ -7,10 +7,11 @@ import { Calendar } from 'primereact/calendar';
 import { useAuth0 } from "@auth0/auth0-react";
 import 'primeflex/primeflex.css';
 import Geocode from "react-geocode";
-import AutoAddress from "./Autoaddress"
+import AutoAddress from "../Profileform/AutoAddress"
 import { OverlayPanel } from 'primereact/overlaypanel';
 import { Button } from 'primereact/button';
 import './ActivityForm.css'
+
 
 
 Geocode.setApiKey("AIzaSyAQACrt018ybMocp5ofJnmPmB7XPiX23Yg");

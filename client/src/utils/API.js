@@ -29,5 +29,12 @@ export default {
   },
   addKidByEmail: function(userData) {
     return axios.put("api/users/email/kid/" + userData.email, userData)
-  }
-};
+  },
+  // Activity Routes
+  getActivity: function() {
+    return axios.get("/api/activity");
+  },
+  saveUser: function(userData) {
+    return axios.post("/api/activity", userData);
+}
+}

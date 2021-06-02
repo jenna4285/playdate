@@ -18,17 +18,16 @@ function AutoAddress() {
     const results = await geocodeByAddress(value);
     const latLng = await getLatLng(results[0]);
     console.log('heres the value' + value);
+    console.log(latLng)
     setCoordinates(latLng);
+    console.log(latLng.lat, latLng.lng);
     setAddress(value);
     await API.editUserByEmail({
       email: user.email,
       address: value,
-      lat: coordinates.lat,
-      lng: coordinates.lng
+      lat: latLng.lat,
+      lng: latLng.lng
     })
-    //could use this in place of an await 
-    //const handleLatLng = async value => 
-    // }
   };
 
 
