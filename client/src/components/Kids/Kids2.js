@@ -8,6 +8,7 @@ import { Dropdown } from 'primereact/dropdown';
 import interestChoices from './interestChoices'
 import 'primeflex/primeflex.css';
 import './Kids.css';
+import gender from './gender';
 import { Toast } from 'primereact/toast';
 
 
@@ -15,32 +16,24 @@ function Kids2() {
     const { isAuthenticated, user } = useAuth0();
 
     const [kidInfo, setKidInfo] = useState({
-        // Grabbing user.email from auth0
-        // email:"",
+       
         kidname: "",
         kidage: '',
-        gender: "boy"
+        gender: ""
        });
 
        const toast = useRef(null);
 
-       
-       // itemTemplate((options)=>{
-           //     });
-           
            
 function handleBtnClick(event) {
     event.preventDefault();
-    // console.log(kidInfo.kidage);
-    // console.log(kidInfo.kidname);
-    // console.log(user.email)
-
+ 
     const showToast = () => {
         toast.current.show({severity:'success', summary: 'Success!', detail:'Child Added', life: 3000});
     }
 
 
-    if (kidInfo.kidname && kidInfo.kidage) {
+    if (kidInfo.kidname && kidInfo.kidage && kidInfo.gender) {
         API.addKidByEmail({
             //GRABBING INFO FROM STATE
             email: user.email,
@@ -50,20 +43,14 @@ function handleBtnClick(event) {
                 gender: kidInfo.gender
                 },
             }})
-            // .then(() => setProfileInfo({
-            //     username: "",
-            //     password: "",
-            // }))
+           
             .then(() => console.log("kids edited"))
             .then(() => showToast)
-            .then(() => window.location.href = "/editprofile#kid-form-card")
+            .then(() => window.location.href = "/editprofile")
             .catch(err => console.log(err));
     }
 }
 
-// useEffect(() => {
-
-// })
 
 function handleInputChange(event) {
     const { name, value } = event.target
@@ -74,8 +61,6 @@ function handleInputChange(event) {
         <div className="container-fluid">
 ​           <Toast ref={toast} />
             <div className="flex">
-​
-​
 ​
                 <div id = "kid-form-card" className="card">
 ​
@@ -94,6 +79,12 @@ function handleInputChange(event) {
                                 <div className="col text-secondary">
                                     <InputText name="kidage" type="text" className="form-control" value={kidInfo.kidage} id="kidage" onChange={handleInputChange} placeholder="Child's Age" />
                                 </div>
+                                <div className="row mb-3">
+                                        
+                                        <div className="col-sm-9 text-secondary">
+                                            <Dropdown name="kidgender" value={kidInfo.gender} options={gender} onChange={handleInputChange} placeholder="Select a Gender" />
+                                        </div>
+                                     </div>
                             </div>
                             {/* <div className="row mb-3">
 ​

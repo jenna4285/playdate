@@ -23,7 +23,7 @@ function Minikidcard(props) {
           </div>
           </div>
           <div className="col-4">
-            Interests
+            Gender
           </div>
         </div>
 
@@ -36,7 +36,7 @@ function Minikidcard(props) {
           </div>
           </div>
           <div className="col-4">
-            Kicking Rocks
+            {props.gender}
           </div>
         </div>
       </div>

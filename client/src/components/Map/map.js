@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withGoogleMap, Map, GoogleApiWrapper,} from 'google-maps-react';
+import { withGoogleMap, Map, GoogleApiWrapper, Circle} from 'google-maps-react';
 import UserContext from '../../utils/userContext';
 require('dotenv').config();
 
@@ -13,6 +13,7 @@ export class MapContainer extends Component {
     console.log("look here", this.props)
     return (
     // {if (props.lat && props.lng) }
+      <div>
       <Map
         google={this.props.google}
         zoom={14}
@@ -24,6 +25,20 @@ export class MapContainer extends Component {
           }
         }
       />
+      {/* <Circle
+      radius={1200}
+      center={{lat: this.props.lat,
+        lng: this.props.lng}}
+      onMouseover={() => console.log('mouseover')}
+      onClick={() => console.log('click')}
+      onMouseout={() => console.log('mouseout')}
+      strokeColor='transparent'
+      strokeOpacity={0}
+      strokeWeight={5}
+      fillColor='#FF0000'
+      fillOpacity={0.2}
+    /> */}
+    </div>
     
     );
   }
