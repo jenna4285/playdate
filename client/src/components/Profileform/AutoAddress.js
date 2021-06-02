@@ -27,7 +27,7 @@ function AutoAddress() {
       lng: coordinates.lng
     })
     //could use this in place of an await 
-    //const handleLatLng = async value => {
+    //const handleLatLng = async value => 
     // }
   };
 
