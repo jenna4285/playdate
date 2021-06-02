@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const activitySchema = new Schema({
+    hostName: String,
     date: Date,
     location: String,
     description: String
