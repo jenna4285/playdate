@@ -11,8 +11,6 @@ function Kidcard(props) {
           <div>{props.age}</div>
           <small>Gender</small>
           <div>{props.gender}</div>
-          <small>Interests</small>
-          <div>INTERESTS HERE</div>
         </div>
       </div>
 </div>
