@@ -42,33 +42,7 @@ function CurrentProfileCard(props) {
             </div>
           </div>
           <hr />
-          <div className="row">
-            <div className="col-sm-3">
-              <h6 className="mb-0">City</h6>
-            </div>
-            <div className="col-sm-9 text-secondary">
-              {dbUser.city}
-            </div>
-          </div>
-          <hr />
-          <div className="row">
-            <div className="col-sm-3">
-              <h6 className="mb-0">State</h6>
-            </div>
-            <div className="col-sm-9 text-secondary">
-              {dbUser.unitedState}
-            </div>
-          </div>
-          <hr />
-          <div className="row">
-            <div className="col-sm-3">
-              <h6 className="mb-0">Zipcode</h6>
-            </div>
-            <div className="col-sm-9 text-secondary">
-              {dbUser.zip}
-            </div>
-          </div>
-          <hr />
+
           <div className="row">
             <div className="col-sm-3">
               <h6 className="mb-0">Bio</h6>
@@ -84,9 +58,7 @@ function CurrentProfileCard(props) {
             <div className="col-sm-3">
               <h6 className="mb-0">Child</h6>
             </div>
-            <div className="col-sm-9 text-secondary">
-              {dbUser.child[0].kidname}
-            </div>
+
           </div>
           ) : ("")}
           <hr />
