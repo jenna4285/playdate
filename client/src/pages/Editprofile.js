@@ -3,7 +3,7 @@ import UserContext from "../utils/userContext"
 
 import Profileform2 from "../components/Profileform/Profileform2";
 import Kids2 from "../components/Kids/Kids2";
-import CurrentProfileCard from "../components/CurrentProfileCard/CurrentProfileCard"
+import CurrentProfileCard from "../components/CurrentProfileC/CurrentProfileC"
 import Minikidcard from "../components/Minikidcard/Minikidcard"
 import MiniCardContainer from "../components/MiniCardContainer/MiniCardContainer"
 

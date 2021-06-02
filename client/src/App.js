@@ -7,7 +7,7 @@ import Dashboard from './pages/Dashboard'
 // import Books from "./pages/Books";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav/Nav";
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+
 import UserContext from "./utils/userContext";
 import API from "./utils/API"
 import { useAuth0 } from "@auth0/auth0-react";
