@@ -82,7 +82,7 @@ function handleInputChange(event) {
                                 <div className="row mb-3">
                                         
                                         <div className="col-sm-9 text-secondary">
-                                            <Dropdown name="kidgender" value={kidInfo.gender} options={gender} onChange={handleInputChange} placeholder="Select a Gender" />
+                                            <Dropdown name="gender" value={kidInfo.gender} options={gender} onChange={handleInputChange} placeholder="Select a Gender" />
                                         </div>
                                      </div>
                             </div>

@@ -9,7 +9,7 @@ function Minikidcard(props) {
 // a new child to the db which should pop in a new card when state 
 // is changed. I can't figure out how to dig down to an individual
 //child's info. 
-
+console.log(props.gender)
   return (
     <div className="card m-2">
       <div className="card-body mini-kid-body">
