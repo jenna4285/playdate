@@ -13,7 +13,7 @@ function AutoAddress() {
     lat: null,
     lng: null
   });
-
+// added in API route to hit DB
   const handleSelect = async value => {
     const results = await geocodeByAddress(value);
     const latLng = await getLatLng(results[0]);
@@ -26,8 +26,9 @@ function AutoAddress() {
       lat: coordinates.lat,
       lng: coordinates.lng
     })
-    const handleLatLng = async value => {
-    }
+    //could use this in place of an await 
+    //const handleLatLng = async value => {
+    // }
   };
 
 
