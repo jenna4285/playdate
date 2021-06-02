@@ -1,5 +1,6 @@
-import React from "react";
-import Profileform from "../components/Profileform/Profileform";
+import React, { useState, useEffect, useContext } from "react";
+import UserContext from "../utils/userContext"
+
 import Usercard from "../components/Usercard/Usercard"
 import Userdetailscard from "../components/Userdetailscard/Userdetailscard"
 import Kidcard from "../components/Kidcard/Kidcard"
@@ -8,6 +9,9 @@ import KidCardContainer from "../components/KidCardContainer/KidCardContainer"
 import '../pages/Profile.css'
 
 function Profile() {
+
+  const {dbUser}=useContext(UserContext);
+
   return (
 
     <div className="container">
@@ -23,7 +27,7 @@ function Profile() {
             <Usercard />
           </div>
           <div className="col-md-8">
-            <CurrentProfileCard />
+            <CurrentProfileCard user={dbUser} />
             <div className="row gutters-sm">
         <KidCardContainer/>
             </div>
