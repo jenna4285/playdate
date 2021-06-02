@@ -28,8 +28,8 @@ function YourFriends() {
         <h1>Your Friends</h1>
         {friends ? (
         friends.map((item) => (
-            <div key={item._id}>
-            <Chip label={item.email} image={item.picture} className="friend-chip shadow" />
+            <div>
+            <Chip key={item._id} label={item.email} image={item.picture} className="friend-chip shadow" />
             </div>
         ))
       ) : (

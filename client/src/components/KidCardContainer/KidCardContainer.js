@@ -11,7 +11,7 @@ function KidCardContainer() {
         {/* This should be mapped over adding however many kids there are*/}
         {dbUser.child ? (
         dbUser.child.map((data) => (
-          <Kidcard name={data.kidname} age={data.kidage} gender={data.gender}/>
+          <Kidcard key={data._id} name={data.kidname} age={data.kidage} gender={data.gender}/>
         ))
       ) : (
         <p>""</p>
