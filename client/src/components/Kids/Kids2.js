@@ -46,7 +46,7 @@ function handleBtnClick(event) {
            
             .then(() => console.log("kids edited"))
             .then(() => showToast)
-            .then(() => window.location.href = "/editprofile")
+            // .then(() => window.location.href = "/editprofile")
             .catch(err => console.log(err));
     }
 }
