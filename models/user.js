@@ -18,8 +18,8 @@ const userSchema = new Schema({
     lat: Number,
     lng: Number,
     child: [{
-        name: String,
-        age: Number,
+        kidname: String,
+        kidage: Number,
         gender: String
         }]
 });

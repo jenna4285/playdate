@@ -1,23 +1,28 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import UserContext from "../../utils/userContext"
-import './Currentprofilecard.css'
+import './CurrentProfileCard.css'
 
-function Dynamicprofile() {
 
-    const {dbUser}=useContext(UserContext);
-    
-    return(
-        <div className="card mb-3 dynamic-profile-card">
+
+function CurrentProfileCard(props) {
+
+  // const {dbUser}=useContext(UserContext);
+
+  const dbUser = props.user;
+
+  return (
+    <div>
+      <div className="card mb-3 dynamic-profile-card">
         <div className="card-body">
           <div className="row">
             <div className="col-sm-3">
               <h6 className="mb-0">Full Name</h6>
             </div>
             <div className="col-sm-9 text-secondary">
-          {dbUser.fullname}
+              {dbUser.fullname}
             </div>
           </div>
-          <hr/>
+          <hr />
           <div className="row">
             <div className="col-sm-3">
               <h6 className="mb-0">Email</h6>
@@ -26,7 +31,7 @@ function Dynamicprofile() {
               {dbUser.email}
             </div>
           </div>
-          <hr/>
+          <hr />
           <div className="row">
             <div className="col-sm-3">
               <h6 className="mb-0">Address</h6>
@@ -35,7 +40,7 @@ function Dynamicprofile() {
               {dbUser.address}
             </div>
           </div>
-          <hr/>
+          <hr />
           <div className="row">
             <div className="col-sm-3">
               <h6 className="mb-0">City</h6>
@@ -44,7 +49,7 @@ function Dynamicprofile() {
               {dbUser.city}
             </div>
           </div>
-          <hr/>
+          <hr />
           <div className="row">
             <div className="col-sm-3">
               <h6 className="mb-0">State</h6>
@@ -53,7 +58,7 @@ function Dynamicprofile() {
               {dbUser.unitedState}
             </div>
           </div>
-          <hr/>
+          <hr />
           <div className="row">
             <div className="col-sm-3">
               <h6 className="mb-0">Zipcode</h6>
@@ -62,7 +67,7 @@ function Dynamicprofile() {
               {dbUser.zip}
             </div>
           </div>
-          <hr/>
+          <hr />
           <div className="row">
             <div className="col-sm-3">
               <h6 className="mb-0">Bio</h6>
@@ -71,13 +76,13 @@ function Dynamicprofile() {
               {dbUser.description}
             </div>
           </div>
-          <hr/>
-          
+          <hr />
         </div>
       </div>
-    )
+    </div>
+  )
 
 }
 
 
-export default Dynamicprofile;
+export default CurrentProfileCard;

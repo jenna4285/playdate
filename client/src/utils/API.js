@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export default {
   // Gets all users
   getUsers: function() {
@@ -25,5 +26,8 @@ export default {
   },
   editUserByEmail: function(userData) {
     return axios.put("api/users/email/" + userData.email, userData)
+  },
+  addKidByEmail: function(userData) {
+    return axios.put("api/users/email/kid/" + userData.email, userData)
   }
 };

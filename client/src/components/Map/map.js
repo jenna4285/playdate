@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withGoogleMap, Map, GoogleApiWrapper,} from 'google-maps-react';
+import UserContext from '../../utils/userContext';
 require('dotenv').config();
 
 const mapStyles = {
@@ -8,19 +9,22 @@ const mapStyles = {
 };
 
 export class MapContainer extends Component {
-  render() {
+  render(props) {
+    console.log("look here", this.props)
     return (
+    // {if (props.lat && props.lng) }
       <Map
         google={this.props.google}
         zoom={14}
         style={mapStyles}
-        initialCenter={
+        center={
           {
-            lat: 30.2672,
-            lng: -97.7431
+            lat: this.props.lat,
+            lng: this.props.lng
           }
         }
       />
+    
     );
   }
 }

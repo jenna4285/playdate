@@ -6,6 +6,7 @@ import 'primereact/resources/primereact.min.css'
 import 'primeicons/primeicons.css'
 import 'primeflex/primeflex.css'
 import { Auth0Provider } from "@auth0/auth0-react";
+import './index.css'
 
 ReactDOM.render(
   <Auth0Provider

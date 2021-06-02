@@ -1,21 +1,22 @@
 import React from "react";
+import './Kidcard.css'
 
-function Kidcard(){
-    return(
-        <div className="col-sm-6 mb-3">
-        <div className="card h-100">
+function Kidcard(props) {
+  return (
+<div className="col-sm-12 col-md-6 col-lg-4">
+      <div className="card h-100 kid-card ">
         <div className="card-body">
-          <h6 className="d-flex align-items-center mb-3">NAME HERE</h6>
+          <h6 className="d-flex align-items-center mb-3">{props.name}</h6>
           <small>Age</small>
-            <div>AGE HERE</div>
+          <div>{props.age}</div>
           <small>Gender</small>
-          <div>GENDER HERE</div>
+          <div>{props.gender}</div>
           <small>Interests</small>
           <div>INTERESTS HERE</div>
         </div>
       </div>
-      </div>
-    )
+</div>
+  )
 }
 
 export default Kidcard;

@@ -1,35 +1,39 @@
 import React, { useState, useEffect, useContext } from "react";
+import UserContext from "../utils/userContext"
+
 import Profileform2 from "../components/Profileform/Profileform2";
 import Kids2 from "../components/Kids/Kids2";
-import Currentprofilecard from "../components/Currentprofilecard/Currentprofilecard"
+import CurrentProfileCard from "../components/CurrentProfileCard/CurrentProfileCard"
 import Minikidcard from "../components/Minikidcard/Minikidcard"
+import MiniCardContainer from "../components/MiniCardContainer/MiniCardContainer"
+
+
 
 function Editprofile() {
 
-    return (
+    const {dbUser}=useContext(UserContext);
 
+    return (
         <div className="container">
             <div className="row">
                 <div className="col">
                     <Profileform2 />
                 </div>
                 <div className="col">
-                    <Currentprofilecard />
+                   <CurrentProfileCard user={dbUser} />
                 </div>
             </div>
             <div className="row">
                 <div className="col">
-                    <Kids2 />
+                    <br />
+                        <Kids2 />
                 </div>
                 <div id="kid-column" className="col">
                     <div id="kid-card-container">
-                        <Minikidcard />
-                        <Minikidcard />
+                        <MiniCardContainer />
                     </div>
-
                 </div>
             </div>
-
         </div>
     )
 }
