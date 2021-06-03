@@ -26,7 +26,7 @@ function Editprofile() {
     useEffect(() => {
         setKidList(dbUser.child)
 
-    })
+    },[dbUser.child])
 
     //    const toast = useRef(null);
 
@@ -50,7 +50,7 @@ function handleBtnClick(event) {
                 },
             }})
            
-            .then((res) => setKidList([kidInfo, ...res.data.child]))
+            .then((res) => setKidList(res.data.child))
             // .then(() => showToast)
             // .then(() => window.location.href = "/editprofile")
             // .then(setKidList(res))

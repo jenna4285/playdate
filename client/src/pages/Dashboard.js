@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
-import Map from "../components/Map/map";
+import MapContainer from "../components/Map/map";
 import Usercard from "../components/Usercard/Usercard";
 import Kidcard from "../components/Kidcard/Kidcard";
-import KidCardContainer from "../components/KidCardContainer/KidCardContainer"
-import UserContext from "../utils/userContext"
-import YourActivities from "../components/YourActivities/YourActivities"
-import YourFriends from "../components/YourFriends/YourFriends"
+import KidCardContainer from "../components/KidCardContainer/KidCardContainer";
+import UserContext from "../utils/userContext";
+import YourActivities from "../components/YourActivities/YourActivities";
+import YourFriends from "../components/YourFriends/YourFriends";
+import ActivityForm from "../components/ActivityForm/ActivityForm";
+
 
 function Dashboard() {
     const { dbUser } = useContext(UserContext);
@@ -30,7 +32,7 @@ function Dashboard() {
                 <div class="container"></div>
                 <div className="d-flex row"></div>
                 <div className="row">
-                    <Map lat={userLat} lng={userLng} />
+                    <MapContainer lat={userLat} lng={userLng} />
                 </div>
             </div>
         </div>

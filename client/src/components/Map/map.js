@@ -25,7 +25,7 @@ export class MapContainer extends Component {
           }
         }
       />
-      {/* <Circle
+      <Circle
       radius={1200}
       center={{lat: this.props.lat,
         lng: this.props.lng}}
@@ -37,7 +37,7 @@ export class MapContainer extends Component {
       strokeWeight={5}
       fillColor='#FF0000'
       fillOpacity={0.2}
-    /> */}
+    />
     </div>
     
     );

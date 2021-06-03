@@ -9,6 +9,8 @@ import unitedStates from './unitedstates';
 import 'primeflex/primeflex.css';
 import './Profileform.css'
 import Geocode from "react-geocode";
+import AutoAddress from "./AutoAddress";
+import { PromiseProvider } from "mongoose";
 
 Geocode.setApiKey("AIzaSyAQACrt018ybMocp5ofJnmPmB7XPiX23Yg");
 
@@ -21,33 +23,23 @@ function Profileform2() {
         // Grabbing user.email from auth0
         // email:"",
         fullname: "",
-        username: "",
-        address: "",
-        city: "",
-        unitedState: "",
-        zip: "",
         description: "",
-        lat:"",
-        lng:""
-
+        address:""
     });
 
 
     function saveToDatabase(){
-        if (profileInfo.fullname && profileInfo.address && profileInfo.city && profileInfo.unitedState && profileInfo.zip && profileInfo.description) {
+        if (profileInfo.fullname && profileInfo.description) {
             
             API.editUserByEmail({
                 //GRABBING INFO FROM STATE
                 email: user.email,
                 fullname: profileInfo.fullname,
-                address: profileInfo.address,
-                city: profileInfo.city,
-                unitedState: profileInfo.unitedState,
-                zip: profileInfo.zip,
                 description: profileInfo.description,
                 picture: user.picture,
-                lat: profileInfo.lat,
-                lng: profileInfo.lng,
+                //address: profileInfo.address,
+                // lat: latLng.lat,
+                // lng: latLng.lng
                 })
                 // .then(() => setProfileInfo({
                 //     username: "",
@@ -62,31 +54,7 @@ function Profileform2() {
     function handleBtnClick(event) {
         event.preventDefault();
         console.log(profileInfo.username)
-        
-        const fullAddress = [profileInfo.address, profileInfo.city, profileInfo.unitedState, profileInfo.zip].join(",");
-        
-        // pass full address to geohook to get lat lon for db
-        let lat = "";
-        let lng = "";
-
-
-        function latLon() {
-            Geocode.fromAddress(fullAddress).then(
-            (response) => {
-              let { lat, lng } = response.results[0].geometry.location;
-              setProfileInfo({...profileInfo, lat, lng});
-              
-            },
-            (error) => {
-              console.error(error);
-            }
-          )
-        };
-        latLon();    
-        console.log(lat, lng);
-        
         saveToDatabase();
-      
     }
 
     useEffect(() => {
@@ -119,34 +87,10 @@ function Profileform2() {
                                     </div>
                                     <div className="row mb-3">
                                         <div className="col-sm-3">
-                                            <h6 className="mb-0">Street Address</h6>
+                                            <h6 className="mb-0">Address</h6>
                                         </div>
                                         <div className="col-sm-9 text-secondary">
-                                            <InputText name="address" type="text" className="form-control" value={profileInfo.address} id="profilestreetaddress" onChange={handleInputChange} />
-                                        </div>
-                                    </div>
-                                    <div className="row mb-3">
-                                        <div className="col-sm-3">
-                                            <h6 className="mb-0">City</h6>
-                                        </div>
-                                        <div className="col-sm-9 text-secondary">
-                                            <InputText name="city" type="text" className="form-control" value={profileInfo.city} id="profilecity" onChange={handleInputChange} />
-                                        </div>
-                                    </div>
-                                    <div className="row mb-3">
-                                        <div className="col-sm-3">
-                                            <h6 className="mb-0">State</h6>
-                                        </div>
-                                        <div className="col-sm-9 text-secondary">
-                                            <Dropdown name="unitedState" value={profileInfo.unitedState} options={unitedStates} onChange={handleInputChange} placeholder="Select a State" />
-                                        </div>
-                                    </div>
-                                    <div className="row mb-3">
-                                        <div className="col-sm-3">
-                                            <h6 className="mb-0">Zipcode</h6>
-                                        </div>
-                                        <div className="col-sm-9 text-secondary">
-                                            <InputText name="zip" type="text" className="form-control" value={profileInfo.zip} id="profilezip" onChange={handleInputChange}/>
+                                            <AutoAddress />
                                         </div>
                                     </div>
                                     <div className="row mb-3">
@@ -170,7 +114,7 @@ function Profileform2() {
                                     </div>
                                     <div className="row">
                                         <button id="save-profile" type="button" className="btn btn-success px-4 gap-3"
-                                            disabled={!(profileInfo.fullname && profileInfo.address && profileInfo.city && profileInfo.unitedState && profileInfo.zip && profileInfo.description)}
+                                            disabled={!(profileInfo.fullname && profileInfo.description)}
                                             onClick={handleBtnClick}>Save Profile</button>
                                     </div>
 

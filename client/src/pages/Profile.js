@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import UserContext from "../utils/userContext"
+import UserContext from "../utils/userContext";
 
 import Usercard from "../components/Usercard/Usercard"
 import Userdetailscard from "../components/Userdetailscard/Userdetailscard"

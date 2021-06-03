@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
@@ -33,6 +36,7 @@
     "primeicons": "^4.1.0",
     "primereact": "^6.3.2",
     "react-geocode": "^0.2.3",
+    "react-places-autocomplete": "^7.3.0",
     "react-transition-group": "^4.4.1"
   }
 }

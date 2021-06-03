@@ -59,7 +59,7 @@ pullFromDb();
           </Route>
         </Switch>
         :
-        <Route exact path={["/", "/home"]} component={Home}/>}
+        <Route path={["/", "/home"]} component={Home}/>}
       </div>
     </Router>
     </UserContext.Provider>
