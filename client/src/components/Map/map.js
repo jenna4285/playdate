@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withGoogleMap, Map, GoogleApiWrapper, Circle} from 'google-maps-react';
+import { Marker, withGoogleMap, Map, GoogleApiWrapper, Circle} from 'google-maps-react';
 import UserContext from '../../utils/userContext';
 require('dotenv').config();
 
@@ -42,6 +42,11 @@ export class MapContainer extends Component {
       strokeWeight={5}
       fillColor='#FF0000'
       fillOpacity={0.2}
+    />
+    <Marker 
+      position={{lat: 30.2665, lng: -97.7688}}
+      map={MapContainer}
+      title="Test"
     />
     </Map>
     </div>
