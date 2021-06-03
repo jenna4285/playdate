@@ -32,7 +32,9 @@ function Dashboard() {
                 <div class="container"></div>
                 <div className="d-flex row"></div>
                 <div className="row">
+                    <div>
                     <MapContainer lat={userLat} lng={userLng} />
+                    </div>
                 </div>
             </div>
         </div>
