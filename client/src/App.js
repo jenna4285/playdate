@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Editprofile from './pages/Editprofile'
+import Friendprofile from './pages/Friendprofile'
 import Dashboard from './pages/Dashboard'
 // import Books from "./pages/Books";
 import NoMatch from "./pages/NoMatch";
@@ -54,6 +55,7 @@ pullFromDb();
           <Route exact path="/profile" component={Profile}/>
           <Route exact path="/editprofile" component={Editprofile}/>
           <Route exact path="/dashboard" component={Dashboard}/>
+          <Route exact path="/profile/:id" component={Friendprofile}/>
           <Route>
             <NoMatch />
           </Route>
