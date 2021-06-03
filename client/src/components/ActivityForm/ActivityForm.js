@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import API from "../../utils/API"
-import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
-import { Dropdown } from 'primereact/dropdown';
 import { Calendar } from 'primereact/calendar';
 import { useAuth0 } from "@auth0/auth0-react";
 import 'primeflex/primeflex.css';
 import Geocode from "react-geocode";
-import AutoAddress from "../Profileform/AutoAddress"
+import Autoaddress from "./Autoaddress"
 import { OverlayPanel } from 'primereact/overlaypanel';
 import { Button } from 'primereact/button';
 import './ActivityForm.css'
@@ -19,6 +17,8 @@ Geocode.setApiKey("AIzaSyAQACrt018ybMocp5ofJnmPmB7XPiX23Yg");
 
 function ActivityForm() {
 
+    const descriptionRef = useRef();
+    const dateRef = useRef();
     const { isAuthenticated, user } = useAuth0();
 
     const [activityInfo, setActivityInfo] = useState({
@@ -35,61 +35,24 @@ function ActivityForm() {
 
     const op = useRef(null);
 
-    function saveToDatabase() {
-        if (activityInfo.hostName && activityInfo.description && activityInfo.location && activityInfo.date) {
-
-            API.editActivityByEmail({
+    function saveToDatabase(e) {
+             API.saveActivity({
                 //GRABBING INFO FROM STATE
-                hostName: "",
-                date: "",
-                description: "",
-                location: "",
-                lat: activityInfo.lat,
-                lng: activityInfo.lng,
+                hostName: user.email,
+                description: descriptionRef.current.value,
+                date: activityInfo.date,
+                location: activityInfo.location
             })
+            
                 // .then(() => setProfileInfo({
                 //     username: "",
                 //     password: "",
                 // }))
                 .then(() => console.log("activity added"))
+                
                 // .then(() => window.location.href = "/dashboard")
-                .catch(err => console.log(err));
-        }
+                .catch(err => console.log(err)); 
     }
-
-    function handleBtnClick(event) {
-        event.preventDefault();
-        console.log(activityInfo.username)
-
-        // const fullAddress = [profileInfo.address, profileInfo.city, profileInfo.unitedState, profileInfo.zip].join(",");
-
-        // pass full address to geohook to get lat lon for db
-        let lat = "";
-        let lng = "";
-
-
-        function latLon() {
-            Geocode.fromAddress(activityInfo.fullAddress).then(
-                (response) => {
-                    let { lat, lng } = response.results[0].geometry.location;
-                    setActivityInfo({ ...activityInfo, lat, lng });
-
-                },
-                (error) => {
-                    console.error(error);
-                }
-            )
-        };
-        latLon();
-        console.log(lat, lng);
-
-        saveToDatabase();
-
-    }
-
-    useEffect(() => {
-
-    })
 
     function handleInputChange(event) {
         const { name, value } = event.target
@@ -114,7 +77,10 @@ function ActivityForm() {
                                     <div className="col-sm-3">
                                         <h6 className="mb-0">Event Location</h6>
                                     </div>
-                                    <AutoAddress name="fullAddress" type="text" className="form-control" value={activityInfo.fullAddress} id="fullAddress" onChange={handleInputChange} />
+                                    <Autoaddress 
+                                    name="location"
+                                    value={activityInfo.address} 
+                                    onChange={handleInputChange}/>
                                 </div>
                             </div>
                             <div className="row mb-3">
@@ -126,13 +92,20 @@ function ActivityForm() {
                                         <span className="p-inputgroup-addon">
                                             <i className="pi pi-users"></i>
                                         </span>
-                                        <InputTextarea name="description" id="bio" rows={3} cols={35} value={activityInfo.description} onChange={handleInputChange} placeholder="What are you up to?" />
+                                        <InputTextarea 
+                                            name="description" 
+                                            id="bio" rows={3} cols={35} 
+                                            ref={descriptionRef} 
+                                            placeholder="What are you up to?" />
                                     </div>
                                     <div className="row mb-3">
                                         <div className="col-sm-3">
                                             <h6 className="mb-0">Date</h6>
                                         </div>
-                                        <Calendar />
+                                        <Calendar 
+                                        name="date"
+                                        value={activityInfo.date} 
+                                        onChange={handleInputChange}/>
                                         <div className="row">
                                             <div className="col-sm-3"></div>
                                             <div className="col-sm-9 text-secondary">
@@ -141,8 +114,9 @@ function ActivityForm() {
                                     </div>
                                     <div className="row">
                                         <button id="save-activity" type="button" className="btn btn-success px-4 gap-3"
-                                            disabled={!(activityInfo.username && activityInfo.fullAddress && activityInfo.date && activityInfo.description)}
-                                            onClick={handleBtnClick}>Save Activity</button>
+                                        disabled={!(activityInfo.date && activityInfo.description)}
+                                        onClick={saveToDatabase} 
+                                            >Save Activity</button>
                                     </div>
                                 </div>
                             </div>
