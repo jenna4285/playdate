@@ -11,6 +11,7 @@ const userSeed = [
     {
         first_name: 'Fred',
         last_name: 'Flintstone',
+        fullname:'Fred Flintstone',
         email: 'FFlint@yahoo.com',
         password: 'password1234',
         address: '2200 Stone Age Lane, Prehistoria, PG 10235',
@@ -23,7 +24,8 @@ const userSeed = [
             name: 'Dino',
             age: 4,
             gender: 'male'
-        }]
+        }],
+        friends: ['BettyRocks@gmail.com', 'tricero@gmail']
         },
     {
         first_name: 'Betty',
@@ -58,10 +60,17 @@ db.User.deleteMany({})
 
   const activitySeed = [
     {
+        hostName: 'Fred Flintstone',
         date: 'March 31',
         location: 'Zilker Park',
         description: 'Flying kites! BYOK!'
-    }
+    },
+    {
+      hostName: 'Barney Rubble',
+      date: 'June 5',
+      location: 'Bouldin Acres',
+      description: 'We here!'
+  }
 ]
 
 db.Activity.deleteMany({})
