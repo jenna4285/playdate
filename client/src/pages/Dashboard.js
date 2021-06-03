@@ -13,6 +13,9 @@ function Dashboard() {
     const { dbUser } = useContext(UserContext);
     const userLat = dbUser.lat
     const userLng = dbUser.lng
+
+    // bring in activities array & pass to map component and activities component
+
     return (
         <div>
             <h1>Dashboard Page</h1>
@@ -29,12 +32,12 @@ function Dashboard() {
                 <div className="d-flex row">
                 <KidCardContainer user={dbUser}/>
                 </div>
-                <div class="container"></div>
+                <div class="container mapcontainer"></div>
                 <div className="d-flex row"></div>
-                <div className="row">
+                
                     <MapContainer lat={userLat} lng={userLng} />
                 </div>
-            </div>
+            
         </div>
     )
 }
