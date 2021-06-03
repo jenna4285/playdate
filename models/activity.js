@@ -6,7 +6,9 @@ const activitySchema = new Schema({
     hostName: String,
     date: Date,
     location: String,
-    description: String
+    description: String,
+    actLat: Number,
+    actLng: Number
 });
 
 const Activity = mongoose.model("Activity", activitySchema)
