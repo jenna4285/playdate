@@ -48,6 +48,7 @@ pullFromDb();
     <Router>
       <div>
         <Nav />
+        {isAuthenticated ? 
         <Switch>
           <Route exact path={["/", "/home"]} component={Home}/>
           <Route exact path="/profile" component={Profile}/>
@@ -57,6 +58,8 @@ pullFromDb();
             <NoMatch />
           </Route>
         </Switch>
+        :
+        <Route path={["/", "/home"]} component={Home}/>}
       </div>
     </Router>
     </UserContext.Provider>
