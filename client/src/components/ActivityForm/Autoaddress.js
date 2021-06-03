@@ -24,7 +24,7 @@ function AutoAddress() {
 
 
   return (
-    <div>
+    <div className="ActAutoAddress">
       <PlacesAutocomplete
         value={address}
         onChange={setAddress}

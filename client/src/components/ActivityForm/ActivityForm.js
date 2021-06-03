@@ -1,25 +1,37 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import API from "../../utils/API"
+import PlacesAutocomplete, {
+    geocodeByAddress,
+    getLatLng
+  } from "react-places-autocomplete";
 import { InputTextarea } from 'primereact/inputtextarea';
 import { Calendar } from 'primereact/calendar';
 import { useAuth0 } from "@auth0/auth0-react";
 import 'primeflex/primeflex.css';
-import Geocode from "react-geocode";
-import Autoaddress from "./Autoaddress"
 import { OverlayPanel } from 'primereact/overlaypanel';
 import { Button } from 'primereact/button';
 import './ActivityForm.css'
 
 
-
-Geocode.setApiKey("AIzaSyAQACrt018ybMocp5ofJnmPmB7XPiX23Yg");
-
-
 function ActivityForm() {
 
-    const descriptionRef = useRef();
-    const dateRef = useRef();
+    const [address, setAddress] = React.useState("");
     const { isAuthenticated, user } = useAuth0();
+    const [coordinates, setCoordinates] = React.useState({
+      lat: null,
+      lng: null
+    });
+
+    const handleSelect = async value => {
+      const results = await geocodeByAddress(value);
+      const latLng = await getLatLng(results[0]);
+      console.log('heres the value' + value);
+      setCoordinates(latLng);
+      setAddress(value);
+    };
+
+    const descriptionRef = useRef();
+    const locationRef = useRef();
 
     const [activityInfo, setActivityInfo] = useState({
         // Grabbing user.email from auth0
@@ -41,16 +53,11 @@ function ActivityForm() {
                 hostName: user.email,
                 description: descriptionRef.current.value,
                 date: activityInfo.date,
-                location: activityInfo.location
+                location: locationRef.current.value,
+                actLat: coordinates.lat,
+                actLng: coordinates.lng
             })
-            
-                // .then(() => setProfileInfo({
-                //     username: "",
-                //     password: "",
-                // }))
                 .then(() => console.log("activity added"))
-                
-                // .then(() => window.location.href = "/dashboard")
                 .catch(err => console.log(err)); 
     }
 
@@ -77,10 +84,43 @@ function ActivityForm() {
                                     <div className="col-sm-3">
                                         <h6 className="mb-0">Event Location</h6>
                                     </div>
-                                    <Autoaddress 
-                                    name="location"
-                                    value={activityInfo.address} 
-                                    onChange={handleInputChange}/>
+                                    <div className="ActAutoAddress">
+      <PlacesAutocomplete
+        value={address}
+        onChange={setAddress}
+        onSelect={handleSelect}
+      >
+        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+          <div>
+              <p>Latitude: {coordinates.lat}</p>
+              <p>Longitude: {coordinates.lng}</p>
+              <p>Selected address: {address}</p>
+              {/* tried to put an API call here to hit mongoDB */}
+              <InputTextarea {...getInputProps({ placeholder: "Start typing address..." })} 
+                                                      name="location"
+                                                      ref={locationRef}
+                                                      onSelect={handleInputChange}
+                                                      />
+
+            <div>
+              {loading ? <div>...loading</div> : null}
+
+              {suggestions.map(suggestion => {
+                const style = {
+                  backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+                };
+
+                return (
+                  <div {...getSuggestionItemProps(suggestion, { style })}>
+                    {suggestion.description} {console.log('object' + suggestion)}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </PlacesAutocomplete>
+    </div>
                                 </div>
                             </div>
                             <div className="row mb-3">
@@ -114,7 +154,6 @@ function ActivityForm() {
                                     </div>
                                     <div className="row">
                                         <button id="save-activity" type="button" className="btn btn-success px-4 gap-3"
-                                        disabled={!(activityInfo.date && activityInfo.description)}
                                         onClick={saveToDatabase} 
                                             >Save Activity</button>
                                     </div>

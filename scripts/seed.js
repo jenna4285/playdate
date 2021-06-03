@@ -30,6 +30,7 @@ const userSeed = [
     {
         first_name: 'Betty',
         last_name: 'Rubble',
+        fullname: 'Betty Rubble',
         email: 'BettyRocks@gmail.com',
         password: 'password1234',
         address: '2202 Stone Age Lane, Prehistoria, PG 10235',
@@ -42,7 +43,8 @@ const userSeed = [
             name: 'Hoppy',
             age: 3,
             gender: 'female'
-        }]
+        }],
+        friends: ['BettyRocks@gmail.com', 'FFlint@gmail']
     }
 ]
 
@@ -63,14 +65,50 @@ db.User.deleteMany({})
         hostName: 'Fred Flintstone',
         date: 'March 31',
         location: 'Zilker Park',
-        description: 'Flying kites! BYOK!'
+        description: 'Flying kites! BYOK!', 
+        actLat: 30.5664531,
+        actLng: -97.7688115
     },
     {
       hostName: 'Barney Rubble',
       date: 'June 5',
       location: 'Bouldin Acres',
-      description: 'We here!'
-  }
+      description: 'We here!', 
+      actLat: 30.2482149,
+      actLng: -97.76864479999
+  },
+  {
+    hostName: 'Judy Jetson',
+    date: 'July 9',
+    location: 'Greenbelt',
+    description: 'Lets go swimming', 
+    actLat: 30.2558811,
+    actLng: -97.7628877
+  },
+  {
+    hostName: 'Jane Jetson',
+    date: 'July 23',
+    location: 'Stubb',
+    description: 'Kids concert!', 
+    actLat: 30.2684972,
+    actLng: -97.73625829999
+  },
+  {
+    hostName: 'Betty Rubble',
+    date: 'July 31',
+    location: 'Town Lake',
+    description: 'Walk townlake', 
+    actLat: 30.2476846,
+    actLng: -97.7181049
+},
+{
+  hostName: 'Wilma Flintstone',
+  date: 'August 3',
+  location: 'Sour Duck',
+  description: 'Lets go out to eat', 
+  actLat: 30.280047,
+  actLng: -97.7215188
+}
 ]
 
 db.Activity.deleteMany({})
