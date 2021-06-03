@@ -31,10 +31,14 @@ export default {
     return axios.put("api/users/email/kid/" + userData.email, userData)
   },
   // Activity Routes
+  //get find all
   getActivity: function() {
     return axios.get("/api/activity");
   },
-  saveUser: function(userData) {
+  saveActivity: function(userData) {
     return axios.post("/api/activity", userData);
+},
+editActivityById: function(id, userData) {
+  return axios.post("/api/activity/" +id, userData);
 }
 }
