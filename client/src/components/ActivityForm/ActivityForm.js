@@ -114,7 +114,7 @@ function ActivityForm() {
                                     </div>
                                     <div className="row">
                                         <button id="save-activity" type="button" className="btn btn-success px-4 gap-3"
-                                        disabled={!(activityInfo.date && activityInfo.description)}
+                                        
                                         onClick={saveToDatabase} 
                                             >Save Activity</button>
                                     </div>
