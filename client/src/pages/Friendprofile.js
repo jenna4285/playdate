@@ -12,7 +12,9 @@ import API from "../utils/API";
 function Friendprofile() {
 
   let {id} = useParams();
-  const [profileInfo, setProfileInfo] = useState({})
+  const [profileInfo, setProfileInfo] = useState({
+    isFriend: false
+  })
 
     const getProfile = (get) =>{
         API.getUser(get)
