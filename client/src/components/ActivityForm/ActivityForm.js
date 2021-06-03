@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import API from "../../utils/API"
-import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
-import { Dropdown } from 'primereact/dropdown';
 import { Calendar } from 'primereact/calendar';
 import { useAuth0 } from "@auth0/auth0-react";
 import 'primeflex/primeflex.css';
@@ -81,7 +79,7 @@ function ActivityForm() {
                                     </div>
                                     <Autoaddress 
                                     name="location"
-                                    value={activityInfo.location} 
+                                    value={activityInfo.address} 
                                     onChange={handleInputChange}/>
                                 </div>
                             </div>
@@ -116,6 +114,7 @@ function ActivityForm() {
                                     </div>
                                     <div className="row">
                                         <button id="save-activity" type="button" className="btn btn-success px-4 gap-3"
+                                        disabled={!(activityInfo.date && activityInfo.description)}
                                         onClick={saveToDatabase} 
                                             >Save Activity</button>
                                     </div>

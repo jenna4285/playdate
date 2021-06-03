@@ -20,15 +20,6 @@ function AutoAddress() {
     console.log('heres the value' + value);
     setCoordinates(latLng);
     setAddress(value);
-    await API.editUserByEmail({
-      email: user.email,
-      address: value,
-      lat: coordinates.lat,
-      lng: coordinates.lng
-    })
-    //could use this in place of an await 
-    //const handleLatLng = async value => 
-    // }
   };
 
 
