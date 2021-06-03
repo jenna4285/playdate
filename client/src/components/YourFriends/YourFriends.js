@@ -7,27 +7,29 @@ import './YourFriends.css'
 
 
 function YourFriends() {
-    const[friends, setFriends]=useState()
+    const[users, setUsers]=useState()
+    const{dbUser}=useContext(UserContext)
 
     useEffect(() => {
-        const getFriends=async()=>{
+
+       getUsers();
+       
+
+    },[]);
+        const getUsers=async()=>{
    
         const allFriends=await API.getUsers();        
         console.log("My Friends");
         console.log(allFriends.data);
-        setFriends(allFriends.data)
+        setUsers(allFriends.data)
         }
-       getFriends();
-
-    },[]);
-
 
     return (
     <div className="col-sm-12 col-md-6 col-lg-6">
         <div className="card">
         <h1>Your Friends</h1>
-        {friends ? (
-        friends.map((item) => (
+        {users ? (
+        users.map((item) => (
             <div>
             <Chip key={item._id} label={item.email} image={item.picture} className="friend-chip shadow" />
             </div>
