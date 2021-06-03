@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import UserContext from "../../utils/userContext"
-import './CurrentProfileCard.css'
+
+import './CurrentProfileC.css'
 
 
 
 function CurrentProfileCard(props) {
 
-  // const {dbUser}=useContext(UserContext);
+  
 
   const dbUser = props.user;
 
