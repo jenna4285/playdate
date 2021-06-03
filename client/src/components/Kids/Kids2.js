@@ -12,55 +12,7 @@ import gender from './gender';
 import { Toast } from 'primereact/toast';
 
 
-<<<<<<< HEAD
-function Kids2() {
-    const { isAuthenticated, user } = useAuth0();
-
-    const [kidInfo, setKidInfo] = useState({
-       
-        kidname: "",
-        kidage: '',
-        gender: ""
-       });
-
-       const toast = useRef(null);
-
-           
-function handleBtnClick(event) {
-    event.preventDefault();
- 
-    const showToast = () => {
-        toast.current.show({severity:'success', summary: 'Success!', detail:'Child Added', life: 3000});
-    }
-
-
-    if (kidInfo.kidname && kidInfo.kidage && kidInfo.gender) {
-        API.addKidByEmail({
-            //GRABBING INFO FROM STATE
-            email: user.email,
-            push: {child: {
-                kidname: kidInfo.kidname,
-                kidage: kidInfo.kidage,
-                gender: kidInfo.gender
-                },
-            }})
-           
-            .then(() => console.log("kids edited"))
-            .then(() => showToast)
-            // .then(() => window.location.href = "/editprofile")
-            .catch(err => console.log(err));
-    }
-}
-
-
-function handleInputChange(event) {
-    const { name, value } = event.target
-    setKidInfo({ ...kidInfo, [name]: value })
-}
-
-=======
 function Kids2(props) {
->>>>>>> 344628ca57928a9831b078eace74e550c4014bb4
     return (
         <div className="container-fluid">
 {/* ​           <Toast ref={toast} /> */}
