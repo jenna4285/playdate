@@ -7,7 +7,7 @@ import Dashboard from './pages/Dashboard'
 // import Books from "./pages/Books";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav/Nav";
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+
 import UserContext from "./utils/userContext";
 import API from "./utils/API"
 import { useAuth0 } from "@auth0/auth0-react";
@@ -48,7 +48,11 @@ pullFromDb();
     <Router>
       <div>
         <Nav />
+<<<<<<< HEAD
         {isAuthenticated?
+=======
+        {isAuthenticated ? 
+>>>>>>> 344628ca57928a9831b078eace74e550c4014bb4
         <Switch>
           <Route exact path={["/", "/home"]} component={Home}/>
           <Route exact path="/profile" component={Profile}/>
@@ -58,7 +62,12 @@ pullFromDb();
             <NoMatch />
           </Route>
         </Switch>
+<<<<<<< HEAD
         : <Route exact path={["/", "/home"]} component={Home}/>}
+=======
+        :
+        <Route path={["/", "/home"]} component={Home}/>}
+>>>>>>> 344628ca57928a9831b078eace74e550c4014bb4
       </div>
     </Router>
     </UserContext.Provider>
