@@ -1,6 +1,7 @@
 import React, {setState, useState, useEffect, useContext } from "react";
 import API from "../../utils/API";
 import UserContext from "../../utils/userContext";
+import {Link} from "react-router-dom"
 import { Chip } from 'primereact/chip';
 import { get } from "mongoose";
 import './YourFriends.css'
@@ -44,7 +45,7 @@ function YourFriends() {
         {users ? (
         users.map((item) => (
             <div>
-            <Chip key={item._id} label={item.email} image={item.picture} className="friend-chip shadow" />
+            <Link to={"/profile/"+item._id}><Chip key={item._id} label={item.email} image={item.picture} className="friend-chip shadow" /></Link>
             </div>
         ))
       ) : (
