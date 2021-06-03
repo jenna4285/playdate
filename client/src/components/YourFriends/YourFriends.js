@@ -7,14 +7,15 @@ import './YourFriends.css'
 import { useAuth0 } from "@auth0/auth0-react";
 
 
-function YourFriends(props) {
+function YourFriends() {
     const[users, setUsers]=useState()
     const[friends, setFriends]=useState()
+    const{dbUser}=useContext(UserContext)
     const { isAuthenticated, user } = useAuth0();
 
     useEffect(() => {
      getUsers();
-     getFriends();
+    //  getFriends();
     },[isAuthenticated]);
 
     const getUsers=async()=>{
@@ -24,15 +25,15 @@ function YourFriends(props) {
         setUsers(allUsers.data)
         }
 
-    const getFriends=async()=>{const myFriends = await API.getUserByEmail(props.data.email).then(userInfo => {
-            console.log(userInfo.data.friends)
-            setFriends(userInfo.data.friends);
-        }) ;       
+    // const getFriends=async()=>{const myFriends = await API.getUserByEmail(user.email).then(userInfo => {
+    //         console.log(userInfo.data.friends)
+    //         setFriends(userInfo.data.friends);
+    //     }) ;       
 
-        console.log("All Friends");
-        console.log(myFriends.data);
-        setUsers(myFriends.data)
-        }
+    //     console.log("All Friends");
+    //     console.log(myFriends.data);
+    //     setUsers(myFriends.data)
+    //     }
 
 
 
