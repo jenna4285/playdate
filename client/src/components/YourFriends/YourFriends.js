@@ -1,6 +1,7 @@
 import React, {setState, useState, useEffect, useContext } from "react";
 import API from "../../utils/API";
 import UserContext from "../../utils/userContext";
+import {Link} from "react-router-dom"
 import { Chip } from 'primereact/chip';
 import { get } from "mongoose";
 import './YourFriends.css'
@@ -10,12 +11,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 function YourFriends() {
     const[users, setUsers]=useState()
     const[friends, setFriends]=useState()
-    const{dbUser}=useContext(UserContext)
     const { isAuthenticated, user } = useAuth0();
 
     useEffect(() => {
      getUsers();
-    //  getFriends();
+     getFriends();
     },[isAuthenticated]);
 
     const getUsers=async()=>{
@@ -23,6 +23,13 @@ function YourFriends() {
         console.log("All Users");
         console.log(allUsers.data);
         setUsers(allUsers.data)
+        }
+        
+    const getFriends=async()=>{
+        const myFriends=await API.getUserByEmail("FFlint@yahoo.com");        
+        console.log("My Users");
+        console.log(myFriends.data.friends);
+        setFriends(myFriends.data.friends)
         }
 
     // const getFriends=async()=>{const myFriends = await API.getUserByEmail(user.email).then(userInfo => {
@@ -39,8 +46,27 @@ function YourFriends() {
 
     return (
     <div className="col-sm-12 col-md-6 col-lg-6">
-        <div className="card">
+    <div classNAme="row">
+    <div className="card">
+    {console.log("users")}
+    {console.log(users)}
+    {console.log("friends")}
+    {console.log(friends)}
         <h1>Your Friends</h1>
+        {users ? (
+        users.map((item) => (
+            <div>
+            <Link to={"/profile/"+item._id}><Chip key={item._id} label={item.email} image={item.picture} className="friend-chip shadow" /></Link>
+            </div>
+        ))
+      ) : (
+        <p>""</p>
+      )}
+            </div>
+    </div>
+    <div classNAme="row">
+        <div className="card">
+        <h1>All Users</h1>
         {users ? (
         users.map((item) => (
             <div>
@@ -52,6 +78,8 @@ function YourFriends() {
       )}
             </div>
         </div>
+    </div>
+        
     )
 
 

@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
-import { Marker, withGoogleMap, Map, GoogleApiWrapper, Circle, } from 'google-maps-react';
-import UserContext from '../../utils/userContext';
+import { Marker, withGoogleMap, Map, GoogleApiWrapper, Circle} from 'google-maps-react';
+// import UserContext from '../../utils/userContext';
+import './style.css'
 require('dotenv').config();
 
 
 const mapStyles = {
-  width: '50%',
   height: '50%',
-  margin: '20px',
-  width: '100vh',
-  left: '150px'
-
+  width: '90vw',  
 };
 export class MapContainer extends Component {
+  
+
   render(props) {
-    
+    // bring in activities array
+    const activities = [{lat: 30.2664531, lng: -97.7688115 }, {lat: 30.2580377, lng: -97.7351679}, {lat: 30.1836487, lng:-97.72219439999999} ]
+
+    const image = "./playdateMarker.png"
+
     return (
 
       <div>
       <Map
-
         google={this.props.google}
         zoom={14}
         style={mapStyles}
@@ -43,12 +45,16 @@ export class MapContainer extends Component {
       fillColor='#FF0000'
       fillOpacity={0.2}
     />
+    {activities.map((res => 
+    // (console.log(res.lat, res.lng))
     <Marker 
-      position={{lat: 30.2665, lng: -97.7688}}
-      map={MapContainer}
-      title="Test"
-    />
+      position={{lat: res.lat, lng: res.lng}}
+      key= {`${res.lat}-${res.lng}`}
+      title={res.description}
+      icon={image}
 
+    />    
+    ))}
     </Map>
     </div>
     

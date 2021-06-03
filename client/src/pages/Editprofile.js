@@ -53,7 +53,11 @@ function handleBtnClick(event) {
             .then((res) => setKidList(res.data.child))
             // .then(() => showToast)
             // .then(() => window.location.href = "/editprofile")
-            // .then(setKidList(res))
+            .then(setKidInfo({
+                kidname: "",
+                kidage: '',
+                gender: ""
+            }))
             .then(console.log(kidList))
             .catch(err => console.log(err));
     }
