@@ -3,28 +3,33 @@ import { withGoogleMap, Map, GoogleApiWrapper, Circle} from 'google-maps-react';
 import UserContext from '../../utils/userContext';
 require('dotenv').config();
 
+
 const mapStyles = {
   width: '50%',
-  height: '50%'
-};
+  height: '50%',
+  margin: '20px',
+  width: '100vh',
+  left: '150px'
 
+};
 export class MapContainer extends Component {
   render(props) {
     console.log("look here", this.props)
     return (
-    // {if (props.lat && props.lng) }
+
       <div>
       <Map
+
         google={this.props.google}
         zoom={14}
         style={mapStyles}
-        center={
+        initialCenter={
           {
             lat: this.props.lat,
             lng: this.props.lng
           }
         }
-      />
+      >
       <Circle
       radius={1200}
       center={{lat: this.props.lat,
@@ -38,6 +43,7 @@ export class MapContainer extends Component {
       fillColor='#FF0000'
       fillOpacity={0.2}
     />
+    </Map>
     </div>
     
     );

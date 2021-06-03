@@ -3,7 +3,7 @@ import UserContext from "../utils/userContext"
 import { useAuth0 } from "@auth0/auth0-react";
 import Profileform2 from "../components/Profileform/Profileform2";
 import Kids2 from "../components/Kids/Kids2";
-import CurrentProfileCard from "../components/Currentprofilecard/CurrentProfileCard"
+import CurrentProfileCard from "../components/CurrentProfileC/CurrentProfileC"
 import Minikidcard from "../components/Minikidcard/Minikidcard"
 import MiniCardContainer from "../components/MiniCardContainer/MiniCardContainer"
 import API from "../utils/API"
