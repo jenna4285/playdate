@@ -22,7 +22,7 @@ function Dashboard() {
             <div class="container">
                 <div className="row">
                     <div className="col">
-                        <Usercard />
+                        <Usercard user={dbUser}/>
                     </div>
                 </div>
                 <div className="row">
@@ -30,7 +30,7 @@ function Dashboard() {
                 <YourActivities/>
                 </div>
                 <div className="d-flex row">
-                <KidCardContainer />
+                <KidCardContainer user={dbUser}/>
                 </div>
                 <div class="container mapcontainer"></div>
                 <div className="d-flex row"></div>
