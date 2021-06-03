@@ -1,3 +1,7 @@
 .activities{
     text-align: center;
 }
+
+#activity-container{
+    border-radius: 15px;
+}
