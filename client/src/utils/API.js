@@ -34,7 +34,7 @@ export default {
   getActivity: function() {
     return axios.get("/api/activity");
   },
-  saveUser: function(userData) {
+  saveActivity: function(userData) {
     return axios.post("/api/activity", userData);
 }
 }
