@@ -30,7 +30,9 @@ function Dashboard() {
         .then((res) => setActivity(res.data))
     };
 
-
+    function handleBtnClick(event) {
+        event.preventDefault();
+    }
     // bring in activities array & pass to map component and activities component
 
     return (
@@ -44,7 +46,7 @@ function Dashboard() {
                 </div>
                 <div className="row">
                 <YourFriends user={dbUser}/>
-                <YourActivities activity={activity} />
+                <YourActivities handleBtnClick={handleBtnClick} activity={activity} />
                 </div>
                 <div className="d-flex row">
                 <KidCardContainer user={dbUser}/>
