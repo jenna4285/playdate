@@ -1,6 +1,5 @@
-import React, {useContext, useState, useEffect} from "react";
+import React from "react";
 import Kidcard from "../Kidcard/Kidcard"
-import UserContext from "../../utils/userContext";
 
 
 function KidCardContainer(props) {

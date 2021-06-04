@@ -17,10 +17,7 @@ function AutoAddress() {
   const handleSelect = async value => {
     const results = await geocodeByAddress(value);
     const latLng = await getLatLng(results[0]);
-    console.log('heres the value' + value);
-    console.log(latLng)
     setCoordinates(latLng);
-    console.log(latLng.lat, latLng.lng);
     setAddress(value);
     await API.editUserByEmail({
       email: user.email,
@@ -42,7 +39,6 @@ function AutoAddress() {
           <div>
               <p>Latitude: {coordinates.lat}</p>
               <p>Longitude: {coordinates.lng}</p>
-              {/* tried to put an API call here to hit mongoDB */}
               <input {...getInputProps({ placeholder: "Start typing address..." })} />
 
             <div>
