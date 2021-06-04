@@ -20,6 +20,8 @@ export class MapContainer extends Component {
     
     const uluru = new google.maps.LatLng(this.props.lat, this.props.lng)
 
+    const image = "./playdateMarker.png"
+
     return (
 
       <div>

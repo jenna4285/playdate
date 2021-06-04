@@ -1,6 +1,15 @@
 .kid-card{
-    width:260px;
+    width:100%;
     max-height:240px!important;
-    min-width: 150px!important;
+    min-width: 200px!important;
     margin-bottom:20px !important;
+    border-radius: 30px!important;
+    background-color:#086375!important;
+    color:white;
+    font-weight: bolder;
+}
+
+.kid-name{
+    font-weight: bolder;
+    font-size: 25px;
 }

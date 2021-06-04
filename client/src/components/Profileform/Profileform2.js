@@ -1,16 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
-import Kids2 from "../Kids/Kids2";
+import React, { useState, useEffect} from "react";
 import API from "../../utils/API"
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
-import { Dropdown } from 'primereact/dropdown';
 import { useAuth0 } from "@auth0/auth0-react";
-import unitedStates from './unitedstates';
 import 'primeflex/primeflex.css';
 import './Profileform.css'
 import Geocode from "react-geocode";
 import AutoAddress from "./AutoAddress";
-import { PromiseProvider } from "mongoose";
 
 Geocode.setApiKey("AIzaSyAQACrt018ybMocp5ofJnmPmB7XPiX23Yg");
 

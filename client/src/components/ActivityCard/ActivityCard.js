@@ -1,27 +1,37 @@
-import React, { useContext } from "react";
+import React from "react";
 
-function Minikidcard(props) {
+function ActivityCard(props) {
 
-  return (
-    <div className="row">
-    <div id="activity-container" className="activity-container  box p-d-flex p-mb-3 shadow">
-        <div className="row">                     
-          <div className="col-4">
-            <h5>Zilker Park</h5>
+    let activity = props.activity;
+    console.log(activity)
+    return (
+
+        <div className="row">
+            {props.activity.length ? (
+                props.activity.map((data) => (
+                    <div id="activity-container" className="activity-container shadow">
+                        <div className="row justify-content-center">
+                            <div className="col-12">
+                                <h5>Location: {data.location}</h5>
+                            </div>
+                            <div className="col-4">
+                                <h5>{new Date(data.date).toLocaleDateString()}</h5>
+                            </div>
+                            <div className="col-12">
+                                <h5>Host: {data.hostName}</h5>
+                            </div>
+                            <div className="row justify-content-center">
+                                <p style={{ textAlign: "center" }}>{data.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            ) : (
+                null
+            )}
+
         </div>
-            <div className="col-4">
-            <h5>March 31</h5>                                </div>
-            <div className="col-4">
-            <h5>Host: Fred Flintstone</h5>
-            </div>
-            <div className="row justify-content-center">
-            <p style={{textAlign: "center"}}>Flying Kites! BYOK!</p>
-            </div>
-        </div>
-
-    </div>
-</div>
-  )
+    )
 }
 
-export default Minikidcard;
+export default ActivityCard;
