@@ -51,7 +51,7 @@ function YourFriends() {
           )}
         </div>
       </div>
-      <div classNAme="row">
+      <div className="row">
         <div className="card">
           <h1>Your Neighbors</h1>
           {users ? (

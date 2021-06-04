@@ -13,15 +13,13 @@ export class MapContainer extends Component {
   
 
   render(props) {
-   
-    console.log("Map Prop", this.props.activity); 
-
-
-    const image = "./playdateMarker.png"
+  
+    const image = "./playdateMarker2.png"
 
     return (
 
-      <div className="MapContainer">
+      
+      <div id="map-container-google-8" className="z-depth-1-half map-container-5">   
       <Map
         google={this.props.google}
         zoom={14}
@@ -41,10 +39,10 @@ export class MapContainer extends Component {
       // onClick={() => console.log('click')}
       // onMouseout={() => console.log('mouseout')}
       strokeColor='transparent'
-      strokeOpacity={0}
+      strokeOpacity={0.5}
       strokeWeight={5}
       fillColor='#140a80'
-      fillOpacity={0.2}
+      fillOpacity={0.3}
     />
     {this.props.activity.length ? (this.props.activity.map((data) => (
     // (console.log(res.lat, res.lng))
@@ -53,6 +51,7 @@ export class MapContainer extends Component {
       position={{lat: data.actLat, lng: data.actLng}}
       key= {`${data.actLat}-${data.actLng}`}
       title={data.description}
+      icon={image}
     />    
     ))) : ( null )
   }
@@ -62,6 +61,11 @@ export class MapContainer extends Component {
     );
   }
 }
+
+// const googleContainer = document.getElementById('map-container-google-8')
+// const googleParent = googleContainer.parentElement
+
+// console.log(googleParent)
 
 export default GoogleApiWrapper({
   apiKey: "AIzaSyAQACrt018ybMocp5ofJnmPmB7XPiX23Yg"
