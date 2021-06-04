@@ -13,15 +13,15 @@ export class MapContainer extends Component {
   
 
   render(props) {
-    // bring in activities array
+   
     console.log("Map Prop", this.props.activity); 
-    // [{lat: 30.2664531, lng: -97.7688115 }, {lat: 30.2580377, lng: -97.7351679}, {lat: 30.1836487, lng:-97.72219439999999} ]
+
 
     const image = "./playdateMarker.png"
 
     return (
 
-      <div>
+      <div className="MapContainer">
       <Map
         google={this.props.google}
         zoom={14}
@@ -34,16 +34,16 @@ export class MapContainer extends Component {
         }
       >
       <Circle
-      radius={1200}
+      radius={200}
       center={{lat: this.props.lat,
         lng: this.props.lng}}
-      onMouseover={() => console.log('mouseover')}
-      onClick={() => console.log('click')}
-      onMouseout={() => console.log('mouseout')}
+      // onMouseover={() => console.log('mouseover')}
+      // onClick={() => console.log('click')}
+      // onMouseout={() => console.log('mouseout')}
       strokeColor='transparent'
       strokeOpacity={0}
       strokeWeight={5}
-      fillColor='#FF0000'
+      fillColor='#140a80'
       fillOpacity={0.2}
     />
     {this.props.activity.length ? (this.props.activity.map((data) => (
