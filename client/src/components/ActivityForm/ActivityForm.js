@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useRef } from "react";
 import API from "../../utils/API"
 import PlacesAutocomplete, {
     geocodeByAddress,
@@ -77,7 +77,7 @@ function ActivityForm() {
                 <Button id="add-activity-btn" type="button" label="Add an Activity!" onClick={(e) => op.current.toggle(e)} />
             </div>
             {/* what's in this OverlayPanel is hidden until toggled on/off */}
-                <OverlayPanel dissmissable ref={op}>
+                <OverlayPanel ref={op} dissmissable showCloseIcon>
                     <form>
                         <div>
                             <div className="card">
