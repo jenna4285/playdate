@@ -5,7 +5,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function Nav() {
   const { isAuthenticated, user } = useAuth0();
-  console.log(user);
   return (
     <header className="p-3 bg-dark text-white">
       <div className="container">

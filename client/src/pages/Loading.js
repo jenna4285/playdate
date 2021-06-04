@@ -10,7 +10,7 @@ function Loading() {
     <br/>
     <br/>
     <h1>Loading...</h1>
-    <img class="d-block mx-auto mb-4" src="./playground.png" alt="" width="100" height="auto"></img>
+    <img className="d-block mx-auto mb-4" src="./playground.png" alt="" width="100" height="auto"></img>
     </div>
     
   );

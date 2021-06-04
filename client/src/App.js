@@ -27,7 +27,6 @@ useEffect(() => {
       API.saveUser(user);
       window.location.replace('/editprofile')
     }
-    console.log(userInfo)
     setDbUser(userInfo.data);
   });
 }
