@@ -36,7 +36,7 @@ export class MapContainer extends Component {
         }
       >
       <Circle
-      radius={1200}
+      radius={200}
       center={{lat: this.props.lat,
         lng: this.props.lng}}
       onMouseover={() => console.log('mouseover')}
