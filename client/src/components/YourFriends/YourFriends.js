@@ -11,7 +11,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 function YourFriends() {
     const[users, setUsers]=useState()
     const[friends, setFriends]=useState()
-    const{dbUser}=useContext(UserContext)
     const { isAuthenticated, user } = useAuth0();
 
     // useEffect(() => {
@@ -40,7 +39,12 @@ function YourFriends() {
 
     return (
     <div className="col-sm-12 col-md-6 col-lg-6">
-        <div className="card">
+    <div classNAme="row">
+    <div className="card">
+    {console.log("users")}
+    {console.log(users)}
+    {console.log("friends")}
+    {console.log(friends)}
         <h1>Your Friends</h1>
         {dbUser.friends ? (
         dbUser.friends.map((item) => (
@@ -52,7 +56,23 @@ function YourFriends() {
         <p>""</p>
       )}
             </div>
+    </div>
+    <div classNAme="row">
+        <div className="card">
+        <h1>All Users</h1>
+        {users ? (
+        users.map((item) => (
+            <div>
+            <Chip key={item._id} label={item.email} image={item.picture} className="friend-chip shadow" />
+            </div>
+        ))
+      ) : (
+        <p>""</p>
+      )}
+            </div>
         </div>
+    </div>
+        
     )
 
 
