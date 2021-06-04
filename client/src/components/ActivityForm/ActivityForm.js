@@ -46,6 +46,7 @@ function ActivityForm() {
     });
 
     const op = useRef(null);
+    console.log('op' + op)
 
     function saveToDatabase(e) {
              API.saveActivity({
@@ -81,8 +82,8 @@ function ActivityForm() {
                         <div>
                             <div className="card">
                                 <div className="row mb-3">
-                                    <div className="col-sm-3">
-                                        <h6 className="mb-0">Event Location</h6>
+                                    <div>
+                                        <h3 className="mb-0">Activity Details</h3>
                                     </div>
                                     <div className="ActAutoAddress">
       <PlacesAutocomplete
@@ -92,16 +93,18 @@ function ActivityForm() {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
-              <p>Latitude: {coordinates.lat}</p>
-              <p>Longitude: {coordinates.lng}</p>
-              <p>Selected address: {address}</p>
+              
+              
               {/* tried to put an API call here to hit mongoDB */}
-              <InputTextarea {...getInputProps({ placeholder: "Start typing address..." })} 
+              <InputTextarea {...getInputProps({ placeholder: "Where is this taking place?" })} 
                                                       name="location"
                                                       ref={locationRef}
                                                       onSelect={handleInputChange}
+                                                      className="width-100"
                                                       />
-
+<p>Selected address: {address}</p>
+<p>Latitude: {coordinates.lat}</p>
+              <p>Longitude: {coordinates.lng}</p>
             <div>
               {loading ? <div>...loading</div> : null}
 
@@ -124,10 +127,7 @@ function ActivityForm() {
                                 </div>
                             </div>
                             <div className="row mb-3">
-                                <div className="col-sm-3">
-                                    <h6 className="mb-0">Event Description</h6>
-                                </div>
-                                <div className="col-sm-9 text-secondary">
+                                <div className="text-secondary">
                                     <div className="p-inputgroup">
                                         <span className="p-inputgroup-addon">
                                             <i className="pi pi-users"></i>
@@ -138,14 +138,13 @@ function ActivityForm() {
                                             ref={descriptionRef} 
                                             placeholder="What are you up to?" />
                                     </div>
-                                    <div className="row mb-3">
-                                        <div className="col-sm-3">
-                                            <h6 className="mb-0">Date</h6>
-                                        </div>
+                                    <div className="row mb-3 pad-20">
                                         <Calendar 
                                         name="date"
                                         value={activityInfo.date} 
-                                        onChange={handleInputChange}/>
+                                        onChange={handleInputChange}
+                                        placeholder="When is this activity?"
+                                        />
                                         <div className="row">
                                             <div className="col-sm-3"></div>
                                             <div className="col-sm-9 text-secondary">
@@ -154,7 +153,7 @@ function ActivityForm() {
                                     </div>
                                     <div className="row">
                                         <button id="save-activity" type="button" className="btn btn-success px-4 gap-3"
-                                        onClick={saveToDatabase} 
+                                        onClick={saveToDatabase, (e) => op.current.toggle(e)} 
                                             >Save Activity</button>
                                     </div>
                                 </div>
