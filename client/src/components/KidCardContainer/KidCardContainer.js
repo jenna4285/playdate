@@ -5,7 +5,7 @@ import Kidcard from "../Kidcard/Kidcard"
 function KidCardContainer(props) {
 
     return (
-        <div className ="d-flex row">
+        <div className="col-sm-12 col-md-6 col-lg-6">
         {/* This should be mapped over adding however many kids there are*/}
         {props.user.child ? (
         props.user.child.map((data) => (
