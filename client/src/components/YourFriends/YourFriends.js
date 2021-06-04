@@ -43,7 +43,7 @@ function YourFriends() {
           {dbUser.friends ? (
             dbUser.friends.map((item) => (
               <div>
-                <Link to={"/" + item.id}><Chip key={item.id} label={item.name} image={item.picture} className="friend-chip shadow" /></Link>
+                <Link className='no-dec' to={"/" + item.id}><Chip key={item.id} label={item.name} image={item.picture} className="friend-chip" /></Link>
               </div>
             ))
           ) : (
@@ -57,7 +57,7 @@ function YourFriends() {
           {users ? (
             users.map((item) => (
               <div>
-                <Link to={"/" + item._id}><Chip key={item._id} label={item.fullname} image={item.picture} className="friend-chip shadow" /></Link>
+                <Link className='no-dec' to={"/" + item._id}><Chip key={item._id} label={item.fullname} image={item.picture} className="friend-chip" /></Link>
               </div>
             ))
           ) : (
