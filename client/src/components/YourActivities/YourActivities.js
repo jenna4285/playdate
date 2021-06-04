@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import ActivityForm from "../ActivityForm/ActivityForm"
 import './YourActivities.css'
 import ActivityCard from "../ActivityCard/ActivityCard"
