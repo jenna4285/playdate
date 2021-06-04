@@ -5,6 +5,7 @@ import Profile from './pages/Profile'
 import Editprofile from './pages/Editprofile'
 import Friendprofile from './pages/Friendprofile'
 import Dashboard from './pages/Dashboard'
+import Loading from './pages/Loading'
 // import Books from "./pages/Books";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav/Nav";
@@ -15,10 +16,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 function App() {
-const [dbUser, setDbUser]=useState({
-
-});
-const { isAuthenticated, user } = useAuth0();
+const [dbUser, setDbUser]=useState({});
+const { isAuthenticated, user, isLoading } = useAuth0();
 
 
 useEffect(() => {
@@ -35,7 +34,11 @@ useEffect(() => {
 pullFromDb();
 }, [isAuthenticated]);
 
-
+if (isLoading){
+  return(
+    <Loading/>
+  )
+}
   
   // CODE FOR SESSION/TOKEN - JG - Line 17-21 - Discuss w/ Team
   // const [token, setToken] = useState();

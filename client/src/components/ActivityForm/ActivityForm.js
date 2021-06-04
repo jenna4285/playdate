@@ -25,7 +25,6 @@ function ActivityForm() {
     const handleSelect = async value => {
       const results = await geocodeByAddress(value);
       const latLng = await getLatLng(results[0]);
-      console.log('heres the value' + value);
       setCoordinates(latLng);
       setAddress(value);
     };
@@ -49,6 +48,7 @@ function ActivityForm() {
     console.log('op' + op)
 
     function saveToDatabase(e) {
+      op.current.hide(e)
              API.saveActivity({
                 //GRABBING INFO FROM STATE
                 hostName: user.email,
@@ -65,7 +65,6 @@ function ActivityForm() {
     function handleInputChange(event) {
         const { name, value } = event.target
         setActivityInfo({ ...activityInfo, [name]: value })
-        
     }
 
 
@@ -78,7 +77,7 @@ function ActivityForm() {
                 <Button id="add-activity-btn" type="button" label="Add an Activity!" onClick={(e) => op.current.toggle(e)} />
             </div>
             {/* what's in this OverlayPanel is hidden until toggled on/off */}
-                <OverlayPanel ref={op} showCloseIcon dismissable={false}>
+            <OverlayPanel ref={op} showCloseIcon dismissable={false}>
                     <form>
                         <div>
                             <div className="card">
@@ -154,7 +153,7 @@ function ActivityForm() {
                                     </div>
                                     <div className="row">
                                         <button id="save-activity" type="button" className="btn btn-success px-4 gap-3"
-                                        onClick={saveToDatabase, (e) => op.current.toggle(e)} 
+                                        onClick={saveToDatabase} 
                                             >Save Activity</button>
                                     </div>
                                 </div>
