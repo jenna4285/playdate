@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-function Minikidcard(props) {
+function ActivityCard(props) {
 
   return (
     <div className="row">
@@ -24,4 +24,4 @@ function Minikidcard(props) {
   )
 }
 
-export default Minikidcard;
+export default ActivityCard;
