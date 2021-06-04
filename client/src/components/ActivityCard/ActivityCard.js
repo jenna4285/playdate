@@ -14,13 +14,8 @@ function ActivityCard(props) {
                             <div className="col-12">
                                 <h5>Location: {data.location}</h5>
                             </div>
-<<<<<<< HEAD
                             <div className="col-4">
                                 <h5>{new Date(data.date).toLocaleDateString()}</h5>
-=======
-                            <div className="col-12">
-                                <h5>{activity.date}</h5>
->>>>>>> f127af4d74c1f97f85018a27565c1c0e4928e53c
                             </div>
                             <div className="col-12">
                                 <h5>Host: {data.hostName}</h5>
