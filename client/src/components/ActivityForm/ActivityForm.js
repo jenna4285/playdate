@@ -74,7 +74,7 @@ function ActivityForm() {
             <div className="col">
             <div className="d-flex justify-content-center">
             {/* this button opens the modal */}
-                <Button id="add-activity-btn" type="button" textContent="Add an Activity!" onClick={(e) => op.current.toggle(e)} />
+                <Button id="add-activity-btn" type="button" label="Add an Activity!" onClick={(e) => op.current.toggle(e)} />
             </div>
             {/* what's in this OverlayPanel is hidden until toggled on/off */}
                 <OverlayPanel dissmissable ref={op}>
