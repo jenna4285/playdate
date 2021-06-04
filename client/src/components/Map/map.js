@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Marker, withGoogleMap, Map, GoogleApiWrapper, Circle} from 'google-maps-react';
+import { Marker, withGoogleMap, Map, GoogleApiWrapper, Circle, LoadingContainer} from 'google-maps-react';
 // import UserContext from '../../utils/userContext';
 import './style.css'
 require('dotenv').config();
@@ -7,8 +7,14 @@ require('dotenv').config();
 
 const mapStyles = {
   height: '60%',
-  width: '90vw',  
+  width: '90%',
+  display: "flex!important",
+  position: "inherit!important",
+  // flex-direction: "row!important",
+  // justify-content: "center!important",
+  // align-content: "center!important"  
 };
+
 export class MapContainer extends Component {
   
 
@@ -24,7 +30,7 @@ export class MapContainer extends Component {
 
     return (
 
-      <div>
+      <div className="MapContainer">
       <Map
         google={this.props.google}
         zoom={14}

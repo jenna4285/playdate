@@ -53,12 +53,12 @@ function Dashboard() {
                     <YourActivities handleBtnClick={handleBtnClick} activity={activity} />
 
                 </div>
-                <div className="d-flex row">
-                    <div class="container mapcontainer">              <div className="d-flex row">
+                {/* <div className="d-flex row">
+                    <div class="container mapcontainer">              <div className="d-flex row"> */}
                         <MapContainer lat={userLat} lng={userLng} activity={activity} />
+                    {/* </div>
                     </div>
-                    </div>
-                </div>
+                </div> */}
 
 
 
