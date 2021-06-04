@@ -34,7 +34,7 @@ function Dashboard() {
     // bring in activities array & pass to map component and activities component
 
     return (
-        <div>
+        <div id = "master">
             <h1 id="dashboard-header">Your Dashboard</h1>
             <div className="container">
                 <div className="row">
