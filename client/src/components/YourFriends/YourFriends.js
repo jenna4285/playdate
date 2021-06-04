@@ -1,9 +1,8 @@
-import React, {setState, useState, useEffect, useContext } from "react";
+import React, {useState, useEffect, useContext } from "react";
 import API from "../../utils/API";
 import UserContext from "../../utils/userContext";
 import {Link} from "react-router-dom"
 import { Chip } from 'primereact/chip';
-import { get } from "mongoose";
 import './YourFriends.css'
 import { useAuth0 } from "@auth0/auth0-react";
 

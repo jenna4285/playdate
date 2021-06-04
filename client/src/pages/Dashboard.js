@@ -1,13 +1,10 @@
-import React, { useState, setState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import MapContainer from "../components/Map/map";
 import Usercard from "../components/Usercard/Usercard";
-import Kidcard from "../components/Kidcard/Kidcard";
 import KidCardContainer from "../components/KidCardContainer/KidCardContainer";
 import UserContext from "../utils/userContext";
-import ActivityContext from "../utils/activityContext";
 import YourActivities from "../components/YourActivities/YourActivities";
 import YourFriends from "../components/YourFriends/YourFriends";
-import ActivityForm from "../components/ActivityForm/ActivityForm";
 import API from "../utils/API";
 import { useAuth0 } from "@auth0/auth0-react";
 

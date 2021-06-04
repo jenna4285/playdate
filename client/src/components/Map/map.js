@@ -17,6 +17,8 @@ export class MapContainer extends Component {
     console.log("Map Prop", this.props.activity); 
     // [{lat: 30.2664531, lng: -97.7688115 }, {lat: 30.2580377, lng: -97.7351679}, {lat: 30.1836487, lng:-97.72219439999999} ]
 
+    const image = "./playdateMarker.png"
+
     return (
 
       <div>

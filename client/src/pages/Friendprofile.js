@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
-import UserContext from "../utils/userContext";
+import React, { useState, useEffect} from "react";
 import { useParams } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import Usercard from "../components/Usercard/Usercard"
-import Userdetailscard from "../components/Userdetailscard/Userdetailscard"
-import Kidcard from "../components/Kidcard/Kidcard"
 import CurrentProfileCard from "../components/CurrentProfileC/CurrentProfileC"
 import KidCardContainer from "../components/KidCardContainer/KidCardContainer"
 import '../pages/Profile.css'
