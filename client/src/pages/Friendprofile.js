@@ -67,7 +67,9 @@ function Friendprofile() {
         <div className="row gutters-sm">
           <div className="col-md-4 mb-3">
             <Usercard user={profileInfo}/>
-            <button onClick={addFriend}>add friend</button> 
+            <div className="align-btn">
+            <button className="btn btn-light" onClick={addFriend}>Add Friend</button> 
+            </div>
           </div>
           <div className="col-md-8">
             <CurrentProfileCard user={profileInfo} />
