@@ -6,7 +6,7 @@ require('dotenv').config();
 
 
 const mapStyles = {
-  height: '50%',
+  height: '60%',
   width: '90vw',  
 };
 export class MapContainer extends Component {
@@ -15,7 +15,10 @@ export class MapContainer extends Component {
   render(props) {
     // bring in activities array
     console.log("Map Prop", this.props.activity); 
-    // [{lat: 30.2664531, lng: -97.7688115 }, {lat: 30.2580377, lng: -97.7351679}, {lat: 30.1836487, lng:-97.72219439999999} ]
+    
+    const google=this.props.google
+    
+    const uluru = new google.maps.LatLng(this.props.lat, this.props.lng)
 
     return (
 
@@ -24,6 +27,7 @@ export class MapContainer extends Component {
         google={this.props.google}
         zoom={14}
         style={mapStyles}
+        uluru={uluru}
         initialCenter={
           {
             lat: this.props.lat,
