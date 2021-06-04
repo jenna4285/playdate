@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import API from "../../utils/API"
 import PlacesAutocomplete, {
     geocodeByAddress,
@@ -65,7 +65,6 @@ function ActivityForm() {
     function handleInputChange(event) {
         const { name, value } = event.target
         setActivityInfo({ ...activityInfo, [name]: value })
-        
     }
 
 
@@ -75,10 +74,10 @@ function ActivityForm() {
             <div className="col">
             <div className="d-flex justify-content-center">
             {/* this button opens the modal */}
-                <Button id="add-activity-btn" type="button" label="Add an Activity!" onClick={(e) => op.current.toggle(e)} />
+                <Button id="add-activity-btn" type="button" textContent="Add an Activity!" onClick={(e) => op.current.toggle(e)} />
             </div>
             {/* what's in this OverlayPanel is hidden until toggled on/off */}
-                <OverlayPanel ref={op} showCloseIcon dismissable={false}>
+                <OverlayPanel dissmissable ref={op}>
                     <form>
                         <div>
                             <div className="card">
@@ -154,7 +153,7 @@ function ActivityForm() {
                                     </div>
                                     <div className="row">
                                         <button id="save-activity" type="button" className="btn btn-success px-4 gap-3"
-                                        onClick={saveToDatabase, (e) => op.current.toggle(e)} 
+                                        onClick={saveToDatabase} 
                                             >Save Activity</button>
                                     </div>
                                 </div>
