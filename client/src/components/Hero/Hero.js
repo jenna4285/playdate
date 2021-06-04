@@ -1,6 +1,6 @@
 import React from "react";
 import './Hero.css'
-import { useAuth0,isAuthenticated, user } from "@auth0/auth0-react"
+import { useAuth0, isAuthenticated, user } from "@auth0/auth0-react"
 
 
 function Hero(props){

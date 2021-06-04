@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useRef } from "react";
 import API from "../../utils/API"
 import PlacesAutocomplete, {
     geocodeByAddress,
