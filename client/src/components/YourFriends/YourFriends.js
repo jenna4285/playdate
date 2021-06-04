@@ -14,17 +14,17 @@ function YourFriends() {
     const{dbUser}=useContext(UserContext)
     const { isAuthenticated, user } = useAuth0();
 
-    useEffect(() => {
-     getUsers();
-    //  getFriends();
-    },[isAuthenticated]);
+    // useEffect(() => {
+    //  getUsers();
+    // //  getFriends();
+    // },[isAuthenticated]);
 
-    const getUsers=async()=>{
-        const allUsers=await API.getUsers();        
-        console.log("All Users");
-        console.log(allUsers.data);
-        setUsers(allUsers.data)
-        }
+    // const getUsers=async()=>{
+    //     const allUsers=await API.getUsers();        
+    //     console.log("All Users");
+    //     console.log(allUsers.data);
+    //     setUsers(allUsers.data)
+    //     }
 
     // const getFriends=async()=>{const myFriends = await API.getUserByEmail(user.email).then(userInfo => {
     //         console.log(userInfo.data.friends)
@@ -42,10 +42,10 @@ function YourFriends() {
     <div className="col-sm-12 col-md-6 col-lg-6">
         <div className="card">
         <h1>Your Friends</h1>
-        {users ? (
-        users.map((item) => (
+        {dbUser.friends ? (
+        dbUser.friends.map((item) => (
             <div>
-            <Link to={"/profile/"+item._id}><Chip key={item._id} label={item.email} image={item.picture} className="friend-chip shadow" /></Link>
+            <Link to={"/"+item.id}><Chip key={item.id} label={item.name} image={item.picture} className="friend-chip shadow" /></Link>
             </div>
         ))
       ) : (

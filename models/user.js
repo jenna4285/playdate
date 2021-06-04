@@ -22,7 +22,11 @@ const userSchema = new Schema({
         kidage: Number,
         gender: String
     }],
-    friends: [String]
+    friends: [{
+        id: String,
+        name: String,
+        picture: String
+    }]
 });
 
 const User = mongoose.model("User", userSchema)
