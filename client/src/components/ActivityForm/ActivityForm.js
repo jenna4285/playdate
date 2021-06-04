@@ -25,7 +25,6 @@ function ActivityForm() {
     const handleSelect = async value => {
       const results = await geocodeByAddress(value);
       const latLng = await getLatLng(results[0]);
-      console.log('heres the value' + value);
       setCoordinates(latLng);
       setAddress(value);
     };
@@ -49,6 +48,7 @@ function ActivityForm() {
     console.log('op' + op)
 
     function saveToDatabase(e) {
+      op.current.hide(e)
              API.saveActivity({
                 //GRABBING INFO FROM STATE
                 hostName: user.email,
