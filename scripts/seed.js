@@ -63,7 +63,7 @@ db.User.deleteMany({})
   const activitySeed = [
     {
         hostName: 'Fred Flintstone',
-        date: 'March 31',
+        date: '2021-03-22',
         location: 'Zilker Park',
         description: 'Flying kites! BYOK!', 
         actLat: 30.5664531,
@@ -71,7 +71,7 @@ db.User.deleteMany({})
     },
     {
       hostName: 'Barney Rubble',
-      date: 'June 5',
+      date: '2021-05-16',
       location: 'Bouldin Acres',
       description: 'We here!', 
       actLat: 30.2482149,
@@ -79,7 +79,7 @@ db.User.deleteMany({})
   },
   {
     hostName: 'Judy Jetson',
-    date: 'July 9',
+    date: '2021-06-16',
     location: 'Greenbelt',
     description: 'Lets go swimming', 
     actLat: 30.2558811,
@@ -87,7 +87,7 @@ db.User.deleteMany({})
   },
   {
     hostName: 'Jane Jetson',
-    date: 'July 23',
+    date: '2021-06-29',
     location: 'Stubb',
     description: 'Kids concert!', 
     actLat: 30.2684972,
@@ -95,7 +95,7 @@ db.User.deleteMany({})
   },
   {
     hostName: 'Betty Rubble',
-    date: 'July 31',
+    date: '2021-07-16',
     location: 'Town Lake',
     description: 'Walk townlake', 
     actLat: 30.2476846,
@@ -103,7 +103,7 @@ db.User.deleteMany({})
 },
 {
   hostName: 'Wilma Flintstone',
-  date: 'August 3',
+  date: '2021-08-08',
   location: 'Sour Duck',
   description: 'Lets go out to eat', 
   actLat: 30.280047,
