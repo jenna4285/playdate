@@ -16,7 +16,6 @@ function YourActivities(props) {
                 <ActivityForm />
                 <h1 class='activities'>Global Activities</h1>
                 <div className="col">
-                    <ActivityCard />
                 </div>
             </div>
         </div>

@@ -30,6 +30,7 @@ function Dashboard() {
         .then((res) => setActivity(res.data))
     };
 
+
     // bring in activities array & pass to map component and activities component
 
     return (
@@ -43,7 +44,7 @@ function Dashboard() {
                 </div>
                 <div className="row">
                 <YourFriends user={dbUser}/>
-                <YourActivities/>
+                <YourActivities activity={activity} />
                 </div>
                 <div className="d-flex row">
                 <KidCardContainer user={dbUser}/>
@@ -60,4 +61,3 @@ function Dashboard() {
 
 
 export default Dashboard
-// title ={actDescription} activityLat={actLat} activityLng={actLng}
