@@ -14,7 +14,8 @@ export class MapContainer extends Component {
 
   render(props) {
     // bring in activities array
-    const activities = [{lat: 30.2664531, lng: -97.7688115 }, {lat: 30.2580377, lng: -97.7351679}, {lat: 30.1836487, lng:-97.72219439999999} ]
+    console.log("Map Prop", this.props.activity); 
+    // [{lat: 30.2664531, lng: -97.7688115 }, {lat: 30.2580377, lng: -97.7351679}, {lat: 30.1836487, lng:-97.72219439999999} ]
 
     return (
 
@@ -43,14 +44,16 @@ export class MapContainer extends Component {
       fillColor='#FF0000'
       fillOpacity={0.2}
     />
-    {activities.map((res => 
+    {this.props.activity.length ? (this.props.activity.map((data) => (
     // (console.log(res.lat, res.lng))
+    
     <Marker 
-      position={{lat: res.lat, lng: res.lng}}
-      key= {`${res.lat}-${res.lng}`}
-      title="Test"
+      position={{lat: data.actLat, lng: data.actLng}}
+      key= {`${data.actLat}-${data.actLng}`}
+      title={data.description}
     />    
-    ))}
+    ))) : ( null )
+  }
     </Map>
     </div>
     
