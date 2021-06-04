@@ -1,7 +1,8 @@
 .kid-card{
-    width:100%;
+    width:50%;
     max-height:240px!important;
     min-width: 200px!important;
+    max-width:180px;
     margin-bottom:20px !important;
     border-radius: 30px!important;
     background-color:#086375!important;
