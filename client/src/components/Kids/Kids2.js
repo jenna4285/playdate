@@ -32,7 +32,7 @@ function Kids2(props) {
                                 </div>
                                 <div className="row mb-3">
 
-                                    <div className="col-sm-9 text-secondary">
+                                    <div className="padt-14 col-sm-9 text-secondary">
                                         <Dropdown name="gender" value={props.kidInfo.gender} options={gender} onChange={props.handleChange} placeholder="Select a Gender" />
                                     </div>
                                 </div>

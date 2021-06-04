@@ -45,7 +45,6 @@ function ActivityForm() {
     });
 
     const op = useRef(null);
-    console.log('op' + op)
 
     function saveToDatabase(e) {
       op.current.hide(e)

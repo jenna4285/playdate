@@ -31,40 +31,31 @@ function Dashboard() {
     function handleBtnClick(event) {
         event.preventDefault();
     }
-    // bring in activities array & pass to map component and activities component
 
     return (
         <div>
             <h1 id="dashboard-header">Your Dashboard</h1>
-            <div class="container">
+            <div className="container">
                 <div className="row">
                     <div className="col">
                         <Usercard user={dbUser} />
                     </div>
-
-
                 </div>
                 <div className="row">
                     <YourFriends user={dbUser} />
                     <KidCardContainer user={dbUser} />
                 </div>
                 <div className="d-flex row">
-
                     <YourActivities handleBtnClick={handleBtnClick} activity={activity} />
-
                 </div>
-                {/* <div className="d-flex row">
-                    <div class="container mapcontainer">              <div className="d-flex row"> */}
+                <div className="d-flex row">
+                    <div className="container mapcontainer">              
+                    <div className="d-flex row">
                         <MapContainer lat={userLat} lng={userLng} activity={activity} />
-                    {/* </div>
                     </div>
-                </div> */}
-
-
-
-
+                    </div>
+                </div>
             </div>
-
         </div>
     )
 }

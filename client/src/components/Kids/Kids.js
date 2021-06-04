@@ -30,9 +30,9 @@ function Kids() {
             </div>
             {/* Kiddo interest for matching in the future */}
             {/* <div className="p-fluid p-formgrid p-grid" */}
-            <button type="button" class="btn btn-success m-2 px-4 gap-3" id="addchild">Add Child</button>
+            <button type="button" className="btn btn-success m-2 px-4 gap-3" id="addchild">Add Child</button>
             <br></br>
-            <button type="button" class="btn btn-success m-2 px-4 gap-3" id="familycomplete">Family Complete</button>
+            <button type="button" className="btn btn-success m-2 px-4 gap-3" id="familycomplete">Family Complete</button>
         </form>
 
 
