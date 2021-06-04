@@ -9,21 +9,22 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 function YourFriends() {
+    const {dbUser} = useContext(UserContext)
     const[users, setUsers]=useState()
     const[friends, setFriends]=useState()
     const { isAuthenticated, user } = useAuth0();
 
-    // useEffect(() => {
-    //  getUsers();
-    // //  getFriends();
-    // },[isAuthenticated]);
+    useEffect(() => {
+     getUsers();
+    //  getFriends();
+    },[]);
 
-    // const getUsers=async()=>{
-    //     const allUsers=await API.getUsers();        
-    //     console.log("All Users");
-    //     console.log(allUsers.data);
-    //     setUsers(allUsers.data)
-    //     }
+    const getUsers=async()=>{
+        const allUsers=await API.getUsers();        
+        console.log("All Users");
+        console.log(allUsers.data);
+        setUsers(allUsers.data)
+        }
 
     // const getFriends=async()=>{const myFriends = await API.getUserByEmail(user.email).then(userInfo => {
     //         console.log(userInfo.data.friends)
@@ -41,10 +42,6 @@ function YourFriends() {
     <div className="col-sm-12 col-md-6 col-lg-6">
     <div classNAme="row">
     <div className="card">
-    {console.log("users")}
-    {console.log(users)}
-    {console.log("friends")}
-    {console.log(friends)}
         <h1>Your Friends</h1>
         {dbUser.friends ? (
         dbUser.friends.map((item) => (
@@ -63,7 +60,7 @@ function YourFriends() {
         {users ? (
         users.map((item) => (
             <div>
-            <Chip key={item._id} label={item.email} image={item.picture} className="friend-chip shadow" />
+            <Link to={"/"+item._id}><Chip key={item._id} label={item.fullname} image={item.picture} className="friend-chip shadow" /></Link>
             </div>
         ))
       ) : (
