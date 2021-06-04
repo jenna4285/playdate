@@ -20,8 +20,6 @@ function YourFriends() {
 
   const getUsers = async () => {
     const allUsers = await API.getUsers();
-    console.log("All Users");
-    console.log(allUsers.data);
     setUsers(allUsers.data)
   }
 
