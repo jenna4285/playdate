@@ -1,5 +1,7 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useRef} from "react";
 import API from "../../utils/API"
+import {Toast} from "primereact/toast";
+
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -12,6 +14,7 @@ Geocode.setApiKey("AIzaSyAQACrt018ybMocp5ofJnmPmB7XPiX23Yg");
 
 
 function Profileform2() {
+    const toast = useRef(null);
 
     const { isAuthenticated, user } = useAuth0();
 
@@ -47,8 +50,13 @@ function Profileform2() {
         }
     }
 
+    function displaySuccess(){
+        toast.current.show({severity:'success', summary: 'Success!', detail:'Profile Saved!', life: 3000});
+        }
+
     function handleBtnClick(event) {
         event.preventDefault();
+        displaySuccess()
         console.log(profileInfo.username)
         saveToDatabase();
     }
@@ -66,6 +74,7 @@ function Profileform2() {
     return (
 
             <div className="row">
+            <Toast ref={toast}/>
                 <div className="col">
                     <form>
                         <br />
