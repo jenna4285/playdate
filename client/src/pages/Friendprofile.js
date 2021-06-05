@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext} from "react";
+import React, { useState, useEffect, useContext, useRef} from "react";
 import { useParams } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import Usercard from "../components/Usercard/Usercard"
@@ -7,6 +7,8 @@ import KidCardContainer from "../components/KidCardContainer/KidCardContainer"
 import UserContext from "../utils/userContext";
 import '../pages/Profile.css'
 import API from "../utils/API";
+import {Toast} from "primereact/toast";
+
 
 function Friendprofile() {
 
@@ -16,6 +18,7 @@ function Friendprofile() {
   let {id} = useParams();
   const [profileInfo, setProfileInfo] = useState({})
   const [isFriend, setIsFriend] = useState(false)
+  const toast = useRef(null);
 
   useEffect(()=>{
     getProfile(id)
@@ -26,6 +29,15 @@ function Friendprofile() {
     })
   },[])
 
+  function displaySuccess(){
+    toast.current.show({severity:'success', summary: 'Success!', detail:'Friend Added', life: 3000});
+    }
+  
+  function displayError(){
+      toast.current.show({ severity: 'error', summary: 'Success!', detail: 'Friend Removed', life: 3000 });
+  }
+
+
     const getProfile = (get) =>{
         API.getUser(get)
         .then((res) => setProfileInfo(res.data))
@@ -33,6 +45,7 @@ function Friendprofile() {
   
   const addFriend = (event) =>{
     event.preventDefault()
+    displaySuccess()
     API.addKidByEmail({
       email: user.email,
       push: {friends: {
@@ -47,6 +60,7 @@ function Friendprofile() {
 
   const removeFriend= (event)=>{
     event.preventDefault()
+    displayError()
     API.removeFriend({
       email: user.email,
       id: profileInfo._id
@@ -57,6 +71,7 @@ function Friendprofile() {
   return (
 
     <div className="container">
+     <Toast ref={toast}/>
       <div className="main-body">
         <div className="row gutters-sm">
           <div className="col-md-4 mb-3">
