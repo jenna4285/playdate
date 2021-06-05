@@ -21,7 +21,14 @@ function Dashboard() {
 
     useEffect(() => {
         getActivity();
+        setUuid(null)
     },[uuid]);
+
+    const deleteActivity = (event) => {
+        console.log(event.target.name)
+        API.removeActivity(event.target.name)
+        .then((res) => setUuid(res.id))
+    }
 
 
     const getActivity = () => {
@@ -51,7 +58,7 @@ function Dashboard() {
                 </div>
                 <div className="d-flex row">
 
-                    <YourActivities setActivity={setActivity} setUuid= {setUuid} activity={activity} />
+                    <YourActivities setActivity={setActivity} setUuid= {setUuid} activity={activity} deleteActivity={deleteActivity} />
 
                 </div>
               

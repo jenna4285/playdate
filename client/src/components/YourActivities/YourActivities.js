@@ -27,7 +27,7 @@ function YourActivities(props) {
                 <ActivityForm setActivities={props.setActivity} setUuid={props.setUuid}/>
                 <h1 className='activities'>Neighbor Activities</h1>
                 <div className="col">
-                <ActivityCard activity={props.activity}/>
+                <ActivityCard activity={props.activity} deleteActivity={props.deleteActivity}/>
                 </div>
             </div>
         </div>

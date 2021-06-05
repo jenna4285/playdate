@@ -43,5 +43,8 @@ export default {
 },
 editActivityById: function(id, userData) {
   return axios.post("/api/activity/" +id, userData);
+},
+removeActivity: function(id) {
+  return axios.delete("/api/activity/"+id)
 }
 }

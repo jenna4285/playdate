@@ -1,9 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import API from "../../utils/API"
 import PlacesAutocomplete, {
     geocodeByAddress,
     getLatLng
   } from "react-places-autocomplete";
+import UserContext from "../../utils/userContext";
 import { InputTextarea } from 'primereact/inputtextarea';
 import { Calendar } from 'primereact/calendar';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -15,12 +16,14 @@ import './ActivityForm.css'
 
 function ActivityForm(props) {
 
+    const { dbUser } = useContext(UserContext);
     const [address, setAddress] = React.useState("");
     const { user } = useAuth0();
     const [coordinates, setCoordinates] = React.useState({
       lat: null,
       lng: null
     });
+
 
     const handleSelect = async value => {
       const results = await geocodeByAddress(value);
@@ -50,7 +53,8 @@ function ActivityForm(props) {
       op.current.hide(e)
              API.saveActivity({
                 //GRABBING INFO FROM STATE
-                hostName: user.email,
+                hostName: dbUser.fullname,
+                hostId: dbUser._id,
                 description: descriptionRef.current.value,
                 date: activityInfo.date,
                 location: locationRef.current.value,
