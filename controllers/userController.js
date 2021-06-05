@@ -51,5 +51,11 @@ module.exports = {
       .findOneAndUpdate({ email: req.params.email }, {$push: req.body.push}, {new: true})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  removeFriendByEmail: function(req,res){
+    db.User
+      .findOneAndUpdate({ email: req.params.email }, {$pull: {friends: {id: req.body.id}}}, {new:true})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 };
