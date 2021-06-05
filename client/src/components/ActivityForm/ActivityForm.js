@@ -13,10 +13,10 @@ import { Button } from 'primereact/button';
 import './ActivityForm.css'
 
 
-function ActivityForm() {
+function ActivityForm(props) {
 
     const [address, setAddress] = React.useState("");
-    const { isAuthenticated, user } = useAuth0();
+    const { user } = useAuth0();
     const [coordinates, setCoordinates] = React.useState({
       lat: null,
       lng: null
@@ -57,7 +57,9 @@ function ActivityForm() {
                 actLat: coordinates.lat,
                 actLng: coordinates.lng
             })
-                .then(() => console.log("activity added"))
+                .then((res)=> props.setUuid(res._id))
+                .then(API.getActivity)
+                .then((res) => props.setActivities(res))
                 .catch(err => console.log(err)); 
     }
 
