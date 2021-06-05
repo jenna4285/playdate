@@ -34,7 +34,6 @@ function YourFriends() {
   //     }
 
 
-
   return (
     <div className="col-sm-12 col-md-6 col-lg-6">
       <div>
@@ -56,9 +55,11 @@ function YourFriends() {
           <h1>Your Neighbors</h1>
           {users ? (
             users.map((item) => (
+              item._id !== dbUser._id ?
               <div>
                 <Link className='no-dec' to={"/" + item._id}><Chip key={item._id} label={item.fullname} image={item.picture} className="friend-chip" /></Link>
               </div>
+              : null
             ))
           ) : (
             <p>""</p>

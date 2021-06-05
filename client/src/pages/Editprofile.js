@@ -23,10 +23,10 @@ function Editprofile() {
         gender: ""
        });
     const [kidList, setKidList] = useState([])
+    const [profileInfo, setProfileInfo] = useState([])
 
     useEffect(() => {
         setKidList(dbUser.child)
-
     },[dbUser.child])
 
 function displaySuccess(){
@@ -72,10 +72,10 @@ function handleInputChange(event) {
 
             <div className="row">
                 <div className="col">
-                    <Profileform2 />
+                    <Profileform2 setProfileInfo={setProfileInfo}/>
                 </div>
                 <div className="col">
-                   <CurrentProfileCard user={dbUser} />
+                   <CurrentProfileCard user={profileInfo} />
                 </div>
             </div>
             <div className="row">
