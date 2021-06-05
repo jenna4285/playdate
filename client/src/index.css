@@ -6,7 +6,8 @@
 }
 
 #master{
-    background-image: url(https://i.imgur.com/iq7Flaw.jpg);
+    background-image: url(https://i.imgur.com/qyTwwJN.jpg);
     /* background- */
     /* opacity: 60%; */
+    background-size: cover;
 }
