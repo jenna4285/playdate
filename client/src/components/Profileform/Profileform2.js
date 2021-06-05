@@ -13,7 +13,7 @@ import AutoAddress from "./AutoAddress";
 Geocode.setApiKey("AIzaSyAQACrt018ybMocp5ofJnmPmB7XPiX23Yg");
 
 
-function Profileform2(props) {
+function Profileform2() {
     const toast = useRef(null);
 
     const { isAuthenticated, user } = useAuth0();
@@ -44,7 +44,7 @@ function Profileform2(props) {
                 //     username: "",
                 //     password: "",
                 // }))
-                .then((res) => props.setProfileInfo(res))
+                .then(() => console.log("profile edited"))
                 // .then(() => window.location.href = "/dashboard")
                 .catch(err => console.log(err));
         }

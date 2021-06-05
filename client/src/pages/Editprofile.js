@@ -75,7 +75,7 @@ function handleInputChange(event) {
                     <Profileform2 setProfileInfo={setProfileInfo}/>
                 </div>
                 <div className="col">
-                   <CurrentProfileCard user={profileInfo} />
+                   <CurrentProfileCard user={dbUser} />
                 </div>
             </div>
             <div className="row">
