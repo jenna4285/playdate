@@ -2,7 +2,6 @@ import React from "react";
 
 function ActivityCard(props) {
 
-    let activity = props.activity;
     return (
 
         <div className="row">
