@@ -2,11 +2,12 @@ import React from "react";
 import Loginbutton from "../Loginbutton/Loginbutton.js";
 import Logoutbutton from "../Logoutbutton/Logoutbutton.js";
 import { useAuth0 } from "@auth0/auth0-react";
+import './Nav.css'
 
 function Nav() {
   const { isAuthenticated, user } = useAuth0();
   return (
-    <header className="p-3 bg-dark text-white">
+    <header className="sticky-top p-3 bg-dark text-white">
       <div className="container">
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a
@@ -21,17 +22,17 @@ function Nav() {
                 </a>
               </li>
               <li>
-                <a href="/dashboard" className="nav-link px-2 text-white">
+                <a href="/dashboard" className="navhover nav-link px-2 text-white">
                   Dashboard
                 </a>
               </li>
               <li>
-                <a href="/profile" className="nav-link px-2 text-white">
+                <a href="/profile" className="navhover nav-link px-2 text-white">
                   Profile
                 </a>
               </li>
               <li>
-                <a href="/editprofile" className="nav-link px-2 text-white">
+                <a href="/editprofile" className="navhover nav-link px-2 text-white">
                   Edit Profile
                 </a>
               </li>
