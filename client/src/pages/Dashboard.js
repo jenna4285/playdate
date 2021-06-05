@@ -15,12 +15,20 @@ function Dashboard() {
     const userLat = dbUser.lat
     const userLng = dbUser.lng
 
-    const [activity, setActivity] = useState({})
+    const[uuid, setUuid] = useState({})
+    const [activity, setActivity] = useState([])
     const { isAuthenticated, user } = useAuth0();
 
     useEffect(() => {
         getActivity();
-    }, [isAuthenticated]);
+        setUuid(null)
+    },[uuid]);
+
+    const deleteActivity = (event) => {
+        console.log(event.target.name)
+        API.removeActivity(event.target.name)
+        .then((res) => setUuid(res.id))
+    }
 
 
     const getActivity = () => {
@@ -28,9 +36,9 @@ function Dashboard() {
             .then((res) => setActivity(res.data))
     };
 
-    function handleBtnClick(event) {
-        event.preventDefault();
-    }
+    // function handleBtnClick(event) {
+    //     event.preventDefault();
+    // }
     // bring in activities array & pass to map component and activities component
 
     return (
@@ -50,7 +58,7 @@ function Dashboard() {
                 </div>
                 <div className="d-flex row">
 
-                    <YourActivities handleBtnClick={handleBtnClick} activity={activity} />
+                    <YourActivities setActivity={setActivity} setUuid= {setUuid} activity={activity} deleteActivity={deleteActivity} />
 
                 </div>
               

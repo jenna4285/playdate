@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
+import API from "../../utils/API";
+import UserContext from "../../utils/userContext"
 
 function ActivityCard(props) {
 
-    let activity = props.activity;
+    const { dbUser } = useContext(UserContext);
+
     return (
 
         <div className="row">
@@ -22,6 +25,11 @@ function ActivityCard(props) {
                             <div className="row justify-content-center">
                                 <p style={{ textAlign: "center" }}>{data.description}</p>
                             </div>
+                            {data.hostId === dbUser._id?
+                            <div>
+                                <button classname="btn danger" name= {data._id} onClick={props.deleteActivity}>X</button>
+                            </div>
+                            : null}
                         </div>
                     </div>
                 ))
