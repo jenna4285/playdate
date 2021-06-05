@@ -1,3 +1,8 @@
 .heroheader {
-    font-family: 'Delius Swash Caps', cursive!important;
+    font-family: 'Syncopate', sans-serif!important;
 };
+
+* {
+    color: #3c1642;
+    font-weight: 900;
+}
