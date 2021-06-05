@@ -26,6 +26,11 @@ const userSchema = new Schema({
         id: String,
         name: String,
         picture: String
+    }],
+    messages:[{
+        sender:String,
+        content: String,
+        timestamp: Date
     }]
 });
 
