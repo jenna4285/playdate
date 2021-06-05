@@ -35,7 +35,7 @@ function Profile() {
                     <label htmlFor="zip">Zip</label>
                     <InputText id="zip" type="text" />
                 </div>
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
+                <button type="button" className="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
                <Kids />
             </div>
         </form>

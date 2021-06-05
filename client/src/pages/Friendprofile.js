@@ -58,12 +58,6 @@ function Friendprofile() {
 
     <div className="container">
       <div className="main-body">
-        <nav aria-label="breadcrumb" className="main-breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item"><a href="/">Home</a></li>
-            <li className="breadcrumb-item active" aria-current="page">User Profile</li>
-          </ol>
-        </nav>
         <div className="row gutters-sm">
           <div className="col-md-4 mb-3">
             <Usercard user={profileInfo}/>

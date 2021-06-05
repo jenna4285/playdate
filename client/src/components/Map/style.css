@@ -1,4 +1,36 @@
-.mapcontainer {
+.MapContainer {
+  display: flex!important;
+  position: inherit!important;
+  flex-direction: row!important;
+  align-content: center!important;
   justify-content: center!important;
-  margin-top: 50px;
+  margin: 50px!important;
+  width: 100%;
+  height: 100%;
 }
+
+#map-container-google-8 {
+  display: flex!important;
+  position: static!important;
+  flex-direction: row!important;
+  align-content: center!important;
+  justify-content: center!important;
+  margin: 50px!important;
+  width: 100%;
+  height: 100%;
+}
+
+#map-container-google-8 div:parentNode  {
+  display: flex!important;
+  position: static!important;
+  flex-direction: row!important;
+  align-content: center!important;
+  justify-content: center!important;
+  margin: 50px!important;
+  width: 100%;
+  height: 100%;
+}
+
+.classname div:first-child{
+  position: relative !important;
+ }

@@ -34,9 +34,9 @@ function Dashboard() {
     // bring in activities array & pass to map component and activities component
 
     return (
-        <div>
+        <div id = "master">
             <h1 id="dashboard-header">Your Dashboard</h1>
-            <div class="container">
+            <div className="container">
                 <div className="row">
                     <div className="col">
                         <Usercard user={dbUser} />
@@ -53,16 +53,9 @@ function Dashboard() {
                     <YourActivities handleBtnClick={handleBtnClick} activity={activity} />
 
                 </div>
-                <div className="d-flex row">
-                    <div class="container mapcontainer">              <div className="d-flex row">
+              
                         <MapContainer lat={userLat} lng={userLng} activity={activity} />
-                    </div>
-                    </div>
-                </div>
-
-
-
-
+            
             </div>
 
         </div>

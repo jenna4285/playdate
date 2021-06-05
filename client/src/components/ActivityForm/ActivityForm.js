@@ -45,7 +45,6 @@ function ActivityForm() {
     });
 
     const op = useRef(null);
-    console.log('op' + op)
 
     function saveToDatabase(e) {
       op.current.hide(e)
@@ -102,9 +101,10 @@ function ActivityForm() {
                                                       onSelect={handleInputChange}
                                                       className="width-100"
                                                       />
-<p>Selected address: {address}</p>
-<p>Latitude: {coordinates.lat}</p>
-              <p>Longitude: {coordinates.lng}</p>
+              {!(coordinates.lat) ? (null) : ( <div>
+                <p>Selected Address: {address}</p>
+
+              </div> )}
             <div>
               {loading ? <div>...loading</div> : null}
 
@@ -115,7 +115,7 @@ function ActivityForm() {
 
                 return (
                   <div {...getSuggestionItemProps(suggestion, { style })}>
-                    {suggestion.description} {console.log('object' + suggestion)}
+                    {suggestion.description}
                   </div>
                 );
               })}

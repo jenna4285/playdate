@@ -3,8 +3,9 @@ import './Kidcard.css'
 
 function Kidcard(props) {
   return (
-<div className="col-sm-12 col-md-4 col-lg-4">
-      <div className="card h-100 kid-card ">
+    
+<div id='first div in card' className='d-flex justify-content-center' style={{flex: 1}}>
+      <div className="card h-100 kid-card">
         <div className="card-body">
           <h6 className="d-flex align-items-center mb-3 kid-name">{props.name}</h6>
           <small>Age</small>
@@ -14,6 +15,7 @@ function Kidcard(props) {
         </div>
       </div>
 </div>
+
   )
 }
 

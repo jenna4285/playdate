@@ -1,11 +1,27 @@
 .p-chip.friend-chip{
     margin-top:5px;
     margin-bottom:5px;
-    background-color: #c0f8ff;
+    background-color: #1dd3b0;
     width:200px;
-}
+    box-shadow: .25px 2px 5px #086375;
+    display:block;
+    transition:  box-shadow .6s ease-out;
+    box-shadow: .8px .9px 3px #086375;
+    }
 
 .p-chip.friend-chip:hover{
     background-color: #ffffff;
+    text-decoration: none!important;
     cursor:pointer;
+    box-shadow: 1px 8px 20px #1DD3B0;
+    transition:  box-shadow .6s ease-in;
+}
+
+.no-dec {
+text-decoration: none;
+text-align:center
+}
+
+.no-dec:hover {
+    text-decoration:none;
 }
