@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
+import {Toast} from "primereact/toast";
+import {Button} from "primereact/button";
 import UserContext from "../utils/userContext"
 import { useAuth0 } from "@auth0/auth0-react";
 import Profileform2 from "../components/Profileform/Profileform2";
@@ -11,7 +13,7 @@ import API from "../utils/API"
 
 
 function Editprofile() {
-
+    const toast = useRef(null);
     const { isAuthenticated, user } = useAuth0();
     const {dbUser}=useContext(UserContext);
     const [kidInfo, setKidInfo] = useState({
@@ -27,17 +29,13 @@ function Editprofile() {
 
     },[dbUser.child])
 
-    //    const toast = useRef(null);
-
+function displaySuccess(){
+        toast.current.show({severity:'success', summary: 'Success!', detail:'Child Added', life: 3000});
+        }
            
 function handleBtnClick(event) {
     event.preventDefault();
- 
-    // const showToast = () => {
-    //     toast.current.show({severity:'success', summary: 'Success!', detail:'Child Added', life: 3000});
-    // }
-
-
+    displaySuccess();
     if (kidInfo.kidname && kidInfo.kidage && kidInfo.gender) {
         API.addKidByEmail({
             //GRABBING INFO FROM STATE
@@ -70,6 +68,8 @@ function handleInputChange(event) {
 
     return (
         <div className="container">
+        <Toast ref={toast}/>
+
             <div className="row">
                 <div className="col">
                     <Profileform2 />
@@ -81,7 +81,7 @@ function handleInputChange(event) {
             <div className="row">
                 <div className="col">
                     <br />
-                        <Kids2 handleChange={handleInputChange} handleBtnClick={handleBtnClick} kidInfo={kidInfo}/>
+                        <Kids2 handleChange={handleInputChange} handleBtnClick={handleBtnClick} kidInfo={kidInfo} displaySuccess={displaySuccess}/>
                 </div>
                 <div id="kid-column" className="col">
                     <div id="kid-card-container">
