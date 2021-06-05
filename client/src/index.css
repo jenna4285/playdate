@@ -1,3 +1,5 @@
+
+
 .card{
     margin:10px;
     padding:20px;
@@ -5,4 +7,6 @@
 
 #master{
     background-image: url(https://i.imgur.com/iq7Flaw.jpg);
+    /* background- */
+    /* opacity: 60%; */
 }
