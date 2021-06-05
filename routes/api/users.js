@@ -22,5 +22,10 @@ router
   .route("/email/kid/:email")
   .put(userController.addKidByEmail)
   .get(userController.findByEmail)
+
+  router
+  .route("/email/friends/:email")
+  .put(userController.removeFriendByEmail)
+  .get(userController.findByEmail)
     
 module.exports = router;

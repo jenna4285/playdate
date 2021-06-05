@@ -30,6 +30,9 @@ export default {
   addKidByEmail: function(userData) {
     return axios.put("api/users/email/kid/" + userData.email, userData)
   },
+  removeFriend: function(userData) {
+    return axios.put("api/users/email/friends/" + userData.email, userData)
+  },
   // Activity Routes
   //get find all
   getActivity: function() {
