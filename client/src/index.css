@@ -5,9 +5,16 @@
     padding:20px;
 }
 
+
 #master{
     background-image: url(https://i.imgur.com/qyTwwJN.jpg);
     /* background- */
     /* opacity: 60%; */
     background-size: cover;
+}
+
+.button {
+    background-color: #086375;
+    color: #B2ff9E;
+
 }
