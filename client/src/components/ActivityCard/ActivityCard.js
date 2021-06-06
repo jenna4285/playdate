@@ -14,13 +14,13 @@ function ActivityCard(props) {
                     <div id="activity-container" className="activity-container justify-content-center p-d-flex p-mb-3 shadow">
                         <div className="row">
                             <div className="col-4">
-                                <h5>{data.location}</h5>
+                                <h5 className='mt-3'>{data.location}</h5>
                             </div>
                             <div className="col-4">
-                            <h5>{new Date(data.date).toLocaleDateString()}</h5>
+                            <h5 className='mt-3'>{new Date(data.date).toLocaleDateString()}</h5>
                             </div>
                             <div className="col-4">
-                                <h5>Host: {data.hostName}</h5>
+                                <h5 className='mt-3'>Host: {data.hostName}</h5>
                             </div>
                             <div className="row justify-content-center">
                                 <p style={{ textAlign: "center" }}>{data.description}</p>

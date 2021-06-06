@@ -25,3 +25,7 @@ text-align:center
 .no-dec:hover {
     text-decoration:none;
 }
+
+.no-gut{
+    --bs-gutter-x: 0rem!important;
+}
