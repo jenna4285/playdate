@@ -6,8 +6,12 @@
     margin-bottom:20px !important;
     border-radius: 30px!important;
     background-color:#086375!important;
-    color:white;
+    color:white!important;
     font-weight: bolder;
+}
+
+#Big-kid-card {
+    color: white;
 }
 
 .kid-name{

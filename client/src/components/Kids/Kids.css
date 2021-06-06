@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+.kidcard{
+    color: white;
+}
+
 h1{
     font-family: 'Lato', sans-serif;
 }
