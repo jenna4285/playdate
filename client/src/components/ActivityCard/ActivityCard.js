@@ -26,8 +26,8 @@ function ActivityCard(props) {
                                 <p style={{ textAlign: "center" }}>{data.description}</p>
                             </div>
                             {data.hostId === dbUser._id?
-                            <div>
-                                <button classname="btn danger" name= {data._id} onClick={props.deleteActivity}>X</button>
+                            <div className="d-flex justify-content-center">
+                                <button className="btn btn-danger" name= {data._id} onClick={props.deleteActivity}>Delete Your Activity</button>
                             </div>
                             : null}
                         </div>
