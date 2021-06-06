@@ -21,6 +21,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err=> res.status(422).json(err));
   },
+  findMessagesByEmail: function(req, res) {
+    db.User
+      .findOne({messages: req.params.email})
+      .then(dbModel => res.json(dbModel))
+      .catch(err=> res.status(422).json(err));
+  },
   create: function(req, res) {
     db.User
       .create(req.body)
@@ -36,6 +42,7 @@ module.exports = {
   updateByEmail: function(req, res) {
     db.User
       .findOneAndUpdate({ email: req.params.email }, req.body)
+      .then(console.log(req.body))
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -52,9 +59,17 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  addMessageByEmail: function(req, res) {
+    console.log(req.body)
+    db.User 
+      .findOneAndUpdate({ email: req.params.email }, {$push: req.body}, {new: true})
+      .then(dbModel => res.json(dbModel))
+      
+      .catch(err => res.status(422).json(err));
+  },
   removeFriendByEmail: function(req,res){
     db.User
-      .findOneAndUpdate({ email: req.params.email }, {$pull: {friends: {id: req.body.id}}}, {new:true})
+      .findOneAndUpdate({ _id: req.params.email }, {$pull: {friends: {id: req.body.id}}}, {new:true})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
