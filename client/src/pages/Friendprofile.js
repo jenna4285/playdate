@@ -77,9 +77,10 @@ function Friendprofile() {
           <div className="col-md-4 mb-3">
             <Usercard user={profileInfo}/>
             <div className="align-btn">
-              {!isFriend?
+              {id !== dbUser._id ?
+              !isFriend ?
             <button className="btn btn-light" onClick={addFriend}>Add Friend</button> 
-            : <button className="btn btn-light"onClick={removeFriend}>Remove Friend</button>  }
+            : <button className="btn btn-light"onClick={removeFriend}>Remove Friend</button> : null }
             </div>
           </div>
           <div className="col-md-8">

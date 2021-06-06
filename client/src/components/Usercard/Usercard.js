@@ -56,12 +56,16 @@ function Usercard (props){
       <h4>{props.user.fullname}</h4>
       <p className="text-secondary mb-1">{props.user.username}</p>
       <p className="text-muted font-size-sm">{props.user.description}</p>
+      { props.user.email !== user.email ?
+      <>
       <Button id="add-activity-btn" type="button" label="Message User" onClick={(e) => op.current.toggle(e)} />   
       <OverlayPanel ref={op} showCloseIcon dismissable={false}>
         <InputText name="content" value={message.content} type="text" className="form-control" onChange={handleInputChange} placeholder="Enter Message Here!"/>
         <Button id="send-message" type="button" label="Send" onClick={saveMessageHandler} />   
 
       </OverlayPanel>
+      </>
+      : null}
        </div>
   </div>
 </div>

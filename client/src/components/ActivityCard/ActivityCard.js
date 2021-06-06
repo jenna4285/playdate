@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
 import API from "../../utils/API";
 import UserContext from "../../utils/userContext"
+import { Link } from "react-router-dom"
 
 function ActivityCard(props) {
 
@@ -20,7 +21,7 @@ function ActivityCard(props) {
                             <h5>{new Date(data.date).toLocaleDateString()}</h5>
                             </div>
                             <div className="col-4">
-                                <h5>Host: {data.hostName}</h5>
+                                <h5>Host: <Link to={"/" + data.hostId}>{data.hostName}</Link></h5>
                             </div>
                             <div className="row justify-content-center">
                                 <p style={{ textAlign: "center" }}>{data.description}</p>
