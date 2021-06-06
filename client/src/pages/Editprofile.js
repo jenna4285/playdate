@@ -23,19 +23,26 @@ function Editprofile() {
         gender: ""
        });
     const [kidList, setKidList] = useState([])
-    const [profileInfo, setProfileInfo] = useState([])
+    const [profileInfo, setProfileInfo] = useState({})
+    const [isComplete, setIsComplete] = useState(true)
 
     useEffect(() => {
         setKidList(dbUser.child)
     },[dbUser.child])
 
-function displaySuccess(){
-        toast.current.show({severity:'success', summary: 'Success!', detail:'Child Added', life: 3000});
-        }
-           
+    useEffect(() => {
+        API.getUserByEmail(user.email)
+        .then((res)=> setProfileInfo(res.data))
+        // setProfileInfo(dbUser)
+    },[dbUser.email])
+
+    function displayKidSuccess(){
+            toast.current.show({severity:'success', summary: 'Success!', detail:'Child Added', life: 3000});
+            }
+        
 function handleBtnClick(event) {
     event.preventDefault();
-    displaySuccess();
+    displayKidSuccess();
     if (kidInfo.kidname && kidInfo.kidage && kidInfo.gender) {
         API.addKidByEmail({
             //GRABBING INFO FROM STATE
@@ -65,6 +72,43 @@ function handleInputChange(event) {
     const { name, value } = event.target
     setKidInfo({ ...kidInfo, [name]: value })
 }
+///Profile Changes
+
+function saveToDatabase(){
+    if (profileInfo.fullname && profileInfo.description) {
+        
+        API.editUserByEmail({
+            //GRABBING INFO FROM STATE
+            email: user.email,
+            fullname: profileInfo.fullname,
+            description: profileInfo.description,
+            picture: user.picture,
+            })
+            .then(API.getUserByEmail(user.email)
+            .then((res)=> setProfileInfo(res.data)))
+            // .then(() => window.location.href = "/editprofile")
+            .catch(err => console.log(err));
+    }
+}
+
+function handleProfileBtnClick(event) {
+    event.preventDefault();
+    displayProfileSuccess()
+    console.log(profileInfo.username)
+    saveToDatabase();
+    setIsComplete(true)
+}
+
+function handleProfileInputChange(event) {
+    const { name, value } = event.target
+    setProfileInfo({ ...profileInfo, [name]: value })
+}
+
+function displayProfileSuccess(){
+    toast.current.show({severity:'success', summary: 'Success!', detail:'Profile Saved!', life: 3000});
+    }
+
+
 
     return (
         <div className="container">
@@ -72,16 +116,16 @@ function handleInputChange(event) {
 
             <div className="row">
                 <div className="col">
-                    <Profileform2 setProfileInfo={setProfileInfo}/>
+                    <Profileform2 handleBtnClick = {handleProfileBtnClick} handleInputChange={handleProfileInputChange} profileInfo={profileInfo}/>
                 </div>
                 <div className="col">
-                   <CurrentProfileCard user={dbUser} />
+                   <CurrentProfileCard user={profileInfo} />
                 </div>
             </div>
             <div className="row">
                 <div className="col">
                     <br />
-                        <Kids2 handleChange={handleInputChange} handleBtnClick={handleBtnClick} kidInfo={kidInfo} displaySuccess={displaySuccess}/>
+                        <Kids2 handleChange={handleInputChange} handleBtnClick={handleBtnClick} kidInfo={kidInfo} displaySuccess={displayKidSuccess}/>
                 </div>
                 <div id="kid-column" className="col">
                     <div id="kid-card-container">
