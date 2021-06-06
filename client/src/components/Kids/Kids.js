@@ -8,7 +8,7 @@ function Kids() {
         <form className="container-fluid">
             <h1>Kids</h1>
 
-            <div className="p-fluid p-formgrid p-grid">
+            <div className="p-fluid p-formgrid p-grid kidcard">
                 <div className="p-field p-col-12 p-md-6">
                     <h5 htmlFor="child-name">Name</h5>
                     <div className="p-inputgroup">

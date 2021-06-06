@@ -1,8 +1,9 @@
 .heroheader {
     font-family: 'Syncopate', sans-serif!important;
+    color: #3c1642!important
 };
 
-* {
-    color: #3c1642;
+.home-info {
+    color: #3c1642!important;
     font-weight: 900;
 }

@@ -3,11 +3,12 @@ import 'primeflex/primeflex.css';
 import Kids from "../Kids/Kids";
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
+import './style.css'
 
 
 function Profile() {
     return (
-        <form className="container-fluid">
+        <form className="container-fluid profilecontainerfont">
             <h1>Profile Information:</h1><br></br>
             
             <div className="p-fluid p-formgrid p-grid">
