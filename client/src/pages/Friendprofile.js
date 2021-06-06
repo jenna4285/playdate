@@ -72,7 +72,7 @@ function Friendprofile() {
 
     <div className="container">
      <Toast ref={toast}/>
-      <div className="main-body">
+      <div className="main-body profile-body">
         <div className="row gutters-sm">
           <div className="col-md-4 mb-3">
             <Usercard user={profileInfo}/>
