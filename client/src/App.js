@@ -49,7 +49,7 @@ if (isLoading){
   return (
     <UserContext.Provider value={{dbUser}}>
     <Router>
-      <div>
+      <div id="master">
         <Nav />
         {isAuthenticated ? 
         <Switch>
