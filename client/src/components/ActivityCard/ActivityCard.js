@@ -12,7 +12,7 @@ function ActivityCard(props) {
         <div className="row">
             {props.activity.length ? (
                 props.activity.map((data) => (
-                    <div id="activity-container" className="activity-container justify-content-center p-d-flex p-mb-3 shadow">
+                    <div key={data._id} id="activity-container" className="activity-container justify-content-center p-d-flex p-mb-3 shadow">
                         <div className="row">
                             <div className="col-4">
                                 <h5 className='mt-3'>{data.location}</h5>
