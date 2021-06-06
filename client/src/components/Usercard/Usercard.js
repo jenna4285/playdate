@@ -4,21 +4,25 @@ import { Button } from 'primereact/button';
 import {InputText} from 'primereact/inputtext'
 import API from '../../utils/API'
 import { useAuth0 } from "@auth0/auth0-react";
+import { useParams } from 'react-router-dom';
 
 
 function Usercard (props){
+
+  let {id}=useParams()
+  console.log(id)
   const op = useRef(null);
   const {user, isAuthenticated} = useAuth0();
 
   const[message, setMessage]=useState({
+    recipient:id,
     sender:user.email,
     content:"",
     timestamp:"",
   });
 
   useEffect(() => {
-    setMessage({...message, timestamp:today })
-   
+    setMessage({...message, timestamp:today, recipient:id })
   }, [isAuthenticated])
 
   let today = new Date().toLocaleDateString()
@@ -27,7 +31,8 @@ function Usercard (props){
     op.current.hide(e)
     API.addMessageByEmail({
       messages:
-			{
+			{ 
+        recipient:id,
 				sender:user.email,
 				content:message.content,
 				timestamp:message.timestamp
@@ -35,6 +40,7 @@ function Usercard (props){
     })
 }
   
+
 
   function handleInputChange(event) {
     const { name, value } = event.target

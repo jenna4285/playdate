@@ -48,7 +48,7 @@ editActivityById: function(id, userData) {
 
 //message Routes
 addMessageByEmail: function(userData){
-  return axios.put("api/users/email/messages/" + userData.messages.sender, userData)
+  return axios.put("api/users/email/messages/" + userData.messages.recipient, userData)
 },
 
 removeActivity: function(id) {

@@ -60,3 +60,7 @@ body{
 .message-card{
     color:#fff
 }
+
+.profile-body{
+    height:100vh;
+}

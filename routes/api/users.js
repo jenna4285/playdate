@@ -24,7 +24,7 @@ router
   .get(userController.findByEmail)
 
   router
-  .route("/email/messages/:email")
+  .route("/email/messages/:id")
   .put(userController.addMessageByEmail)
   .get(userController.findMessagesByEmail)
 
