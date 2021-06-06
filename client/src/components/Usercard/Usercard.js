@@ -10,7 +10,6 @@ import { useParams } from 'react-router-dom';
 function Usercard (props){
 
   let {id}=useParams()
-  console.log(id)
   const op = useRef(null);
   const {user, isAuthenticated} = useAuth0();
 
