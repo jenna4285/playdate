@@ -38,7 +38,7 @@ function Profile() {
           </div>
           <div className="col-md-8">
             <CurrentProfileCard user={dbUser} />
-            <div className="row gutters-sm">
+            <div className="row">
               <KidCardContainer user={dbUser} />
             </div>
 
