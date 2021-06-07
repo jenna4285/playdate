@@ -52,7 +52,7 @@ function Dashboard() {
 
 
                 </div>
-                <div className="row no-gutter">
+                <div className="row no-gut">
                     <YourFriends user={dbUser} />
                     <div className='d-flex flex-wrap justify-content-center col-sm-12 col-md-6 col-lg-6'>
                     <KidCardContainer user={dbUser} />
