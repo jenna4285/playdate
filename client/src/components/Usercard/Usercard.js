@@ -28,6 +28,7 @@ function Usercard (props){
 
   function saveMessageHandler(e){
     op.current.hide(e)
+    props.messageSuccess()
     API.addMessageByEmail({
       messages:
 			{ 
