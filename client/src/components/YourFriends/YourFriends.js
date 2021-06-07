@@ -36,7 +36,7 @@ function YourFriends() {
 
   return (
     <div className="col-sm-12 col-md-6 col-lg-6">
-      <div className='row'>
+      <div className='row no-gut'>
         <div className="card">
           <h1>Your Friends</h1>
           {dbUser.friends ? (
@@ -50,7 +50,7 @@ function YourFriends() {
           )}
         </div>
       </div>
-      <div className="row">
+      <div className="row no-gut">
         <div className="card">
           <h1>Your Neighbors</h1>
           {users ? (
