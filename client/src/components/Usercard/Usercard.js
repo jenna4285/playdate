@@ -10,7 +10,6 @@ import { useParams } from 'react-router-dom';
 function Usercard (props){
 
   let {id}=useParams()
-  console.log(id)
   const op = useRef(null);
   const {user, isAuthenticated} = useAuth0();
 
@@ -53,9 +52,9 @@ function Usercard (props){
   <div className="d-flex flex-column align-items-center text-center">
     <img src={props.user.picture} alt="Admin" className="rounded-circle" width="150"/>
     <div className="mt-3">
-      <h4>{props.user.fullname}</h4>
-      <p className="text-secondary mb-1">{props.user.username}</p>
-      <p className="text-muted font-size-sm">{props.user.description}</p>
+      <h4 className="textcolor">{props.user.fullname}</h4>
+      <p className="text-secondary mb-1 textcolor">{props.user.username}</p>
+      <p className="text-muted font-size-sm textcolor">{props.user.description}</p>
       { props.user.email !== user.email ?
       <>
       <Button id="add-activity-btn" type="button" label="Message User" onClick={(e) => op.current.toggle(e)} />   

@@ -1,8 +1,8 @@
 const gender = [
-{ "label": "Boy", "value": "boy" },
-{ "label": "Girl", "value": "girl" },
-{ "label": "Non-Binary", "value": "non-binary" },
-{ "label": "No Response", "value": "no response" },
+{ "label": "Boy", "value": "Boy" },
+{ "label": "Girl", "value": "Girl" },
+{ "label": "Non-Binary", "value": "Non-Binary" },
+{ "label": "No Response", "value": "No Response" },
 ]
 
 export default gender;

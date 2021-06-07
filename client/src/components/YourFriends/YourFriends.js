@@ -56,8 +56,8 @@ function YourFriends() {
           {users ? (
             users.map((item) => (
               item._id !== dbUser._id ?
-              <div>
-                <Link className='no-dec' to={"/" + item._id}><Chip key={item._id} label={item.fullname} image={item.picture} className="friend-chip" /></Link>
+              <div key={item._id}>
+                <Link className='no-dec' to={"/" + item._id}><Chip label={item.fullname} image={item.picture} className="friend-chip" /></Link>
               </div>
               : null
             ))
