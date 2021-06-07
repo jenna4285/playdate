@@ -36,8 +36,8 @@ function YourFriends() {
 
   return (
     <div className="col-sm-12 col-md-6 col-lg-6">
-      <div className='row'>
-        <div className="card">
+      <div className='row '>
+        <div className="card ">
           <h1>Your Friends</h1>
           {dbUser.friends ? (
             dbUser.friends.map((item) => (
@@ -50,8 +50,8 @@ function YourFriends() {
           )}
         </div>
       </div>
-      <div className="row">
-        <div className="card">
+      <div className="row ">
+        <div className="card d-flex flex-wrap justify-content-center">
           <h1>Your Neighbors</h1>
           {users ? (
             users.map((item) => (
