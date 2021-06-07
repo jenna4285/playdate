@@ -6,7 +6,6 @@ import UserContext from "../utils/userContext";
 import YourActivities from "../components/YourActivities/YourActivities";
 import YourFriends from "../components/YourFriends/YourFriends";
 import API from "../utils/API";
-import { useAuth0 } from "@auth0/auth0-react";
 import './Dashboard.css'
 
 
@@ -17,7 +16,6 @@ function Dashboard() {
 
     const[uuid, setUuid] = useState({})
     const [activity, setActivity] = useState([])
-    const { isAuthenticated, user } = useAuth0();
 
     useEffect(() => {
         getActivity();

@@ -5,13 +5,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 import './Nav.css'
 
 function Nav() {
-  const { isAuthenticated, user } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   return (
     <header className="sticky-top p-3 navcolor text-white">
       <div className="container">
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a
-            href="/"
+          <a href="/"
             className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
           ></a>
           {isAuthenticated ? (

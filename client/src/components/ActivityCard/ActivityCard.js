@@ -1,5 +1,4 @@
 import React, {useContext} from "react";
-import API from "../../utils/API";
 import UserContext from "../../utils/userContext"
 import { Link } from "react-router-dom"
 

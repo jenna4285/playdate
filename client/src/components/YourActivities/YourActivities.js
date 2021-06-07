@@ -1,23 +1,11 @@
-import React, { useState,useEffect } from "react";
+import React from "react";
 import ActivityForm from "../ActivityForm/ActivityForm"
 import './YourActivities.css'
 import ActivityCard from "../ActivityCard/ActivityCard"
-import { set } from "mongoose";
-import API from "../../utils/API"
 
 
 function YourActivities(props) {
-    // const[activities, setActivities]= useState([])
 
-    // useEffect(() => {
-    //     getActivity();
-    // }, [activities]);
-
-
-    // const getActivity = () => {
-    //     API.getActivity()
-    //         .then((res) => setActivities(res.data))
-    // };
 
     return (
 

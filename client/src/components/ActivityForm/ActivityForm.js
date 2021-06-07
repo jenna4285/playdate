@@ -7,7 +7,6 @@ import PlacesAutocomplete, {
 import UserContext from "../../utils/userContext";
 import { InputTextarea } from 'primereact/inputtextarea';
 import { Calendar } from 'primereact/calendar';
-import { useAuth0 } from "@auth0/auth0-react";
 import 'primeflex/primeflex.css';
 import { OverlayPanel } from 'primereact/overlaypanel';
 import { Button } from 'primereact/button';
@@ -18,7 +17,6 @@ function ActivityForm(props) {
 
     const { dbUser } = useContext(UserContext);
     const [address, setAddress] = React.useState("");
-    const { user } = useAuth0();
     const [coordinates, setCoordinates] = React.useState({
       lat: null,
       lng: null

@@ -39,12 +39,6 @@ if (isLoading){
   )
 }
   
-  // CODE FOR SESSION/TOKEN - JG - Line 17-21 - Discuss w/ Team
-  // const [token, setToken] = useState();
-
-  // if(!token) {
-  //   return <Login setToken={setToken} />
-  // }
  
   return (
     <UserContext.Provider value={{dbUser}}>
