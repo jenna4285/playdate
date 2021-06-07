@@ -3,8 +3,10 @@ const db = require("../models");
 // Defining methods for the activityController
 module.exports = {
   findAll: function(req, res) {
+    let today = new Date();
+    let yesterday = today.setDate(today.getDate() -1)
     db.Activity
-      .find(req.query)
+      .find({date: {$gte: yesterday}})
       .sort({ date: 1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
