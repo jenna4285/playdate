@@ -64,3 +64,7 @@ body{
 .profile-body{
     height:100vh;
 }
+
+.message-sender{
+    font-weight: bolder;
+}
