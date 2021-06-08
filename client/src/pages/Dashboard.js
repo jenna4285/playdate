@@ -9,7 +9,7 @@ import API from "../utils/API";
 import { useAuth0 } from "@auth0/auth0-react";
 import './Dashboard.css'
 import { StreamChat } from 'stream-chat';
-import { Chat, Channel, ChannelHeader, MessageInput, MessageList, Thread, Window } from 'stream-chat-react';
+import { Chat, Channel, ChannelHeader, MessageInput, MessageList, Thread, Window, SendButton } from 'stream-chat-react';
 import 'stream-chat-react/dist/css/index.css';
 const api_key = 'vpd369jcmchr'
 const chatClient = StreamChat.getInstance(api_key);
@@ -46,16 +46,16 @@ function Dashboard() {
 
     chatClient.connectUser(
         {
-            id: 'Yousef',
-            name: "Yousef",
-            image: "https://s.gravatar.com/avatar/e46fc550ad57a71d16dd81b78ca27d0d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fyd.png",
+            id: user.nickname,
+            name: user.nickname,
+            image: user.picture,
         },
-        chatClient.devToken('Yousef'),
+        chatClient.devToken(user.nickname),
     )
 
     const channel = chatClient.channel('messaging', 'delicate-hall-9', {
         // add as many custom fields as you'd like
-        image: 'https://www.drupal.org/files/project-images/react.png',
+        image: 'https://i.imgur.com/fPJrXdV.png',
         name: 'Neighborhood Chat',
         members: ['delicate-hall-9'],
     });
@@ -79,12 +79,13 @@ function Dashboard() {
 
                 <div className="row">
                     <div className="col">
-                        <Chat client={chatClient} theme='messaging light'>
+                        <Chat client={chatClient} theme='team light'>
                             <Channel channel={channel}>
                                 <Window>
                                     <ChannelHeader />
                                     <MessageList />
                                     <MessageInput />
+                                    <SendButton/>
                                 </Window>
                                 <Thread />
                             </Channel>
