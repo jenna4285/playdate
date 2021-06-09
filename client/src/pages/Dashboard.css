@@ -23,3 +23,28 @@
     border-top-left-radius: 10px!important;
     border-top-right-radius: 10px;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 13px;
+    border-radius:20px;
+    
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #C9F8EE; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb { 
+    background: #3C1642;
+    border-radius:20px;
+    height: px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #086375; 
+  }

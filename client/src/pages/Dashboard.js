@@ -83,7 +83,7 @@ function Dashboard() {
                             <Channel channel={channel}>
                                 <Window>
                                     <ChannelHeader />
-                                    <MessageList />
+                                    <MessageList hideDeletedMessages={true}/>
                                     <MessageInput />
                                     <SendButton/>
                                 </Window>
