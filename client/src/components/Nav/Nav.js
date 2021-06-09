@@ -7,7 +7,7 @@ import './Nav.css'
 function Nav() {
   const { isAuthenticated, user } = useAuth0();
   return (
-    <header className="sticky-top p-3 navcolor text-white">
+    <header id="playdate-nav" className="sticky-top p-3 navcolor text-white playdate-nav">
       <div className="container">
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a
