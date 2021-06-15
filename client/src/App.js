@@ -50,7 +50,7 @@ if (isLoading){
     <Router>
       <div id="master">
         <Nav />
-        {isAuthenticated && dbUser? 
+        {isAuthenticated && dbUser.fullname? 
             <UserContext.Provider value={{dbUser}}>
         <Switch>
           <Route exact path={["/", "/home"]} component={Home}/>
