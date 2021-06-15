@@ -19,9 +19,11 @@ function Dashboard() {
 	const userLat = dbUser.lat;
 	const userLng = dbUser.lng;
 
+	let channel;
+
 	const [ uuid, setUuid ] = useState({});
 	const [ activity, setActivity ] = useState([]);
-	const { isAuthenticated, user } = useAuth0();
+	// const { isAuthenticated, user } = useAuth0();
 
 	useEffect(
 		() => {
@@ -31,6 +33,25 @@ function Dashboard() {
 		[ uuid ]
 	);
 
+	if (dbUser.fullname) {
+		chatClient.connectUser(
+			{
+				id: dbUser._id,
+				name: dbUser.fullname,
+				image: dbUser.picture
+			},
+			chatClient.devToken(dbUser._id)
+		);
+        console.log("FullName")
+        console.log(dbUser.fullname)
+		channel = chatClient.channel('messaging', 'delicate-hall-9', {
+			// add as many custom fields as you'd like
+			image: 'https://i.imgur.com/fPJrXdV.png',
+			name: 'Neighborhood Chat',
+			members: [ 'delicate-hall-9' ]
+		});
+	}
+
 	const deleteActivity = (event) => {
 		console.log(event.target.name);
 		API.removeActivity(event.target.name).then((res) => setUuid(res.id));
@@ -39,22 +60,7 @@ function Dashboard() {
 	const getActivity = () => {
 		API.getActivity().then((res) => setActivity(res.data));
 	};
-
-	chatClient.connectUser(
-		{
-			id: user.nickname,
-			name: user.nickname,
-			image: user.picture
-		},
-		chatClient.devToken(user.nickname)
-	);
-
-	const channel = chatClient.channel('messaging', 'delicate-hall-9', {
-		// add as many custom fields as you'd like
-		image: 'https://i.imgur.com/fPJrXdV.png',
-		name: 'Neighborhood Chat',
-		members: [ 'delicate-hall-9' ]
-	});
+	console.log(dbUser);
 
 	// function handleBtnClick(event) {
 	//     event.preventDefault();
@@ -71,27 +77,26 @@ function Dashboard() {
 					</div>
 				</div>
 
-
 				<div className="row no-gut">
 					<YourFriends user={dbUser} />
 					<div className="d-flex flex-wrap justify-content-center col-sm-12 col-md-6 col-lg-6">
 						<KidCardContainer user={dbUser} />
 					</div>
-                    <div className="row">
-					<div className="col">
-						<Chat client={chatClient} theme="team light">
-							<Channel channel={channel}>
-								<Window>
-									<ChannelHeader />
-									<MessageList hideDeletedMessages={true} />
-									<MessageInput />
-									<SendButton />
-								</Window>
-								<Thread />
-							</Channel>
-						</Chat>
+					<div className="row">
+						<div className="col">
+							<Chat client={chatClient} theme="team light">
+								<Channel channel={channel}>
+									<Window>
+										<ChannelHeader />
+										<MessageList hideDeletedMessages={true} />
+										<MessageInput />
+										<SendButton />
+									</Window>
+									<Thread />
+								</Channel>
+							</Chat>
+						</div>
 					</div>
-				</div>
 				</div>
 				<div className="d-flex row">
 					<YourActivities
