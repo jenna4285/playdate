@@ -21,14 +21,14 @@ function ActivityCard(props) {
 								<h7 className="mt-3">{data.location}</h7>
 							</div>
 							<div className="col-3">
-								<h7 className="mt-3">
+								<h7 id="host" className="mt-3">
 									Host:{' '}
 									<Link className="no-dec" to={'/' + data._id}>
 										<Chip
 											key={data.id}
 											label={data.hostName}
 											className="friend-chip"
-                                            style={{backgroundColor:"#1dbbd3"}}
+                                            style={{backgroundColor:"#1dbbd3", maxWidth:"fit-content"}}
 										/>
 									</Link>
 								</h7>
