@@ -1,0 +1,18 @@
+#activity-page{
+}
+
+#activity-page-map{
+    height:500px!important;
+}
+
+#activity-title{
+    text-align: center!important;
+}
+
+#map-attendees{
+    height:500px!important
+}
+
+.card.activity-card{
+    margin:inherit;
+}
