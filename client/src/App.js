@@ -6,6 +6,7 @@ import Editprofile from './pages/Editprofile'
 import Friendprofile from './pages/Friendprofile'
 import Dashboard from './pages/Dashboard'
 import Loading from './pages/Loading'
+import Activitypage from './pages/ActivityPage'
 // import Books from "./pages/Books";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav/Nav";
@@ -44,13 +45,14 @@ if (isLoading){
     <Router>
       <div id="master">
         <Nav />
-        {isAuthenticated && dbUser.fullname? 
+        {isAuthenticated && dbUser.email? 
             <UserContext.Provider value={{dbUser}}>
         <Switch>
           <Route exact path={["/", "/home"]} component={Home}/>
           <Route exact path="/profile" component={Profile}/>
           <Route exact path="/editprofile" component={Editprofile}/>
           <Route exact path="/dashboard" component={Dashboard}/>
+          <Route exact path="/activity" component={Activitypage}/>
           <Route exact path="/profile/:id" component={Friendprofile}/>
           <Route>
             <NoMatch />
