@@ -1,5 +1,8 @@
 import axios from "axios";
 // import { db } from "../../../models/user";
+const os = require('os');
+
+axios.defaults.baseURL =  os.homedir()
 
 
 export default {

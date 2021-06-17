@@ -10,6 +10,7 @@ import API from "../utils/API";
 import {Toast} from "primereact/toast";
 
 
+
 function Friendprofile() {
 
   const {dbUser} = useContext(UserContext);
@@ -21,6 +22,7 @@ function Friendprofile() {
   const toast = useRef(null);
 
   useEffect(()=>{
+    console.log(id)
     getProfile(id)
     setIsFriend(false)
     dbUser.friends &&

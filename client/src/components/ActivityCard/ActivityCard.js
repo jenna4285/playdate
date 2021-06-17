@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-import React, {useContext} from "react";
-import UserContext from "../../utils/userContext"
-import { Link } from "react-router-dom"
-=======
 import React, { useContext } from 'react';
 import API from '../../utils/API';
 import UserContext from '../../utils/userContext';
 import { Link } from 'react-router-dom';
 import { Chip } from 'primereact/chip';
 import './ActivityCard.css'
->>>>>>> 322b496214893fe2e7903888b0083312d632cac0
 
 function ActivityCard(props) {
 	const { dbUser } = useContext(UserContext);
