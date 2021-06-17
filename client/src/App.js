@@ -41,11 +41,11 @@ if (isLoading){
   
  
   return (
-    <UserContext.Provider value={{dbUser}}>
     <Router>
       <div id="master">
         <Nav />
-        {isAuthenticated ? 
+        {isAuthenticated && dbUser.fullname? 
+            <UserContext.Provider value={{dbUser}}>
         <Switch>
           <Route exact path={["/", "/home"]} component={Home}/>
           <Route exact path="/profile" component={Profile}/>
@@ -56,11 +56,11 @@ if (isLoading){
             <NoMatch />
           </Route>
         </Switch>
+    </UserContext.Provider>
         :
         <Route path={["/", "/home"]} component={Home}/>}
       </div>
     </Router>
-    </UserContext.Provider>
   );
 }
 

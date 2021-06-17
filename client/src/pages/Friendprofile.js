@@ -37,6 +37,9 @@ function Friendprofile() {
       toast.current.show({ severity: 'error', summary: 'Success!', detail: 'Friend Removed', life: 3000 });
   }
 
+  function messageSuccess(){
+    toast.current.show({severity:'success', summary: 'Success!', detail:'Message sent!', life: 3000});
+  }
 
     const getProfile = (get) =>{
         API.getUser(get)
@@ -75,7 +78,7 @@ function Friendprofile() {
       <div className="main-body profile-body">
         <div className="row gutters-sm">
           <div className="col-md-4 mb-3">
-            <Usercard user={profileInfo}/>
+            <Usercard user={profileInfo} messageSuccess={messageSuccess}/>
             <div className="align-btn">
               {id !== dbUser._id ?
               !isFriend ?

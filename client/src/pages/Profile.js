@@ -25,7 +25,7 @@ function Profile() {
       {dbUser.messages ? (
         dbUser.messages.map((data) => (
           <div className="card">
-          Sender: {data.sender} <br/> Message:{data.content}
+          <span className="message-sender">Sender:</span> {data.sender} <br/><span className="message-sender">Message: </span>{data.content}
           </div>
         ))
       ) : (

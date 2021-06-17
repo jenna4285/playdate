@@ -4,7 +4,7 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     let today = new Date();
-    let yesterday = today.setDate(today.getDate() - 1)
+    let yesterday = today.setDate(today.getDate() -1)
     db.Activity
       .find({date: {$gte: yesterday}})
       .sort({ date: 1 })

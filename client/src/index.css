@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:ital@1&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+p{
+    font-family: 'Raleway', sans-serif;
+    font-size:1rem;
+}
 
 
 .card{
@@ -24,3 +39,9 @@
     color: #B2ff9E;
 
 }
+
+#main-body{
+    margin-top:0px;
+    height:100vh;
+}
+
