@@ -8,14 +8,15 @@ import './ActivityCard.css'
 
 function ActivityCard(props) {
 	const { dbUser } = useContext(UserContext);
-	const [ attending, setAttending] = useState(false);
+	const [ attending, setAttending] = useState();
 
 	useEffect(() => {
-		props.activity.attendees.length && 
+		props.activity.attendees && 
 		props.activity.attendees.forEach(attendee => {
-			if(attendee === dbUser._id){setAttending(true)}
+			if(attendee === dbUser._id){setAttending(true); console.log("hi")}
+			else{setAttending(false)}
 		})
-	},[])
+	},[props.activity.attendees])
 
 	const unattendActivity = (event) =>{
 		event.preventDefault()
