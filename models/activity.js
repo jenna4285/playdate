@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 
 const activitySchema = new Schema({
     hostName: String,
-    hostId: String,
+    hostId: {type : Schema.Types.ObjectId, ref: "User"},
+    attendees: [{type: Schema.Types.ObjectId, ref: "User"}],
     date: Date,
     location: String,
     description: String,

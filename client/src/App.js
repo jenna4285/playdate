@@ -7,7 +7,6 @@ import Friendprofile from './pages/Friendprofile'
 import Dashboard from './pages/Dashboard'
 import Loading from './pages/Loading'
 import Activitypage from './pages/ActivityPage'
-// import Books from "./pages/Books";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav/Nav";
 

@@ -22,7 +22,6 @@ function Friendprofile() {
   const toast = useRef(null);
 
   useEffect(()=>{
-    console.log(id)
     getProfile(id)
     setIsFriend(false)
     dbUser.friends &&
@@ -53,11 +52,12 @@ function Friendprofile() {
     displaySuccess()
     API.addKidByEmail({
       email: user.email,
-      push: {friends: {
-        id: profileInfo._id,
-        name: profileInfo.fullname,
-        picture: profileInfo.picture
-        },
+      push: {friends:profileInfo._id
+        //  {
+        // id: profileInfo._id,
+        // name: profileInfo.fullname,
+        // picture: profileInfo.picture
+        // }
       }
     })
     .then(setIsFriend(true))

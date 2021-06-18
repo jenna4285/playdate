@@ -22,7 +22,12 @@ router
   // Matches with "/api/activity/email/kid/:email -- might not use this
   router
   .route("/email/kid/:email")
-  .put(activityController.addKidByEmail)
+  // .put(activityController.addKidByEmail)
   .get(activityController.findByEmail)
+
+router
+  .route("/attendee/:id")
+  .put(activityController.addAttendeeById)
+  .delete(activityController.removeAttendeeById)
     
 module.exports = router;

@@ -42,7 +42,7 @@ function YourFriends() {
           {dbUser.friends ? (
             dbUser.friends.map((item) => (
               <div>
-                <Link className='no-dec' to={"/profile/" + item.id}><Chip key={item.id} label={item.name} image={item.picture} className="friend-chip" /></Link>
+                <Link className='no-dec' to={"/profile/" + item._id}><Chip key={item._id} label={item.fullname} image={item.picture} className="friend-chip" /></Link>
               </div>
             ))
           ) : (

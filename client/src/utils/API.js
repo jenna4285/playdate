@@ -56,5 +56,16 @@ addMessageByEmail: function(userData){
 
 removeActivity: function(id) {
   return axios.delete("/api/activity/"+id)
+},
+
+attendActivity: function(userData){
+  return axios.put("/api/activity/attendee/"+userData.eventId, userData)
+},
+
+unattendActivity: function(userData){
+  return axios.delete("/api/activity/attendee/"+userData.eventId, {data: userData})
+},
+addActivity: function(userData){
+  return axios.put("/api/users/activity/"+ userData.userId, userData)
 }
 }

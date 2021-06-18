@@ -18,6 +18,7 @@ module.exports = {
   findByEmail: function(req, res) {
     db.User
       .findOne({email: req.params.email})
+      .populate("friends")
       .then(dbModel => res.json(dbModel))
       .catch(err=> res.status(422).json(err));
   },
@@ -60,7 +61,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   addMessageByEmail: function(req, res) {
-    console.log(req.body)
     db.User 
       .findOneAndUpdate({ _id: req.params.id }, {$push: req.body}, {new: true})
       .then(dbModel => res.json(dbModel))
@@ -72,5 +72,13 @@ module.exports = {
       .findOneAndUpdate({ email: req.params.email }, {$pull: {friends: {id: req.body.id}}}, {new:true})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+
+  addUserActivity: function(req,res){
+      console.log(req.body)
+      db.User 
+        .findOneAndUpdate({ _id: req.params.id }, {$push: {activities: req.body.eventId}}, {new: true})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
   }
 };

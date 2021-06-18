@@ -15,7 +15,11 @@ function YourActivities(props) {
                 <ActivityForm setActivities={props.setActivity} setUuid={props.setUuid}/>
                 <h1 className='activities'>Neighbor Activities</h1>
                 <div className="col">
-                <ActivityCard activity={props.activity} deleteActivity={props.deleteActivity}/>
+                {props.activity.length ? (
+				props.activity.map((data) => (
+                <ActivityCard activity={data} deleteActivity={props.deleteActivity} />
+                ))
+                ) : null}
                 </div>
             </div>
         </div>

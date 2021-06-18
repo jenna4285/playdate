@@ -7,6 +7,7 @@ module.exports = {
     let yesterday = today.setDate(today.getDate() -1)
     db.Activity
       .find({date: {$gte: yesterday}})
+      .populate("hostId")
       .sort({ date: 1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -14,6 +15,7 @@ module.exports = {
   findById: function(req, res) {
     db.Activity
       .findById(req.params.id)
+      .populate(["hostId", "attendees"])
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -48,10 +50,16 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  addKidByEmail: function(req, res) {
+  addAttendeeById: function(req, res) {
     db.Activity
-      .findOneAndUpdate({ email: req.params.email }, {$push: req.body.push})
+      .findOneAndUpdate({ _id: req.params.id }, {$push: {attendees: req.body.userId}}, {new:true})
       .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  removeAttendeeById: function(req, res) {
+    db.Activity
+    .findOneAndUpdate({ _id: req.params.id }, {$pull: {attendees: req.body.userId}}, {new:true})
+    .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
 };

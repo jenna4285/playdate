@@ -1,32 +1,55 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import API from '../../utils/API';
 import UserContext from '../../utils/userContext';
 import { Link } from 'react-router-dom';
 import { Chip } from 'primereact/chip';
 import './ActivityCard.css'
 
+
 function ActivityCard(props) {
 	const { dbUser } = useContext(UserContext);
+	const [ attending, setAttending] = useState(false);
+
+	useEffect(() => {
+		props.activity.attendees.length && 
+		props.activity.attendees.forEach(attendee => {
+			if(attendee === dbUser._id){setAttending(true)}
+		})
+	},[])
+
+	const unattendActivity = (event) =>{
+		event.preventDefault()
+		API.unattendActivity({
+			eventId: props.activity._id,
+			userId: dbUser._id
+		})
+		.then(setAttending(false))
+	}
+	const attendActivity = (event) => {
+		API.attendActivity({
+			eventId: event.target.name,
+			userId: dbUser._id
+		}).then(setAttending(true))
+	}
 
 	return (
 		<div className="row">
-			{props.activity.length ? (
-				props.activity.map((data) => (
-					<div key={data._id} id="activity-container" className="activity-container p-mb-3 shadow">
+					<div key={props.activity._id} id="activity-container" className="activity-container p-mb-3 shadow">
 						<div className="row">
 							<div className="row date">
-								<h5 className="mt-3">{new Date(data.date).toLocaleDateString()}</h5>
+								<h5 className="mt-3">{new Date(props.activity.date).toLocaleDateString()}</h5>
 							</div>
 							<div className="col-3">
-								<h7 className="mt-3">{data.location}</h7>
+								<h7 className="mt-3">{props.activity.location}</h7>
 							</div>
 							<div className="col-3">
 								<h7 id="host" className="mt-3">
 									Host:{' '}
-									<Link className="no-dec" to={'/' + data._id}>
+									<Link className="no-dec" to={'/profile/' + props.activity.hostId._id}>
 										<Chip
-											key={data.id}
-											label={data.hostName}
+											key={props.activity.hostId._id}
+											label={props.activity.hostId.fullname}
+											image={props.activity.hostId.picture}
 											className="friend-chip"
                                             style={{backgroundColor:"#1dbbd3", maxWidth:"fit-content"}}
 										/>
@@ -34,25 +57,29 @@ function ActivityCard(props) {
 								</h7>
 							</div>
 							<div className="col-6">
-								<p style={{ textAlign: 'center', verticalAlign: 'center' }}>{data.description}</p>
+								<p style={{ textAlign: 'center', verticalAlign: 'center' }}>{props.activity.description}</p>
 							</div>
-							{data.hostId === dbUser._id ? (
+							{props.activity.hostId._id === dbUser._id ? (
 								<div className="row justify-content-center">
-									<button className="btn btn-danger" name={data._id} onClick={props.deleteActivity}>
+									<button className="btn btn-danger" name={props.activity._id} onClick={props.deleteActivity}>
 										Delete Your Activity
+									</button>
+								</div>
+							) : !attending? (
+								<div className="row justify-content-center">
+									<button className="btn btn-success " name={props.activity._id} onClick={attendActivity}>
+										Attend This Activity!
 									</button>
 								</div>
 							) : (
 								<div className="row justify-content-center">
-									<button className="btn btn-success " name={data._id} onClick={props.attendActivity}>
-										Attend This Activity!
-									</button>
-								</div>
+								<button className="btn btn-warning " name={props.activity._id} onClick={unattendActivity}>
+									Dont Attend This Activity!
+								</button>
+							</div>
 							)}
 						</div>
 					</div>
-				))
-			) : null}
 		</div>
 	);
 }
