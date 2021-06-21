@@ -7,7 +7,6 @@ import CurrentProfileCard from "../components/CurrentProfileC/CurrentProfileC"
 import KidCardContainer from "../components/KidCardContainer/KidCardContainer"
 import '../pages/Profile.css'
 import Messages from "../components/Messages/Messages"
-import Kidcard from "../components/Kidcard/Kidcard"
 
 
 function Profile() {

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Marker, withGoogleMap, Map, GoogleApiWrapper, Circle} from 'google-maps-react';
-// import UserContext from '../../utils/userContext';
+import { Marker, Map, GoogleApiWrapper, Circle} from 'google-maps-react';
 import './style.css'
 require('dotenv').config();
 

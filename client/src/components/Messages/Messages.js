@@ -1,9 +1,7 @@
-import React, {useContext} from "react";
-import UserContext from "../../utils/userContext";
+import React from "react";
 import './Messages.css'
 function Messages() {
-  const {dbUser}=useContext(UserContext)
-
+ 
 
 
   return (

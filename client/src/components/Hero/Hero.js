@@ -1,12 +1,12 @@
 import React from "react";
 import './Hero.css'
-import { useAuth0, isAuthenticated, user } from "@auth0/auth0-react"
+import { useAuth0 } from "@auth0/auth0-react"
 
 
 function Hero(props){
 
   const { loginWithRedirect } = useAuth0();
-  const { isAuthenticated, user } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   return (
     <div>
       <div className="px-4 py-5 my-5 text-center card">

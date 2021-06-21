@@ -25,15 +25,17 @@ const userSchema = new Schema({
         gender: String
     }],
     friends: [{
-        id: String,
-        name: String,
-        picture: String
+        type: Schema.Types.ObjectId, ref: "User"
+        // id: String,
+        // name: String,
+        // picture: String
     }],
     messages:[{
         sender:String,
         content: String,
         timestamp: Date
-    }]
+    }],
+    activities: [{type: Schema.Types.ObjectId, ref: "Activity"}]
 });
 
 const User = mongoose.model("User", userSchema)

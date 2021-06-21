@@ -32,5 +32,9 @@ router
   .route("/email/friends/:email")
   .put(userController.removeFriendByEmail)
   .get(userController.findByEmail)
+
+router
+  .route("/activity/:id")
+  .put(userController.addUserActivity)
     
 module.exports = router;

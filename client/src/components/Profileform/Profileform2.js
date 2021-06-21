@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useRef} from "react";
-import API from "../../utils/API"
+import React, { useRef} from "react";
 import {Toast} from "primereact/toast";
 
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
-import { useAuth0 } from "@auth0/auth0-react";
 import 'primeflex/primeflex.css';
 import './Profileform.css'
 import Geocode from "react-geocode";
@@ -15,8 +13,6 @@ Geocode.setApiKey("AIzaSyAQACrt018ybMocp5ofJnmPmB7XPiX23Yg");
 
 function Profileform2(props) {
     const toast = useRef(null);
-
-    const { isAuthenticated, user } = useAuth0();
 
     return (
 

@@ -7,7 +7,6 @@ import Friendprofile from './pages/Friendprofile'
 import Dashboard from './pages/Dashboard'
 import Loading from './pages/Loading'
 import Activitypage from './pages/ActivityPage'
-// import Books from "./pages/Books";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav/Nav";
 
@@ -40,12 +39,6 @@ if (isLoading){
   )
 }
   
-  // CODE FOR SESSION/TOKEN - JG - Line 17-21 - Discuss w/ Team
-  // const [token, setToken] = useState();
-
-  // if(!token) {
-  //   return <Login setToken={setToken} />
-  // }
  
   return (
     <Router>
@@ -59,7 +52,7 @@ if (isLoading){
           <Route exact path="/editprofile" component={Editprofile}/>
           <Route exact path="/dashboard" component={Dashboard}/>
           <Route exact path="/activity" component={Activitypage}/>
-          <Route exact path="/:id" component={Friendprofile}/>
+          <Route exact path="/profile/:id" component={Friendprofile}/>
           <Route>
             <NoMatch />
           </Route>

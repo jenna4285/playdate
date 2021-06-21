@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import {Toast} from "primereact/toast";
-import {Button} from "primereact/button";
 import UserContext from "../utils/userContext"
 import { useAuth0 } from "@auth0/auth0-react";
 import Profileform2 from "../components/Profileform/Profileform2";
@@ -14,7 +13,7 @@ import API from "../utils/API"
 
 function Editprofile() {
     const toast = useRef(null);
-    const { isAuthenticated, user } = useAuth0();
+    const { user } = useAuth0();
     const {dbUser}=useContext(UserContext);
     const [kidInfo, setKidInfo] = useState({
        
@@ -24,7 +23,6 @@ function Editprofile() {
        });
     const [kidList, setKidList] = useState([])
     const [profileInfo, setProfileInfo] = useState({})
-    const [isComplete, setIsComplete] = useState(true)
 
     useEffect(() => {
         setKidList(dbUser.child)
@@ -96,7 +94,6 @@ function handleProfileBtnClick(event) {
     displayProfileSuccess()
     console.log(profileInfo.username)
     saveToDatabase();
-    setIsComplete(true)
 }
 
 function handleProfileInputChange(event) {

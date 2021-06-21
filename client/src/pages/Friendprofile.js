@@ -10,6 +10,7 @@ import API from "../utils/API";
 import {Toast} from "primereact/toast";
 
 
+
 function Friendprofile() {
 
   const {dbUser} = useContext(UserContext);
@@ -51,11 +52,12 @@ function Friendprofile() {
     displaySuccess()
     API.addKidByEmail({
       email: user.email,
-      push: {friends: {
-        id: profileInfo._id,
-        name: profileInfo.fullname,
-        picture: profileInfo.picture
-        },
+      push: {friends:profileInfo._id
+        //  {
+        // id: profileInfo._id,
+        // name: profileInfo.fullname,
+        // picture: profileInfo.picture
+        // }
       }
     })
     .then(setIsFriend(true))

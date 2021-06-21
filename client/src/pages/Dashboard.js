@@ -9,7 +9,7 @@ import API from '../utils/API';
 import { useAuth0 } from '@auth0/auth0-react';
 import './Dashboard.css';
 import { StreamChat } from 'stream-chat';
-import { Chat, Channel, ChannelHeader, MessageInput, MessageList, Thread, Window, SendButton } from 'stream-chat-react';
+import { Chat, Channel, ChannelHeader, MessageInput, MessageList, Thread, Window, SendButton, useEnrichedMessages } from 'stream-chat-react';
 import 'stream-chat-react/dist/css/index.css';
 const api_key = 'vpd369jcmchr';
 const chatClient = StreamChat.getInstance(api_key);
@@ -42,8 +42,6 @@ function Dashboard() {
 			},
 			chatClient.devToken(dbUser._id)
 		);
-        console.log("FullName")
-        console.log(dbUser.fullname)
 		channel = chatClient.channel('messaging', 'delicate-hall-9', {
 			// add as many custom fields as you'd like
 			image: 'https://i.imgur.com/fPJrXdV.png',
@@ -60,7 +58,6 @@ function Dashboard() {
 	const getActivity = () => {
 		API.getActivity().then((res) => setActivity(res.data));
 	};
-	console.log(dbUser);
 
 	// function handleBtnClick(event) {
 	//     event.preventDefault();

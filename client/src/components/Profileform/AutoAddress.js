@@ -8,7 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function AutoAddress() {
   const [address, setAddress] = React.useState("");
-  const { isAuthenticated, user } = useAuth0();
+  const { user } = useAuth0();
   const [coordinates, setCoordinates] = React.useState({
     lat: null,
     lng: null
