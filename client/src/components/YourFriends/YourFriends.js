@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import API from "../../utils/API";
 import UserContext from "../../utils/userContext";
+import SearchBar from "../SearchBar";
 import { Link } from "react-router-dom"
 import { Chip } from 'primereact/chip';
 import './YourFriends.css'
@@ -10,7 +11,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 function YourFriends() {
   const { dbUser } = useContext(UserContext)
   const [users, setUsers] = useState()
-  const [friends, setFriends] = useState()
+  const [filteredUsers, setFilteredUsers] = useState([])
   const { isAuthenticated, user } = useAuth0();
 
   useEffect(() => {
@@ -21,7 +22,19 @@ function YourFriends() {
   const getUsers = async () => {
     const allUsers = await API.getUsers();
     setUsers(allUsers.data)
+    setFilteredUsers(allUsers.data)
   }
+
+  const handleChange = (e) => {
+    const searchField = e.target.value
+    const userSearch = users.filter(item => 
+      !item.fullname ?
+      item.email.toLowerCase().includes(searchField.toLowerCase())
+      :
+      item.fullname.toLowerCase().includes(searchField.toLowerCase())
+  )
+    setFilteredUsers(userSearch)
+  }  
 
   // const getFriends=async()=>{const myFriends = await API.getUserByEmail(user.email).then(userInfo => {
   //         console.log(userInfo.data.friends)
@@ -53,8 +66,9 @@ function YourFriends() {
       <div className="row no-gut">
         <div className="card">
           <h1>Your Neighbors</h1>
-          {users ? (
-            users.map((item) => (
+          <SearchBar handleChange = {handleChange} />
+          {filteredUsers ? (
+            filteredUsers.map((item) => (
               item._id !== dbUser._id ?
               <div key={item._id}>
                 <Link className='no-dec' to={"/profile/" + item._id}><Chip label={item.fullname} image={item.picture} className="friend-chip" /></Link>
