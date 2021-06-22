@@ -47,7 +47,6 @@ function ActivityPage() {
 			  	activityInfo.attendees[0]? (
                 activityInfo.attendees.map((item) => (
                   <div>
-					  {console.log(item)}
                     <Link className="no-dec" to={"/profile/" + item._id}>
                       <Chip
                         key={item._id}
