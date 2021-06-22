@@ -28,7 +28,9 @@ function YourFriends() {
   const handleChange = (e) => {
     const searchField = e.target.value
     const userSearch = users.filter(item => 
-      item.fullname &&
+      !item.fullname ?
+      item.email.toLowerCase().includes(searchField.toLowerCase())
+      :
       item.fullname.toLowerCase().includes(searchField.toLowerCase())
   )
     setFilteredUsers(userSearch)
