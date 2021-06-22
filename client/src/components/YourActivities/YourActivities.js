@@ -2,6 +2,8 @@ import React from "react";
 import ActivityForm from "../ActivityForm/ActivityForm"
 import './YourActivities.css'
 import ActivityCard from "../ActivityCard/ActivityCard"
+import { Link } from 'react-router-dom';
+
 
 
 function YourActivities(props) {
@@ -17,7 +19,9 @@ function YourActivities(props) {
                 <div className="col">
                 {props.activity.length ? (
 				props.activity.map((data) => (
-                <ActivityCard activity={data} deleteActivity={props.deleteActivity} />
+                <Link className= "activity-link" to={"/activity/" + data._id}>
+                    <ActivityCard activity={data} deleteActivity={props.deleteActivity} />
+                </Link>
                 ))
                 ) : null}
                 </div>
