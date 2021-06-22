@@ -27,6 +27,7 @@ function ActivityCard(props) {
 		.then(setAttending(false))
 	}
 	const attendActivity = (event) => {
+		event.preventDefault()
 		API.attendActivity({
 			eventId: event.target.name,
 			userId: dbUser._id

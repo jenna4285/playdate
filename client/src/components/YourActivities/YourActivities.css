@@ -7,3 +7,13 @@
     background-color: #1DD3B0;
     margin-bottom: 10px;
 }
+
+.activity-link{
+    color: black;
+    text-decoration: none;
+}
+
+.activity-link :hover{
+    color: black;
+    text-decoration: none;
+}

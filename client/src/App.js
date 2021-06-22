@@ -51,7 +51,7 @@ if (isLoading){
           <Route exact path="/profile" component={Profile}/>
           <Route exact path="/editprofile" component={Editprofile}/>
           <Route exact path="/dashboard" component={Dashboard}/>
-          <Route exact path="/activity" component={Activitypage}/>
+          <Route exact path="/activity/:id" component={Activitypage}/>
           <Route exact path="/profile/:id" component={Friendprofile}/>
           <Route>
             <NoMatch />
