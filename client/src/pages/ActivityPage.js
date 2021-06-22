@@ -58,7 +58,7 @@ function ActivityPage() {
                   </div>
                 ))
               ) : (
-                <p>""</p>
+                <h1>Be the First to RSVP</h1>
               )}
             </div>
           </div>
