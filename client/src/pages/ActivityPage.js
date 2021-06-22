@@ -43,10 +43,10 @@ function ActivityPage() {
           <div class="col">
             <div className="card">
               <h1>Whos Going</h1>
-              {activityInfo.attendees? (
+              {activityInfo.attendees?
+			  	activityInfo.attendees[0]? (
                 activityInfo.attendees.map((item) => (
                   <div>
-					  {console.log(item)}
                     <Link className="no-dec" to={"/profile/" + item._id}>
                       <Chip
                         key={item._id}
@@ -58,8 +58,8 @@ function ActivityPage() {
                   </div>
                 ))
               ) : (
-                <h1>Be the First to RSVP</h1>
-              )}
+                <h2>Be the First to RSVP</h2>
+              ) :(null)}
             </div>
           </div>
         </div>
