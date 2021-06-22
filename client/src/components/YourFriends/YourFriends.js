@@ -6,6 +6,8 @@ import { Link } from "react-router-dom"
 import { Chip } from 'primereact/chip';
 import './YourFriends.css'
 import { useAuth0 } from "@auth0/auth0-react";
+import { ScrollPanel } from 'primereact/scrollpanel';
+
 
 
 function YourFriends() {
@@ -52,6 +54,7 @@ function YourFriends() {
       <div className='row no-gut'>
         <div className="card">
           <h1>Your Friends</h1>
+          <ScrollPanel style={{width: '100%', height: '200px'}}>
           {dbUser.friends ? (
             dbUser.friends.map((item) => (
               <div>
@@ -61,12 +64,14 @@ function YourFriends() {
           ) : (
             <p>""</p>
           )}
+          </ScrollPanel>
         </div>
       </div>
       <div className="row no-gut">
         <div className="card">
           <h1>Your Neighbors</h1>
           <SearchBar handleChange = {handleChange} />
+          <ScrollPanel style={{width: '100%', height: '200px'}}>
           {filteredUsers ? (
             filteredUsers.map((item) => (
               item._id !== dbUser._id ?
@@ -78,6 +83,7 @@ function YourFriends() {
           ) : (
             <p>""</p>
           )}
+          </ScrollPanel>
         </div>
       </div>
     </div>
