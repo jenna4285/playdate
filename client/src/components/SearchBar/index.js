@@ -5,9 +5,9 @@ import "./style.css";
 function SearchBar(props) {
     return (
         <div className = "col-12 background-color">
-            <nav className="navbar navbar-light bg-light background-color">
-                <div className="form-inline">
-                <input className="form-control mr-sm-5" type="search" placeholder="Search" aria-label="Search" onChange = {props.handleChange}/>
+            <nav id="friend-search" >
+                <div className="form-inline d-flex container justify-content-center">
+                <input className="form-control" type="search" placeholder="Search for a neighbor!" aria-label="Search" onChange = {props.handleChange}/>
                 </div>
             </nav>
         </div>
