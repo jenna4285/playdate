@@ -1,4 +1,9 @@
 #dashboard-map{
     height:50vh;
     width:100wh;
+    border-radius: 10px;
+}
+
+#map-div{
+    margin-bottom: 40px;
 }

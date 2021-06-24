@@ -28,3 +28,15 @@ text-align:center
 .no-gut{
     --bs-gutter-x: 0rem!important;
 }
+
+.p-scrollpanel-content{
+    width: 100%!important;
+}
+
+.p-scrollpanel .p-scrollpanel-bar{
+    background:none!important;
+}
+
+.p-scrollpanel-bar{
+    z-index:unset!important;
+}

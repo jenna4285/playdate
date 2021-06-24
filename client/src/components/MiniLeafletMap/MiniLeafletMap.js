@@ -25,7 +25,7 @@ function MiniLeafletMap(props) {
 		<div id="map-div">
 		
 			<MapContainer
-                id="dashboard-map"
+                id="activity-page-map"
 				center={[ props.activity.actLat, props.activity.actLng ]}
 				zoom={13}
 				scrollWheelZoom={false}

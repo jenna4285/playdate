@@ -59,7 +59,7 @@ if (isLoading){
         </Switch>
     </UserContext.Provider>
         :
-        <Route path={["/", "/home"]} component={Home}/>}
+        null}
       </div>
     </Router>
   );

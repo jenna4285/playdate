@@ -27,13 +27,11 @@ p{
 }
 
 
-#master{
+/* #master{
     background-image: url(https://i.imgur.com/qyTwwJN.jpg);
-    /* background- */
-    /* opacity: 60%; */
     background-size: cover;
-    height:100%;
-}
+    height:max-content;
+} */
 
 .button {
     background-color: #086375;
@@ -43,6 +41,18 @@ p{
 
 #main-body{
     margin-top:0px;
-    height:100vh;
+    height:100%;
 }
+/* 
+html {
+    background-image: url(https://i.imgur.com/qyTwwJN.jpg);
 
+    background-size: cover;
+    height:100%;
+} */
+
+body{
+    background-image: url(https://i.imgur.com/qyTwwJN.jpg);
+    background-size: cover;
+    height:max-content;
+}

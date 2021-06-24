@@ -3,17 +3,34 @@
 }
 
 #activity-container{
-    border-radius: 15px;
-    background-color: #1DD3B0;
-    margin-bottom: 10px;
+    border-radius: 10px;
+    margin-top:5px;
+    margin-bottom:5px;
+    background-color: #1dd3b0;
+    box-shadow: .25px 2px 5px #086375;
+    display:block;
+    transition:  box-shadow .6s ease-out;
+    box-shadow: .8px .9px 3px #086375;
+}
+
+#activity-container:hover{
+    background-color: #ffffff;
+    transition:  background-color .6s ease-in;
+    text-decoration: none!important;
+    cursor:pointer;
+    box-shadow: 1px 8px 20px #1DD3B0;
+    transition:  box-shadow .6s ease-in;
 }
 
 .activity-link{
     color: black;
     text-decoration: none;
+    
 }
 
-.activity-link :hover{
+.activity-link:hover{
     color: black;
-    text-decoration: none;
+    text-decoration: none!important;
 }
+
+

@@ -1,4 +1,6 @@
-#dashboard-map{
-    height:50vh;
-    width:100wh;
+#activity-page-map{
+    border-radius:15px;
+    border-style: solid;
+    border-color: #3c1642;
+    border-width: 15px;
 }

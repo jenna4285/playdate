@@ -36,7 +36,7 @@ function ActivityCard(props) {
 
 	return (
 		<div className="row">
-					<div key={props.activity._id} id="activity-container" className="activity-container p-mb-3 shadow">
+					<div key={props.activity._id} id="activity-container" className="activity-container p-mb-3">
 						<div className="row">
 							<div className="row date">
 								<h5 className="mt-3">{new Date(props.activity.date).toLocaleDateString()}</h5>
