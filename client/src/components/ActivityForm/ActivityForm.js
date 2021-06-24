@@ -83,7 +83,7 @@ function ActivityForm(props) {
             <OverlayPanel ref={op} showCloseIcon dismissable={false}>
                     <form>
                         <div>
-                            <div className="card">
+                            <div>
                                 <div className="row mb-3">
                                     <div>
                                         <h3 className="mb-0">Activity Details</h3>
