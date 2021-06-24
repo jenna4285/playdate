@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
-import MapContainer from '../components/Map/map';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import LeafletMap from '../components/LeafletMap/LeafletMap';
 import Usercard from '../components/Usercard/Usercard';
 import KidCardContainer from '../components/KidCardContainer/KidCardContainer';
 import UserContext from '../utils/userContext';
@@ -9,7 +10,17 @@ import API from '../utils/API';
 import { useAuth0 } from '@auth0/auth0-react';
 import './Dashboard.css';
 import { StreamChat } from 'stream-chat';
-import { Chat, Channel, ChannelHeader, MessageInput, MessageList, Thread, Window, SendButton, useEnrichedMessages } from 'stream-chat-react';
+import {
+	Chat,
+	Channel,
+	ChannelHeader,
+	MessageInput,
+	MessageList,
+	Thread,
+	Window,
+	SendButton,
+	useEnrichedMessages
+} from 'stream-chat-react';
 import 'stream-chat-react/dist/css/index.css';
 const api_key = 'vpd369jcmchr';
 const chatClient = StreamChat.getInstance(api_key);
@@ -18,6 +29,7 @@ function Dashboard() {
 	const { dbUser } = useContext(UserContext);
 	const userLat = dbUser.lat;
 	const userLng = dbUser.lng;
+	let bob = 4;
 
 	let channel;
 
@@ -103,8 +115,9 @@ function Dashboard() {
 						deleteActivity={deleteActivity}
 					/>
 				</div>
-
-				<MapContainer lat={userLat} lng={userLng} activity={activity} />
+				<div>
+		<LeafletMap userLat={userLat} userLng={userLng} activity={activity}/>
+				</div>
 			</div>
 		</div>
 	);
