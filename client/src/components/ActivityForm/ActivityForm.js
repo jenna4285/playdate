@@ -83,7 +83,7 @@ function ActivityForm(props) {
             <OverlayPanel ref={op} showCloseIcon dismissable={false}>
                     <form>
                         <div>
-                            <div className="card">
+                            <div>
                                 <div className="row mb-3">
                                     <div>
                                         <h3 className="mb-0">Activity Details</h3>
@@ -99,12 +99,19 @@ function ActivityForm(props) {
               
               
               {/* tried to put an API call here to hit mongoDB */}
+              <div className="p-inputgroup">
+
+                                                    <span className="p-inputgroup-addon">
+                                            <i className="pi pi-map-marker"></i>
+                                        </span>
               <InputTextarea {...getInputProps({ placeholder: "Where is this taking place?" })} 
                                                       name="location"
                                                       ref={locationRef}
                                                       onSelect={handleInputChange}
                                                       className="width-100"
                                                       />
+                                                      </div>
+
               {!(coordinates.lat) ? (null) : ( <div>
                 <p>Selected Address: {address}</p>
 
@@ -142,20 +149,26 @@ function ActivityForm(props) {
                                             ref={descriptionRef} 
                                             placeholder="What are you up to?" />
                                     </div>
-                                    <div className="row mb-3 pad-20">
+                                    <div className="row mb-3 mt-3">
+                                    <div className="p-inputgroup">
+
+                                    <span className="p-inputgroup-addon">
+                                            <i className="pi pi-calendar"></i>
+                                        </span>
                                         <Calendar 
                                         name="date"
                                         value={activityInfo.date} 
                                         onChange={handleInputChange}
                                         placeholder="When is this activity?"
                                         />
+                                        </div>
                                         <div className="row">
                                             <div className="col-sm-3"></div>
                                             <div className="col-sm-9 text-secondary">
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row justify-content-center">
                                         <button id="save-activity" type="button" className="btn btn-success px-4 gap-3"
                                         onClick={saveToDatabase} 
                                             >Save Activity</button>
