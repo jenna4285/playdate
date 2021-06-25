@@ -12,6 +12,7 @@ module.exports = {
   findById: function(req, res) {
     db.User
       .findById(req.params.id)
+      .populate({path: "activities", populate:{path: "hostId"}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -69,13 +70,12 @@ module.exports = {
   },
   removeFriendByEmail: function(req,res){
     db.User
-      .findOneAndUpdate({ email: req.params.email }, {$pull: {friends: {id: req.body.id}}}, {new:true})
+      .findOneAndUpdate({ email: req.params.email }, {$pull: {friends: req.body.id}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 
   addUserActivity: function(req,res){
-      console.log(req.body)
       db.User 
         .findOneAndUpdate({ _id: req.params.id }, {$push: {activities: req.body.eventId}}, {new: true})
         .then(dbModel => res.json(dbModel))

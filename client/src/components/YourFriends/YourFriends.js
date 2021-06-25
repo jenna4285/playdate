@@ -54,7 +54,7 @@ function YourFriends() {
       <div className='row no-gut'>
         <div className="card">
           <h1>Your Friends</h1>
-          <ScrollPanel style={{width: '100%', height: '200px'}}>
+          <ScrollPanel style={{width: '100%', maxheight: '200px'}}>
           {dbUser.friends ? (
             dbUser.friends.map((item) => (
               <div>

@@ -63,7 +63,7 @@ function Dashboard() {
 	}
 
 	const deleteActivity = (event) => {
-		console.log(event.target.name);
+		event.preventDefault()
 		API.removeActivity(event.target.name).then((res) => setUuid(res.id));
 	};
 
