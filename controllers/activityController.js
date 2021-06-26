@@ -28,6 +28,8 @@ module.exports = {
   create: function(req, res) {
     db.Activity
       .create(req.body)
+      .then(res => db.User
+        .findOneAndUpdate({ _id: res.hostId}, {$push: {activities: res._id}}, {new: true}))
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -46,19 +48,27 @@ module.exports = {
   remove: function(req, res) {
     db.Activity
       .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
+      .then(dbModel =>{ 
+        db.User.findOneAndUpdate({ _id: dbModel.hostId }, {$pull: {activities: dbModel._id}}, {new:true})
+        .then(dbModel => res.json(dbModel))
+        dbModel.remove()
+      })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   addAttendeeById: function(req, res) {
     db.Activity
       .findOneAndUpdate({ _id: req.params.id }, {$push: {attendees: req.body.userId}}, {new:true})
+      .then(res => db.User
+        .findOneAndUpdate({ _id: req.body.userId}, {$push: {activities: res._id}}, {new: true}))
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   removeAttendeeById: function(req, res) {
     db.Activity
     .findOneAndUpdate({ _id: req.params.id }, {$pull: {attendees: req.body.userId}}, {new:true})
+    .then(res => db.User
+      .findOneAndUpdate({ _id: req.body.userId}, {$pull: {activities: res._id}}, {new: true}))
     .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

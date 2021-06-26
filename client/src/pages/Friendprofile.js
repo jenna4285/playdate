@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef} from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import Usercard from "../components/Usercard/Usercard"
 import CurrentProfileCard from "../components/CurrentProfileC/CurrentProfileC"
@@ -8,6 +8,7 @@ import UserContext from "../utils/userContext";
 import '../pages/Profile.css'
 import API from "../utils/API";
 import {Toast} from "primereact/toast";
+import ActivityCard from "../components/ActivityCard/ActivityCard"
 
 
 
@@ -26,7 +27,7 @@ function Friendprofile() {
     setIsFriend(false)
     dbUser.friends &&
     dbUser.friends.forEach(friend=> {
-      if(friend.id === id){ setIsFriend(true)}
+      if(friend._id === id){ setIsFriend(true)}
     })
   },[])
 
@@ -98,7 +99,23 @@ function Friendprofile() {
         </div>
 
       </div>
+      <div className="col-sm-12 col-md-12 col-lg-12">
+            <div className="card">
+                <h1 className='activities'>{profileInfo.fullname}'s Activities</h1>
+                <div className="col">
+                {profileInfo.activities && profileInfo.activities.length ? 
+				profileInfo.activities.map((data) => (
+                <Link className= "activity-link" to={"/activity/" + data._id}>
+                    <ActivityCard activity={data} />
+                </Link>
+                )):
+                <h3>No upcoming activities</h3>}
+                
+                </div>
+            </div>
+        </div>
     </div>
+    
   )
 }
 
