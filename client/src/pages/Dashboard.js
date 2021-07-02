@@ -45,22 +45,22 @@ function Dashboard() {
 		[ uuid ]
 	);
 
-	if (dbUser.fullname) {
-		chatClient.connectUser(
-			{
-				id: dbUser._id,
-				name: dbUser.fullname,
-				image: dbUser.picture
-			},
-			chatClient.devToken(dbUser._id)
-		);
-		channel = chatClient.channel('messaging', 'delicate-hall-9', {
-			// add as many custom fields as you'd like
-			image: 'https://i.imgur.com/fPJrXdV.png',
-			name: 'Neighborhood Chat',
-			members: [ 'delicate-hall-9' ]
-		});
-	}
+	// if (dbUser.fullname) {
+	// 	chatClient.connectUser(
+	// 		{
+	// 			id: dbUser._id,
+	// 			name: dbUser.fullname,
+	// 			image: dbUser.picture
+	// 		},
+	// 		chatClient.devToken(dbUser._id)
+	// 	);
+	// 	channel = chatClient.channel('messaging', 'delicate-hall-9', {
+	// 		// add as many custom fields as you'd like
+	// 		image: 'https://i.imgur.com/fPJrXdV.png',
+	// 		name: 'Neighborhood Chat',
+	// 		members: [ 'delicate-hall-9' ]
+	// 	});
+	// }
 
 	const deleteActivity = (event) => {
 		event.preventDefault()
@@ -93,7 +93,7 @@ function Dashboard() {
 					</div>
 					<div className="row">
 						<div className="col">
-							<Chat client={chatClient} theme="team light">
+							{/* <Chat client={chatClient} theme="team light">
 								<Channel channel={channel}>
 									<Window>
 										<ChannelHeader />
@@ -103,7 +103,7 @@ function Dashboard() {
 									</Window>
 									<Thread />
 								</Channel>
-							</Chat>
+							</Chat> */}
 						</div>
 					</div>
 				</div>

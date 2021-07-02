@@ -6,7 +6,7 @@ import PlacesAutocomplete, {
 import API from "../../utils/API";
 import { useAuth0 } from "@auth0/auth0-react";
 
-function AutoAddress() {
+function AutoAddress(props) {
   const [address, setAddress] = React.useState("");
   const { user } = useAuth0();
   const [coordinates, setCoordinates] = React.useState({
@@ -38,7 +38,7 @@ function AutoAddress() {
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
   
-              <input {...getInputProps({ placeholder: "Start typing address..." })} />
+              <input id="address" value={props.address}{...getInputProps({ placeholder: "Start typing address..." })} />
               {!(coordinates.lat) ? (null) : ( <div>
                 <p>Selected Address: {address}</p>
 
