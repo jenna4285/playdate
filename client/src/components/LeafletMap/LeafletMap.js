@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import './LeafletMap.css'
-
+import './LeafletMap.css';
+import { Button } from 'primereact/button';
 
 let myIcon = L.icon({
 	iconUrl: './playdateMarker2.png',
@@ -19,12 +19,20 @@ let homeIcon = L.icon({
 	popupAnchor: [ -3, -76 ]
 });
 
+let greenIcon = new L.Icon({
+	iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+	shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+	iconSize: [ 25, 41 ],
+	iconAnchor: [ 12, 41 ],
+	popupAnchor: [ 1, -34 ],
+	shadowSize: [ 41, 41 ]
+});
 
 function LeafletMap(props) {
 	return (
 		<div id="map-div">
 			<MapContainer
-                id="dashboard-map"
+				id="dashboard-map"
 				center={[ props.userLat, props.userLng ]}
 				zoom={13}
 				scrollWheelZoom={false}
@@ -34,23 +42,30 @@ function LeafletMap(props) {
 					attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				/>
-				<Marker position={[props.userLat, props.userLng]} icon={homeIcon}>
+				<Marker position={[ props.userLat, props.userLng ]} icon={homeIcon}>
 					<Popup>
 						<h6>Your Address!</h6> <br /> There's no place like home!
 					</Popup>
 				</Marker>
 				{props.activity.length ? (
-					props.activity.map((data,index) => (
-						<Marker position={[ data.actLat, data.actLng ]} icon={myIcon}>
+					props.activity.map((data, index) => (
+						<Marker position={[ data.actLat, data.actLng ]} icon={greenIcon}>
 							<Popup>
 								<h6>{data.hostId.fullname}'s Activity</h6>
-                                <br/>
+								<br />
 								<h6>Date: {new Date(data.date).toLocaleDateString()}</h6>
-                                <br/>
-                               	{data.description} 
-                                <br/>
-                                <br/>
-							    {data.attendees.length} attendee(s) so far!
+								<br />
+								{data.description}
+								<br />
+								<br />
+								{data.attendees.length} attendee(s) so far!
+								<br />
+									<div className="justify-content-center">
+									<Link to={'/activity/' + data._id}>
+									<button type="button" id="go-to-activity" className="btn btn-outline-info">Go to Activity</button>
+									</Link>
+									</div>
+							
 							</Popup>
 						</Marker>
 					))
