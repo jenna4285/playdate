@@ -99,7 +99,7 @@ function Dashboard() {
 										<ChannelHeader />
 										<MessageList hideDeletedMessages={true} />
 										<MessageInput />
-										{/* <SendButton /> */}
+										<SendButton />
 									</Window>
 									<Thread />
 								</Channel>
