@@ -115,9 +115,9 @@ function displayProfileSuccess(){
                 <div className="col">
                     <Profileform2 handleBtnClick = {handleProfileBtnClick} handleInputChange={handleProfileInputChange} profileInfo={profileInfo}/>
                 </div>
-                <div className="col">
+                {/* <div className="col">
                    <CurrentProfileCard user={profileInfo} />
-                </div>
+                </div> */}
             </div>
             <div className="row">
                 <div className="col">
