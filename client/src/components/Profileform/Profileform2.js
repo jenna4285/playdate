@@ -24,6 +24,15 @@ function Profileform2(props) {
 							<h1>Complete Profile</h1>
 							<br />
 							<div className="card-body">
+                            <div className="row mb-3">
+                                        <div className="col-sm-3">
+                                            <h6 className="mb-0">Photo</h6>
+                                        </div>
+                                        <div className="col-sm-9 text-secondary">
+                                            <input type="file" id = "newImg" onChange={props.imgUpload}/>
+                                        </div>
+                                        </div>
+
 								<div className="row mb-3">
 									<div className="col-sm-3">
 										<h6 className="mb-0">
@@ -42,6 +51,29 @@ function Profileform2(props) {
 										/>
 
 										{/* <InputText 
+            <div className="row">
+            <Toast ref={toast}/>
+                <div className="col">
+                    <form>
+                        <br />
+                        <div>
+                            <div className="card">
+                                <h1>Edit Main User/Family Profile</h1><br />
+                                <div className="card-body">
+                                <div className="row mb-3">
+                                        <div className="col-sm-3">
+                                            <h6 className="mb-0">Photo</h6>
+                                        </div>
+                                        <div className="col-sm-9 text-secondary">
+                                            <input type="file" id = "imgUpload" onChange={props.imgUpload}/>
+                                        </div>
+                                        </div>
+                                    <div className="row mb-3">
+                                        <div className="col-sm-3">
+                                            <h6 className="mb-0">Full Name</h6>
+                                        </div>
+                                        <div className="col-sm-9 text-secondary">
+                                            <InputText 
                                             name="fullname" 
                                             type="text" 
                                             className="form-control" 
