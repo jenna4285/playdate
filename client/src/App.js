@@ -16,7 +16,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 function App() {
-const [dbUser, setDbUser]=useState({});
+const [dbUser, setDbUser]=useState({
+  email : "none"
+});
 const { isAuthenticated, user, isLoading } = useAuth0();
 
 
@@ -33,7 +35,7 @@ useEffect(() => {
 pullFromDb();
 }, [isAuthenticated]);
 
-if (isLoading){
+if (isLoading || !dbUser.email){
   return(
     <Loading/>
   )
@@ -43,9 +45,9 @@ if (isLoading){
   return (
     <Router>
       <div id="master">
+      <UserContext.Provider value={{dbUser}}>
         <Nav />
         {isAuthenticated && dbUser.email? 
-            <UserContext.Provider value={{dbUser}}>
         <Switch>
           <Route exact path={["/", "/home"]} component={Home}/>
           <Route exact path="/profile" component={Profile}/>
@@ -57,9 +59,9 @@ if (isLoading){
             <NoMatch />
           </Route>
         </Switch>
-    </UserContext.Provider>
         :
-        null}
+        <Home />}
+            </UserContext.Provider>
       </div>
     </Router>
   );
