@@ -82,6 +82,7 @@ function saveToDatabase(){
             fullname: profileInfo.fullname,
             description: profileInfo.description,
             picture: profileInfo.picture,
+            signedUp: true,
             })
             .then(API.getUserByEmail(user.email)
             .then((res)=> setProfileInfo(res.data)))

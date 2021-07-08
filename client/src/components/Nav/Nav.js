@@ -1,11 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import Loginbutton from "../Loginbutton/Loginbutton.js";
 import Logoutbutton from "../Logoutbutton/Logoutbutton.js";
 import { useAuth0 } from "@auth0/auth0-react";
 import './Nav.css'
+import UserContext from '../../utils/userContext'
 
 function Nav() {
   const { isAuthenticated } = useAuth0();
+  const { dbUser } = useContext(UserContext);
+
   return (
     <header id="playdate-nav" className="sticky-top p-3 navcolor text-white playdate-nav">
       <div className="container">
