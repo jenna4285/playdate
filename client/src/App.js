@@ -13,6 +13,7 @@ import Nav from "./components/Nav/Nav";
 import UserContext from "./utils/userContext";
 import API from "./utils/API"
 import { useAuth0 } from "@auth0/auth0-react";
+// import { db } from "../../models/user";
 
 
 function App() {
@@ -47,7 +48,7 @@ if (isLoading || !dbUser.email){
       <div id="master">
       <UserContext.Provider value={{dbUser}}>
         <Nav />
-        {isAuthenticated && dbUser.email? 
+        {isAuthenticated && dbUser.email && dbUser.signedUp ? 
         <Switch>
           <Route exact path={["/", "/home"]} component={Home}/>
           <Route exact path="/profile" component={Profile}/>
@@ -62,7 +63,10 @@ if (isLoading || !dbUser.email){
         : isAuthenticated && dbUser.email && !dbUser.signedUp ?
         <Switch>
           <Route exact path={["/", "/home"]} component={Home}/>
-          <Route exact path="/editprofile" component={Editprofile}/>
+          <Route path="/editprofile" component={Editprofile}/>
+          <Route>
+            <NoMatch />
+          </Route>
         </Switch>
         :
         <Home />}
