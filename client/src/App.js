@@ -59,6 +59,11 @@ if (isLoading || !dbUser.email){
             <NoMatch />
           </Route>
         </Switch>
+        : isAuthenticated && dbUser.email && !dbUser.signedUp ?
+        <Switch>
+          <Route exact path={["/", "/home"]} component={Home}/>
+          <Route exact path="/editprofile" component={Editprofile}/>
+        </Switch>
         :
         <Home />}
             </UserContext.Provider>

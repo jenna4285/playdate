@@ -116,7 +116,7 @@ function Dashboard() {
 					/>
 				</div>
 				<div>
-		<LeafletMap userLat={userLat} userLng={userLng} activity={activity}/>
+		{userLat && <LeafletMap userLat={userLat} userLng={userLng} activity={activity}/>}
 				</div>
 			</div>
 		</div>
