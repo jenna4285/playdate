@@ -7,6 +7,7 @@ import Kids2 from "../components/Kids/Kids2";
 import CurrentProfileCard from "../components/CurrentProfileC/CurrentProfileC"
 import MiniCardContainer from "../components/MiniCardContainer/MiniCardContainer"
 import API from "../utils/API"
+import axios from "axios"
 
 
 
@@ -80,7 +81,7 @@ function saveToDatabase(){
             email: user.email,
             fullname: profileInfo.fullname,
             description: profileInfo.description,
-            picture: user.picture,
+            picture: profileInfo.picture,
             signedUp: true,
             })
             .then(API.getUserByEmail(user.email)
@@ -106,6 +107,23 @@ function displayProfileSuccess(){
     toast.current.show({severity:'success', summary: 'Success!', detail:'Profile Saved!', life: 3000});
     }
 
+function imgUpload (event){
+    let config = {
+        header: {
+            Authorization : "Client-ID d5b4e9b98662b1c"
+        }
+    }
+    let data = event.target.value
+    const fd = new FormData()
+    fd.append("image", event.target.files[0])
+    for (var key of fd.entries()) {
+        console.log(key[0] + ', ' + key[1]);
+    }
+    axios.post("https://api.imgbb.com/1/upload?key=d2fc554ff86b5e358c96965640e8004a", fd)
+        .then(res => setProfileInfo({...profileInfo, picture: res.data.data.medium.url}))
+        .catch(err => console.log(err))
+}
+
 
 
     return (
@@ -114,7 +132,7 @@ function displayProfileSuccess(){
 
             <div className="row">
                 <div className="col">
-                    <Profileform2 handleBtnClick = {handleProfileBtnClick} handleInputChange={handleProfileInputChange} profileInfo={profileInfo}/>
+                    <Profileform2 handleBtnClick = {handleProfileBtnClick} handleInputChange={handleProfileInputChange} profileInfo={profileInfo} imgUpload = {imgUpload}/>
                 </div>
                 {/* <div className="col">
                    <CurrentProfileCard user={profileInfo} />
