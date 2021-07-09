@@ -36,7 +36,7 @@ useEffect(() => {
 pullFromDb();
 }, [isAuthenticated]);
 
-if (isLoading || !dbUser.email){
+if (isLoading || (isAuthenticated && !dbUser.email)){
   return(
     <Loading/>
   )
