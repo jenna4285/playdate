@@ -18,7 +18,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
 const [dbUser, setDbUser]=useState({
-  email : "none"
+  email : null
 });
 const { isAuthenticated, user, isLoading } = useAuth0();
 
