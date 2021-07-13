@@ -8,7 +8,7 @@ import './Profileform.css';
 import Geocode from 'react-geocode';
 import AutoAddress from './AutoAddress';
 
-Geocode.setApiKey('AIzaSyA3muc-WyoOtIZcQFlLADQQa0U2TKW-4GU');
+Geocode.setApiKey('AIzaSyBo3pwJNdMz9GcijqY2wqeaI_IGsG3Y9Go');
 
 function Profileform2(props) {
 	const toast = useRef(null);
