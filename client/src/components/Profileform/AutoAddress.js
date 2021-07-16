@@ -38,7 +38,7 @@ function AutoAddress(props) {
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
   
-              <input id="address" value={props.address}{...getInputProps({ placeholder: "Start typing address..." })} />
+              <input id="address"{...getInputProps({ placeholder: "Start typing address..." })} />
               {!(coordinates.lat) ? (null) : ( <div>
                 <p>Selected Address: {address}</p>
 
