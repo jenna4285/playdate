@@ -60,8 +60,8 @@ addMessageByEmail: function(userData){
 },
 
 //Activity Comment Route
-addCommentByActivityID: function(userData){
-  return axios.put("/api/activity/comment/"+userData.id, userData)
+addCommentByActivityID: function(activityId,comment){
+  return axios.put("/api/activity/comment/"+activityId, comment)
 },
 
 

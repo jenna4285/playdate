@@ -34,7 +34,7 @@ function ActivityPage() {
 
 	function saveCommentHandler(e) {
 		// props.messageSuccess()
-		API.addCommentByActivityID({
+		API.addCommentByActivityID(id, {
 			commenter: dbUser._id,
 			comment: comment.commentContent
 		});
