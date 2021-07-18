@@ -82,6 +82,8 @@ function ActivityPage() {
 					<div id="comment-row" className="row">
 						<form id="comment-form">
 							<input
+								name="commentContent"
+								value={comment.commentContent}
 								id="comment-input"
 								onChange={handleInputChange}
 								placeholder="Post a public comment..."
