@@ -56,6 +56,13 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
+  addCommentByActivityID: function(req, res) {
+    db.Activity 
+      .findOneAndUpdate({ _id: req.params.id }, {$push: {comments: req.body}}, {new: true})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   addAttendeeById: function(req, res) {
     db.Activity
       .findOneAndUpdate({ _id: req.params.id }, {$push: {attendees: req.body.userId}}, {new:true})
@@ -72,4 +79,7 @@ module.exports = {
     .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
+
+
+
 };

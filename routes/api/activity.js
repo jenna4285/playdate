@@ -12,6 +12,12 @@ router
   .get(activityController.findById)
   .put(activityController.update)
   .delete(activityController.remove);
+
+// Matches with "/api/activity/comment/:id"
+router
+  .route("/comment/:id")
+  .put(activityController.addCommentByActivityID)
+  // .delete(activityController.removeComment);
   
 // Matches with "/api/activity/email/:email"
 router
