@@ -8,7 +8,6 @@ import './ActivityPage.css';
 import API from '../utils/API';
 import MiniLeafletMap from '../components/MiniLeafletMap/MiniLeafletMap';
 
-
 function ActivityPage() {
 	const { dbUser } = useContext(UserContext);
 	const { id } = useParams();
@@ -23,6 +22,24 @@ function ActivityPage() {
 		API.getActivityById(data).then((res) => setActivityInfo(res.data));
 	};
 
+	const [ comment, setComment ] = useState({
+		commenter: dbUser._id,
+		commentContent: ''
+	});
+
+	function handleInputChange(event) {
+		const { name, value } = event.target;
+		setComment({ ...comment, [name]: value });
+	}
+
+	function saveCommentHandler(e) {
+		// props.messageSuccess()
+		API.addCommentByActivityID(id, {
+			commenter: dbUser._id,
+			comment: comment.commentContent
+		});
+	}
+
 	return (
 		<div className="text-center d-flex container">
 			<div id="activity-page-card" className="card activity-card d-flex container">
@@ -34,8 +51,9 @@ function ActivityPage() {
 				</div>
 				<div id="map-attendees" class="row">
 					<div class="col">
-					{dbUser.fullname && activityInfo.attendees ? <MiniLeafletMap activity={activityInfo} dbUser={dbUser} /> : null}
-					
+						{dbUser.fullname && activityInfo.attendees ? (
+							<MiniLeafletMap activity={activityInfo} dbUser={dbUser} />
+						) : null}
 					</div>
 					<div class="col">
 						<div>
@@ -61,7 +79,18 @@ function ActivityPage() {
 				</div>
 				<hr />
 				<div id="comments-row" className="row">
-					<button className="btn btn-success">Post Comment</button>
+					<div id="comment-row" className="row">
+						<form id="comment-form">
+							<input
+								name="commentContent"
+								value={comment.commentContent}
+								id="comment-input"
+								onChange={handleInputChange}
+								placeholder="Post a public comment..."
+							/>
+							<button className="btn btn-success" onClick={saveCommentHandler}>Post Comment</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
