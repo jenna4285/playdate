@@ -33,10 +33,16 @@ function ActivityPage() {
 	}
 
 	function saveCommentHandler(e) {
+		e.preventDefault();
 		// props.messageSuccess()
 		API.addCommentByActivityID(id, {
 			commenter: dbUser._id,
 			comment: comment.commentContent
+		}).then(response=>(setActivityInfo(response.data)))
+		
+		setComment({
+			commenter: dbUser._id,
+			commentContent: ''
 		});
 	}
 
@@ -78,8 +84,8 @@ function ActivityPage() {
 					</div>
 				</div>
 				<hr />
-				<div id="comments-row" className="row">
-					<div id="comment-row" className="row">
+				<div id="comment-section" className="row">
+					<div id="input-row" className="row">
 						<form id="comment-form">
 							<input
 								name="commentContent"
@@ -88,9 +94,18 @@ function ActivityPage() {
 								onChange={handleInputChange}
 								placeholder="Post a public comment..."
 							/>
-							<button className="btn btn-success" onClick={saveCommentHandler}>Post Comment</button>
+							<button className="btn btn-success" onClick={saveCommentHandler}>
+								Post Comment
+							</button>
 						</form>
 					</div>
+					{activityInfo.comments ? (
+						activityInfo.comments.map((item) => (
+							<div className="comments-row row">
+								{item.comment}<span/>{item.createdAt}<span/>{item.commenter}
+							</div>
+						))
+					) : null}
 				</div>
 			</div>
 		</div>
