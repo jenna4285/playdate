@@ -15,7 +15,7 @@ module.exports = {
   findById: function(req, res) {
     db.Activity
       .findById(req.params.id)
-      .populate(["hostId", "attendees"])
+      .populate(["hostId", "attendees",{path: "comments", populate:{path: "commenter"}}])
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
