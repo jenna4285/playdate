@@ -17,9 +17,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 function App() {
-const [dbUser, setDbUser]=useState({
-  email : "none"
-});
+const [dbUser, setDbUser]=useState({});
 const { isAuthenticated, user, isLoading } = useAuth0();
 
 
@@ -36,7 +34,7 @@ useEffect(() => {
 pullFromDb();
 }, [isAuthenticated]);
 
-if (isLoading || !dbUser.email){
+if (isLoading || (isAuthenticated && !dbUser.email)){
   return(
     <Loading/>
   )
