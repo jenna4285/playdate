@@ -102,7 +102,7 @@ function ActivityPage() {
 					{activityInfo.comments ? (
 						activityInfo.comments.map((item) => (
 							<div className="comments-row row">
-								{item.comment}<span/>{item.createdAt}<span/>{item.commenter}
+								{item.comment}<span/>{item.createdAt}<span/>{item.commenter.fullname}
 							</div>
 						))
 					) : null}
