@@ -12,11 +12,20 @@ function ActivityPage() {
 	const { dbUser } = useContext(UserContext);
 	const { id } = useParams();
 	const [ activityInfo, setActivityInfo ] = useState({});
+	const [ attending, setAttending] = useState();
 
 	useEffect(() => {
 		getActivity(id);
 		console.log(activityInfo);
 	}, []);
+
+	useEffect(() => {
+		activityInfo.attendees && 
+		activityInfo.attendees.forEach(attendee => {
+			if(attendee._id === dbUser._id){setAttending(true)}
+			else{setAttending(false)}
+		})
+	},[activityInfo.attendees])
 
 	const getActivity = (data) => {
 		API.getActivityById(data).then((res) => setActivityInfo(res.data));
@@ -44,6 +53,24 @@ function ActivityPage() {
 			commenter: dbUser._id,
 			commentContent: ''
 		});
+	}
+	const unattendActivity = (event) =>{
+		event.preventDefault()
+		API.unattendActivity({
+			eventId: id,
+			userId: dbUser._id
+		})
+		.then(getActivity(id))
+		.then(setAttending(false))
+	}
+	const attendActivity = (event) => {
+		event.preventDefault()
+		API.attendActivity({
+			eventId: id,
+			userId: dbUser._id
+		})
+		.then(res => setActivityInfo({...activityInfo, attendees: activityInfo.attendees.concat(res.data)}))
+		.then(setAttending(true))
 	}
 
 	return (
@@ -80,6 +107,21 @@ function ActivityPage() {
 							) : (
 								<h2>Be the First to RSVP</h2>
 							) : null}
+							{activityInfo.hostId && activityInfo.hostId._id === dbUser._id ? (
+								null
+							) : !attending? (
+								<div className="row justify-content-center">
+									<button className="btn btn-success " name={id} onClick={attendActivity}>
+										Attend This Activity!
+									</button>
+								</div>
+							) : (
+								<div className="row justify-content-center">
+								<button className="btn btn-warning " name={id} onClick={unattendActivity}>
+									Dont Attend This Activity!
+								</button>
+							</div>
+							)}
 						</div>
 					</div>
 				</div>
