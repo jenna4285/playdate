@@ -51,7 +51,7 @@ function Usercard (props){
 <div className="card">
 <div className="card-body">
   <div className="d-flex flex-column align-items-center text-center">
-    <img src={props.user.picture} alt="Admin" className="rounded-circle" width="150"/>
+    <img src={props.user.picture} alt="Admin" className="rounded" width="150"/>
     <div className="mt-3">
       <h4 className="textcolor">{props.user.fullname}</h4>
       <p className="text-secondary mb-1 textcolor">{props.user.username}</p>
