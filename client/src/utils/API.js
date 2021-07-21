@@ -54,10 +54,16 @@ editActivityById: function(id, userData) {
   return axios.post("/api/activity/" +id, userData);
 },
 
-//message Routes
+//message Route
 addMessageByEmail: function(userData){
   return axios.put("api/users/email/messages/" + userData.messages.recipient, userData)
 },
+
+//Activity Comment Route
+addCommentByActivityID: function(activityId,comment){
+  return axios.put("/api/activity/comment/"+activityId, comment)
+},
+
 
 removeActivity: function(id) {
   return axios.delete("/api/activity/"+id)
