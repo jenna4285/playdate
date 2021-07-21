@@ -59,21 +59,20 @@ function YourFriends(props) {
 						{dbUser.friends ? (
 							dbUser.friends.map((item) => (
 								<div>
-									<Chip />
 									<Link className="no-dec" to={'/profile/' + item._id}>
 										<Chip
 											key={item._id}
-											label={item.fullname}
+											label={item.fullname + " - " + props.distance(lat1, lon1, item.lat, item.lng, 'M') + ' miles' }
 											image={item.picture}
-											style={{ display: 'inline' }}
+											style={{ display: 'block' }}
 											className="friend-chip"
 										/>
 									</Link>{' '}
-									<Chip
+									{/* <Chip
 										style={{ display: 'inline' }}
 										label={props.distance(lat1, lon1, item.lat, item.lng, 'M')}
 										className="friend-chip"
-									/>
+									/> */}
 								</div>
 							))
 						) : (
