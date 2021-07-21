@@ -10,11 +10,16 @@ import { ScrollPanel } from 'primereact/scrollpanel';
 
 
 
-function YourFriends() {
+function YourFriends(props) {
   const { dbUser } = useContext(UserContext)
   const [users, setUsers] = useState()
   const [filteredUsers, setFilteredUsers] = useState([])
   const { isAuthenticated, user } = useAuth0();
+
+  //current user's lat and lon
+  const lat1 = dbUser.lat
+  const lon1 = dbUser.lng
+
 
   useEffect(() => {
     getUsers();
@@ -58,7 +63,8 @@ function YourFriends() {
           {dbUser.friends ? (
             dbUser.friends.map((item) => (
               <div>
-                <Link className='no-dec' to={"/profile/" + item._id}><Chip key={item._id} label={item.fullname} image={item.picture} className="friend-chip" /></Link>
+                <Chip />
+                <Link className='no-dec' to={"/profile/" + item._id}><Chip key={item._id} label={item.fullname} image={item.picture} className="friend-chip" /></Link> <Chip label={props.distance(lat1, lon1,item.lat, item.lng, "M")}  className="friend-chip" />
               </div>
             ))
           ) : (
