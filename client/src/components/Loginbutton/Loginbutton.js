@@ -6,7 +6,7 @@ const LoginButton = () => {
 
   const { loginWithRedirect } = useAuth0();
 
-  return <button className="hovergreen btn btn-outline-light me-2" onClick={() => loginWithRedirect()}>Log In</button>;
+  return <button className="hovergreen btn btn-outline-light nav-link" onClick={() => loginWithRedirect()}>Log In</button>;
 };
 
 export default LoginButton;
