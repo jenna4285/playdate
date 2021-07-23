@@ -62,7 +62,7 @@ function YourFriends(props) {
 									<Link className="no-dec" to={'/profile/' + item._id}>
 										<Chip
 											key={item._id}
-											label={item.fullname + " - " + props.distance(lat1, lon1, item.lat, item.lng, 'M') + ' miles' }
+											label={`${item.fullname} - ${props.distance(lat1, lon1, item.lat, item.lng, 'M')} miles `}
 											image={item.picture}
 											style={{ display: 'block' }}
 											className="friend-chip"
