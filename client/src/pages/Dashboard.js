@@ -131,6 +131,7 @@ function calculateDistance(lat1, lon1, lat2, lon2, unit) {
 				</div>
 				<div className="d-flex row">
 					<YourActivities
+						distance={calculateDistance}
 						setActivity={setActivity}
 						setUuid={setUuid}
 						activity={activity}
