@@ -40,6 +40,7 @@ function ActivityCard(props) {
 						<div className="row">
 							<div className="row date">
 								<h5 className="mt-3">{new Date(props.activity.date).toLocaleDateString()}</h5>
+								<h5>{props.activity.title}</h5>
 								<h6>{props.distance(props.activity.actLat, props.activity.actLng, dbUser.lat, dbUser.lng, 'M')} Miles Away</h6>
 							</div>
 							<div className="col-3">
