@@ -8,7 +8,7 @@ import Dashboard from './pages/Dashboard'
 import Loading from './pages/Loading'
 import Activitypage from './pages/ActivityPage'
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav/Nav";
+import Nav2 from "./components/Nav/Nav2";
 
 import UserContext from "./utils/userContext";
 import API from "./utils/API"
@@ -45,7 +45,7 @@ if (isLoading || (isAuthenticated && !dbUser.email)){
     <Router>
       <div id="master">
       <UserContext.Provider value={{dbUser}}>
-        <Nav />
+        <Nav2 />
         {isAuthenticated && dbUser.email && dbUser.signedUp ? 
         <Switch>
           <Route exact path={["/", "/home"]} component={Home}/>

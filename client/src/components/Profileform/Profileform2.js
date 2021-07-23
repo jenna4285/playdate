@@ -6,6 +6,8 @@ import { InputTextarea } from 'primereact/inputtextarea';
 import 'primeflex/primeflex.css';
 import './Profileform.css';
 import Geocode from 'react-geocode';
+import { useAuth0 } from '@auth0/auth0-react';
+
 import AutoAddress from './AutoAddress';
 
 Geocode.setApiKey('AIzaSyBo3pwJNdMz9GcijqY2wqeaI_IGsG3Y9Go');
@@ -23,15 +25,38 @@ function Profileform2(props) {
 						<div className="card">
 							<h1>Complete Profile</h1>
 							<br />
+							<div className="row">
+								<div className="d-flex col justify-content-center">
+									<div className="image-cropper">
+										{' '}
+										<img
+											src={props.profileInfo.picture}
+											alt="Admin"
+											className="rounded"
+											width="150px"
+										/>
+									</div>
+								</div>
+							</div>
 							<div className="card-body">
-                            <div className="row mb-3">
-                                        <div className="col-sm-3">
-                                            <h6 className="mb-0">Photo</h6>
-                                        </div>
-                                        <div className="col-sm-9 text-secondary">
-                                            <input type="file" id = "newImg" onChange={props.imgUpload}/>
-                                        </div>
-                                        </div>
+								<div className="row mb-3">
+									<div className="col-sm-3">
+										<h6 className="mb-0">
+											<label for="newImg">Photo</label>
+										</h6>
+									</div>
+									<div className="col-sm-9 text-secondary">
+										<label class="btn btn-dark">
+											<input
+												type="file"
+												id="newImg"
+												style={{ display: 'none' }}
+												onChange={props.imgUpload}
+											/>
+											Choose File
+										</label>
+									</div>
+								</div>
 
 								<div className="row mb-3">
 									<div className="col-sm-3">
@@ -46,7 +71,7 @@ function Profileform2(props) {
 											name="fullname"
 											pattern=""
 											placeholder="Enter Name Here"
-                                            value={props.profileInfo.fullname} 
+											// value={props.profileInfo.fullname}
 											onChange={props.handleInputChange}
 										/>
 
@@ -89,14 +114,14 @@ function Profileform2(props) {
 										</h6>
 									</div>
 									<div className="col-sm-9 text-secondary">
-										<AutoAddress address={props.profileInfo.address}/>
+										<AutoAddress address={props.profileInfo.address} />
 									</div>
 								</div>
 								<div className="row mb-3">
 									<div className="col-sm-3">
 										<h6 className="mb-0">
-                                        <label for="bio">Bio</label>
-                                        </h6>
+											<label for="bio">Bio</label>
+										</h6>
 									</div>
 									<div className="col-sm-9 text-secondary">
 										<div className="p-inputgroup">

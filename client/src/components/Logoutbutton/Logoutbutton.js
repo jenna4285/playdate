@@ -6,7 +6,7 @@ const Logoutbutton = () => {
   const { logout } = useAuth0();
 
   return (
-    <button className="hovergreen btn btn-light" onClick={() => logout({ returnTo: window.location.origin })}>
+    <button className="hovergreen btn btn-light nav-link" onClick={() => logout({ returnTo: window.location.origin })}>
       Log Out
     </button>
   );
