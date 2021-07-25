@@ -126,8 +126,29 @@ function Dashboard() {
 	return (
 		<div>
 			<div>
-				<Sidebar visible={visibleLeft} onHide={() => setVisibleLeft(false)}>
-					<h3>Left Sidebar</h3>
+				<Sidebar visible={visibleLeft} style={{width:'100%'}}onHide={() => setVisibleLeft(false)}>
+					<h3>Social</h3>
+					<div className="row no-gut">
+					<YourFriends user={dbUser} distance={calculateDistance} />
+					<div className="d-flex flex-wrap justify-content-center col-sm-12 col-md-6 col-lg-6">
+						<KidCardContainer user={dbUser} />
+					</div>
+					<div className="row">
+						<div className="col">
+							{/* <Chat client={chatClient} theme="team light">
+								<Channel channel={channel}>
+									<Window>
+										<ChannelHeader />
+										<MessageList hideDeletedMessages={true} />
+										<MessageInput />
+										<SendButton />
+									</Window>
+									<Thread />
+								</Channel>
+							</Chat> */}
+						</div>
+					</div>
+				</div>
 				</Sidebar>
 
 				<Sidebar visible={visibleRight} position="right" onHide={() => setVisibleRight(false)}>
@@ -154,7 +175,7 @@ function Dashboard() {
 					<h3>Sidebar with custom icons</h3>
 				</Sidebar>
 
-				<Button icon="pi pi-arrow-right" onClick={() => setVisibleLeft(true)} className="p-mr-2" />
+				<Button onClick={() => setVisibleLeft(true)} className="p-mr-2">Social</Button>
 				<Button icon="pi pi-arrow-left" onClick={() => setVisibleRight(true)} className="p-mr-2" />
 				<Button icon="pi pi-arrow-down" onClick={() => setVisibleTop(true)} className="p-mr-2" />
 				<Button icon="pi pi-arrow-up" onClick={() => setVisibleBottom(true)} className="p-mr-2" />
@@ -169,27 +190,7 @@ function Dashboard() {
 					</div>
 				</div>
 
-				<div className="row no-gut">
-					<YourFriends user={dbUser} distance={calculateDistance} />
-					<div className="d-flex flex-wrap justify-content-center col-sm-12 col-md-6 col-lg-6">
-						<KidCardContainer user={dbUser} />
-					</div>
-					<div className="row">
-						<div className="col">
-							{/* <Chat client={chatClient} theme="team light">
-								<Channel channel={channel}>
-									<Window>
-										<ChannelHeader />
-										<MessageList hideDeletedMessages={true} />
-										<MessageInput />
-										<SendButton />
-									</Window>
-									<Thread />
-								</Channel>
-							</Chat> */}
-						</div>
-					</div>
-				</div>
+				
 				<div className="d-flex row">
 					<YourActivities
 						distance={calculateDistance}
