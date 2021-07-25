@@ -127,7 +127,7 @@ function ActivityPage() {
 					</div>
 				</div>
 				<hr />
-				<CommentSection activityInfo = {activityInfo} comment = {comment} handleInputChange = {handleInputChange} saveCommentHandler = {saveCommentHandler}/>
+				<CommentSection activityInfo = {activityInfo} comment = {comment} id= {id}/>
 				{/* <div id="comment-section" className="row">
 					<div id="input-row" className="row">
 						<form id="comment-form">
