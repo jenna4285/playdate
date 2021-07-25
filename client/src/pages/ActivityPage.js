@@ -7,6 +7,7 @@ import Messages from '../components/Messages/Messages';
 import './ActivityPage.css';
 import API from '../utils/API';
 import MiniLeafletMap from '../components/MiniLeafletMap/MiniLeafletMap';
+import CommentSection from '../components/CommentSection';
 
 function ActivityPage() {
 	const { dbUser } = useContext(UserContext);
@@ -126,7 +127,8 @@ function ActivityPage() {
 					</div>
 				</div>
 				<hr />
-				<div id="comment-section" className="row">
+				<CommentSection activityInfo = {activityInfo} comment = {comment} handleInputChange = {handleInputChange} saveCommentHandler = {saveCommentHandler}/>
+				{/* <div id="comment-section" className="row">
 					<div id="input-row" className="row">
 						<form id="comment-form">
 							<input
@@ -148,7 +150,7 @@ function ActivityPage() {
 							</div>
 						))
 					) : null}
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);
