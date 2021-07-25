@@ -20,7 +20,7 @@ function YourActivities(props) {
                 {props.activity.length ? (
 				props.activity.map((data) => (
                 <Link className= "activity-link" to={"/activity/" + data._id}>
-                    <ActivityCard activity={data} deleteActivity={props.deleteActivity} />
+                    <ActivityCard activity={data} deleteActivity={props.deleteActivity} distance={props.distance} />
                 </Link>
                 ))
                 ) : null}
