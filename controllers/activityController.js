@@ -60,6 +60,7 @@ module.exports = {
   addCommentByActivityID: function(req, res) {
     db.Activity 
       .findOneAndUpdate({ _id: req.params.id }, {$push: {comments: req.body}}, {new: true})
+      .then(res => db.Activity.findById(res._id).populate({path: "comments", populate:{path: "commenter"}}))
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
