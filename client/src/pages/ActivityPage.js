@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 import UserContext from '../utils/userContext';
 import '../pages/Profile.css';
 import { Chip } from 'primereact/chip';
-import Messages from '../components/Messages/Messages';
 import './ActivityPage.css';
 import API from '../utils/API';
 import MiniLeafletMap from '../components/MiniLeafletMap/MiniLeafletMap';
@@ -32,29 +31,6 @@ function ActivityPage() {
 		API.getActivityById(data).then((res) => setActivityInfo(res.data));
 	};
 
-	const [ comment, setComment ] = useState({
-		commenter: dbUser._id,
-		commentContent: ''
-	});
-
-	function handleInputChange(event) {
-		const { name, value } = event.target;
-		setComment({ ...comment, [name]: value });
-	}
-
-	function saveCommentHandler(e) {
-		e.preventDefault();
-		// props.messageSuccess()
-		API.addCommentByActivityID(id, {
-			commenter: dbUser._id,
-			comment: comment.commentContent
-		}).then(response=>(setActivityInfo(response.data)))
-		
-		setComment({
-			commenter: dbUser._id,
-			commentContent: ''
-		});
-	}
 	const unattendActivity = (event) =>{
 		event.preventDefault()
 		API.unattendActivity({
@@ -75,7 +51,7 @@ function ActivityPage() {
 	}
 
 	function calculateDistance(lat1, lon1, lat2, lon2, unit) {
-		if ((lat1 == lat2) && (lon1 == lon2)) {
+		if ((lat1 === lat2) && (lon1 === lon2)) {
 			return 0;
 		}
 		else {
@@ -90,8 +66,8 @@ function ActivityPage() {
 			dist = Math.acos(dist);
 			dist = dist * 180/Math.PI;
 			dist = dist * 60 * 1.1515;
-			if (unit=="K") { dist = dist * 1.609344 }
-			if (unit=="N") { dist = dist * 0.8684 }
+			if (unit==="K") { dist = dist * 1.609344 }
+			if (unit==="N") { dist = dist * 0.8684 }
 			return (Math.round(dist * 100) / 100)
 		}
 	}
@@ -150,30 +126,7 @@ function ActivityPage() {
 					</div>
 				</div>
 				<hr />
-				<CommentSection activityInfo = {activityInfo} comment = {comment} id= {id}/>
-				{/* <div id="comment-section" className="row">
-					<div id="input-row" className="row">
-						<form id="comment-form">
-							<input
-								name="commentContent"
-								value={comment.commentContent}
-								id="comment-input"
-								onChange={handleInputChange}
-								placeholder="Post a public comment..."
-							/>
-							<button className="btn btn-success" onClick={saveCommentHandler}>
-								Post Comment
-							</button>
-						</form>
-					</div>
-					{activityInfo.comments ? (
-						activityInfo.comments.map((item) => (
-							<div className="comments-row row">
-								{item.comment}<span/>{item.createdAt}<span/>{item.commenter.fullname}
-							</div>
-						))
-					) : null}
-				</div> */}
+				<CommentSection activityInfo = {activityInfo} id= {id}/>
 			</div>
 		</div>
 	);
