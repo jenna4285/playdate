@@ -7,6 +7,9 @@ import UserContext from '../utils/userContext';
 import YourActivities from '../components/YourActivities/YourActivities';
 import YourFriends from '../components/YourFriends/YourFriends';
 import API from '../utils/API';
+import SidebarLeft from '../components/SidebarLeft/SidebarLeft';
+import { Sidebar } from 'primereact/sidebar';
+import { Button } from 'primereact/button';
 import { useAuth0 } from '@auth0/auth0-react';
 import './Dashboard.css';
 import { StreamChat } from 'stream-chat';
@@ -36,6 +39,25 @@ function Dashboard() {
 	const [ activity, setActivity ] = useState([]);
 	// const { isAuthenticated, user } = useAuth0();
 
+	//SidebarStuff
+	const [ visibleLeft, setVisibleLeft ] = useState(false);
+	const [ visibleRight, setVisibleRight ] = useState(false);
+	const [ visibleTop, setVisibleTop ] = useState(false);
+	const [ visibleBottom, setVisibleBottom ] = useState(false);
+	const [ visibleFullScreen, setVisibleFullScreen ] = useState(false);
+	const [ visibleCustomToolbar, setVisibleCustomToolbar ] = useState(false);
+
+	const customIcons = (
+		<React.Fragment>
+			<button className="p-sidebar-icon p-link p-mr-1">
+				<span className="pi pi-print" />
+			</button>
+			<button className="p-sidebar-icon p-link p-mr-1">
+				<span className="pi pi-arrow-right" />
+			</button>
+		</React.Fragment>
+	);
+
 	useEffect(
 		() => {
 			getActivity();
@@ -44,26 +66,29 @@ function Dashboard() {
 		[ uuid ]
 	);
 
-
-function calculateDistance(lat1, lon1, lat2, lon2, unit) {
-		if ((lat1 == lat2) && (lon1 == lon2)) {
+	function calculateDistance(lat1, lon1, lat2, lon2, unit) {
+		if (lat1 == lat2 && lon1 == lon2) {
 			return 0;
-		}
-		else {
-			var radlat1 = Math.PI * lat1/180;
-			var radlat2 = Math.PI * lat2/180;
-			var theta = lon1-lon2;
-			var radtheta = Math.PI * theta/180;
-			var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+		} else {
+			var radlat1 = Math.PI * lat1 / 180;
+			var radlat2 = Math.PI * lat2 / 180;
+			var theta = lon1 - lon2;
+			var radtheta = Math.PI * theta / 180;
+			var dist =
+				Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
 			if (dist > 1) {
 				dist = 1;
 			}
 			dist = Math.acos(dist);
-			dist = dist * 180/Math.PI;
+			dist = dist * 180 / Math.PI;
 			dist = dist * 60 * 1.1515;
-			if (unit=="K") { dist = dist * 1.609344 }
-			if (unit=="N") { dist = dist * 0.8684 }
-			return (Math.round(dist * 100) / 100)
+			if (unit == 'K') {
+				dist = dist * 1.609344;
+			}
+			if (unit == 'N') {
+				dist = dist * 0.8684;
+			}
+			return Math.round(dist * 100) / 100;
 		}
 	}
 
@@ -85,7 +110,7 @@ function calculateDistance(lat1, lon1, lat2, lon2, unit) {
 	// }
 
 	const deleteActivity = (event) => {
-		event.preventDefault()
+		event.preventDefault();
 		API.removeActivity(event.target.name).then((res) => setUuid(res.id));
 	};
 
@@ -100,6 +125,42 @@ function calculateDistance(lat1, lon1, lat2, lon2, unit) {
 
 	return (
 		<div>
+			<div>
+				<Sidebar visible={visibleLeft} onHide={() => setVisibleLeft(false)}>
+					<h3>Left Sidebar</h3>
+				</Sidebar>
+
+				<Sidebar visible={visibleRight} position="right" onHide={() => setVisibleRight(false)}>
+					<h3>Right Sidebar</h3>
+				</Sidebar>
+
+				<Sidebar visible={visibleTop} position="top" onHide={() => setVisibleTop(false)}>
+					<h3>Top Sidebar</h3>
+				</Sidebar>
+
+				<Sidebar visible={visibleBottom} position="bottom" onHide={() => setVisibleBottom(false)}>
+					<h3>Bottom Sidebar</h3>
+				</Sidebar>
+
+				<Sidebar visible={visibleFullScreen} fullScreen onHide={() => setVisibleFullScreen(false)}>
+					<h3>Full Screen Sidebar</h3>
+				</Sidebar>
+
+				<Sidebar
+					visible={visibleCustomToolbar}
+					onHide={() => setVisibleCustomToolbar(false)}
+					icons={customIcons}
+				>
+					<h3>Sidebar with custom icons</h3>
+				</Sidebar>
+
+				<Button icon="pi pi-arrow-right" onClick={() => setVisibleLeft(true)} className="p-mr-2" />
+				<Button icon="pi pi-arrow-left" onClick={() => setVisibleRight(true)} className="p-mr-2" />
+				<Button icon="pi pi-arrow-down" onClick={() => setVisibleTop(true)} className="p-mr-2" />
+				<Button icon="pi pi-arrow-up" onClick={() => setVisibleBottom(true)} className="p-mr-2" />
+				<Button icon="pi pi-th-large" onClick={() => setVisibleFullScreen(true)} className="p-mr-2" />
+				<Button icon="pi pi-plus" onClick={() => setVisibleCustomToolbar(true)} />
+
 			<h1 id="dashboard-header">Your Dashboard</h1>
 			<div className="container">
 				<div className="row">
@@ -138,9 +199,8 @@ function calculateDistance(lat1, lon1, lat2, lon2, unit) {
 						deleteActivity={deleteActivity}
 					/>
 				</div>
-				<div>
-		{userLat && <LeafletMap userLat={userLat} userLng={userLng} activity={activity}/>}
-				</div>
+				<div>{userLat && <LeafletMap userLat={userLat} userLng={userLng} activity={activity} />}</div>
+			</div>
 			</div>
 		</div>
 	);
