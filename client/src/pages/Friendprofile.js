@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import Usercard from '../components/Usercard/Usercard';
 import CurrentProfileCard from '../components/CurrentProfileC/CurrentProfileC';
-import KidCardContainer from '../components/KidCardContainer/KidCardContainer';
+import MiniCardContainer from "../components/MiniCardContainer/MiniCardContainer"
 import UserContext from '../utils/userContext';
 import '../pages/Profile.css';
 import API from '../utils/API';
@@ -119,7 +119,8 @@ function Friendprofile() {
 					<div className="col-md-8">
 						<CurrentProfileCard user={profileInfo} />
 						<div className="row gutters-sm">
-							<KidCardContainer user={profileInfo} />
+						<MiniCardContainer kidList={profileInfo.child} />
+
 						</div>
 					</div>
 				</div>
