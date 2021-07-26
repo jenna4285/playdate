@@ -51,9 +51,13 @@ function LeafletMap(props) {
 					props.activity.map((data, index) => (
 						<Marker position={[ data.actLat, data.actLng ]} icon={greenIcon}>
 							<Popup>
-								<h6>{data.hostId.fullname}'s Activity</h6>
+								<h6>{data.title}</h6>
+						
+								<h6>{props.distance(props.userLat, props.userLng, data.actLat, data.actLng, "M")} Miles Away</h6>
 								<br />
-								<h6>Date: {new Date(data.date).toLocaleDateString()}</h6>
+								<div>Host: {data.hostId.fullname}</div>
+								<br/>
+								<div>Scheduled Date: {new Date(data.date).toLocaleDateString()}</div>
 								<br />
 								{data.description}
 								<br />

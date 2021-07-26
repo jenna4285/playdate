@@ -221,7 +221,7 @@ function Dashboard() {
 							deleteActivity={deleteActivity}
 						/>
 					</div>
-					<div>{userLat && <LeafletMap userLat={userLat} userLng={userLng} activity={activity} />}</div>
+					<div>{userLat && <LeafletMap userLat={userLat} userLng={userLng} activity={activity} distance={calculateDistance} />}</div>
 				</div>
 			</div>
 		</div>
