@@ -127,6 +127,18 @@ function Dashboard() {
 			<div>
 				<Sidebar visible={visibleLeft} style={{ width: '30em' }} onHide={() => setVisibleLeft(false)}>
 					<h3>Social</h3>
+					<h5>Recent Messages</h5>
+					{dbUser.messages ? (
+						dbUser.messages.map((data) => (
+							<div className="card">
+								<span className="message-sender">Sender:</span> {data.sender} <br />
+								<span className="message-sender">Message: </span>
+								{data.content}
+							</div>
+						))
+					) : (
+						<p>""</p>
+					)}
 					<div className="row no-gut">
 						<YourFriends user={dbUser} distance={calculateDistance} />
 
@@ -137,8 +149,7 @@ function Dashboard() {
 						<KidCardContainer user={dbUser} />
 					</div> */}
 
-
-					{/* ---------CHAT CLIENT----------- */}
+						{/* ---------CHAT CLIENT----------- */}
 
 						<div className="row">
 							<div className="col">
@@ -186,7 +197,7 @@ function Dashboard() {
 					Social
 				</Button>
 				{/* ----------Buttons for other sidebars (still on the page, just not visible) ---------*/}
-				
+
 				{/* <Button icon="pi pi-arrow-left" onClick={() => setVisibleRight(true)} className="p-mr-2" />
 				<Button icon="pi pi-arrow-down" onClick={() => setVisibleTop(true)} className="p-mr-2" />
 				<Button icon="pi pi-arrow-up" onClick={() => setVisibleBottom(true)} className="p-mr-2" />
