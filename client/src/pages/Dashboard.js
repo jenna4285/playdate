@@ -7,7 +7,6 @@ import UserContext from '../utils/userContext';
 import YourActivities from '../components/YourActivities/YourActivities';
 import YourFriends from '../components/YourFriends/YourFriends';
 import API from '../utils/API';
-import SidebarLeft from '../components/SidebarLeft/SidebarLeft';
 import { Sidebar } from 'primereact/sidebar';
 import { Button } from 'primereact/button';
 import { useAuth0 } from '@auth0/auth0-react';
