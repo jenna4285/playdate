@@ -49,3 +49,7 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #086375; 
   }
+
+.p-sidebar-left{
+  width: 30em !important;
+}
