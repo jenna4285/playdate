@@ -51,6 +51,11 @@ function CurrentProfileCard(props) {
             </div>
           </div>
           <hr />
+          <div className="row justify-content-center">
+            <div className="col-sm-3">
+              <a href="/editprofile"><button className="btn btn-success">Edit Profile</button></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
