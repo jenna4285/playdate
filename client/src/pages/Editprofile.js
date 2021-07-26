@@ -88,7 +88,7 @@ function saveToDatabase(){
             .then((res)=> setProfileInfo(res.data)))
             // .then(() => window.location.href = "/editprofile")
             .catch(err => console.log(err));
-            window.location.replace('/dashboard')
+            // window.location.replace('/dashboard')
     }
 }
 
