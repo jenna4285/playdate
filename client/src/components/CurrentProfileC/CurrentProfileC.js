@@ -12,7 +12,7 @@ function CurrentProfileCard(props) {
 
   return (
     <div>
-      <div className=" mart-100 card mb-3 dynamic-profile-card">
+      <div className="card mb-3 dynamic-profile-card">
         <div className="card-body">
           <div className="row">
             <div className="col-sm-3">
@@ -51,6 +51,11 @@ function CurrentProfileCard(props) {
             </div>
           </div>
           <hr />
+          <div className="row justify-content-center">
+            <div className="col-sm-3">
+              <a href="/editprofile"><button className="btn btn-success">Edit Profile</button></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
