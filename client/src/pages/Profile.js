@@ -4,7 +4,7 @@ import UserContext from "../utils/userContext";
 import Usercard from "../components/Usercard/Usercard"
 
 import CurrentProfileCard from "../components/CurrentProfileC/CurrentProfileC"
-import KidCardContainer from "../components/KidCardContainer/KidCardContainer"
+import MiniCardContainer from "../components/MiniCardContainer/MiniCardContainer"
 import '../pages/Profile.css'
 import Messages from "../components/Messages/Messages"
 
@@ -38,7 +38,7 @@ function Profile() {
           <div className="col-md-8">
             <CurrentProfileCard user={dbUser} />
             <div className="row">
-              <KidCardContainer user={dbUser} />
+              <MiniCardContainer kidList={dbUser.child} />
             </div>
 
           </div>
