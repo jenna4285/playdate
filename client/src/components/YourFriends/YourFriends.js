@@ -54,7 +54,7 @@ function YourFriends(props) {
 		<div className="col mr-2">
 			<div className="row no-gut">
 				<div className="card">
-					<h1>Your Friends</h1>
+					<h3>Your Friends</h3>
 					<ScrollPanel style={{ width: '100%', height: 'min-content' }}>
 						{dbUser.friends ? (
 							dbUser.friends.map((item) => (
@@ -84,7 +84,7 @@ function YourFriends(props) {
 			</div>
 			<div className="row no-gut">
 				<div className="card">
-					<h1>Your Neighbors</h1>
+					<h3>Your Neighbors</h3>
 					<SearchBar handleChange={handleChange} />
 					<ScrollPanel style={{ width: '100%', height: '200px' }}>
 						{filteredUsers ? (
