@@ -38,15 +38,12 @@ function ActivityCard(props) {
 		<div className="row">
 					<div key={props.activity._id} id="activity-container" className="activity-container p-mb-3">
 						<div className="row">
-							<div className="row date">
-								<h5 className="mt-3">{new Date(props.activity.date).toLocaleDateString()}</h5>
-								<h5>{props.activity.title}</h5>
-								<h6>{props.distance(props.activity.actLat, props.activity.actLng, dbUser.lat, dbUser.lng, 'M')} Miles Away</h6>
+							<div className="row date d-flex">
+								<h6 className="mt-3 col-12 col-md-6">{new Date(props.activity.date).toLocaleDateString()}</h6>
+								<h6 className= "mt-md-3 col-12 col-md-6">{props.distance(props.activity.actLat, props.activity.actLng, dbUser.lat, dbUser.lng, 'M')} Miles Away</h6>
+								<h5 >{props.activity.title}</h5>
 							</div>
-							<div className="col-3">
-								<h7 className="mt-3">{props.activity.location}</h7>
-							</div>
-							<div className="col-3">
+							<div className="col-12 col-md-4">
 								<h7 id="host" className="mt-3">
 									Host:{' '}
 									<Link className="no-dec" to={'/profile/' + props.activity.hostId._id}>
@@ -60,7 +57,11 @@ function ActivityCard(props) {
 									</Link>
 								</h7>
 							</div>
-							<div className="col-6">
+							<div className="col-12 col-md-8">
+								<br/>
+								<h7 className="mt-3">{props.activity.location}</h7>
+							</div>
+							<div className="col-12 mt-3">
 								<p style={{ textAlign: 'center', verticalAlign: 'center' }}>{props.activity.description}</p>
 							</div>
 							{props.activity.hostId._id === dbUser._id ? (

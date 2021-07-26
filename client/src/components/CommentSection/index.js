@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext, useParams } from "react"
 import API from "../../utils/API"
 import UserContext from "../../utils/userContext";
+import CommentCard from "../CommentCard";
 
 function CommentSection (props) {
     const { dbUser } = useContext(UserContext);
@@ -51,9 +52,10 @@ function CommentSection (props) {
 					</div>
 					{comments ? (
 						comments.map((item) => (
-							<div className="comments-row row">
-								{item.comment}<span/>{item.createdAt}<span/>{item.commenter.fullname}
-							</div>
+                            <CommentCard comment = {item}/>
+							// <div className="comments-row row">
+							// 	{item.comment}<span/>{item.createdAt}<span/>{item.commenter.fullname}
+							// </div>
 						))
 					) : null}
 				</div>

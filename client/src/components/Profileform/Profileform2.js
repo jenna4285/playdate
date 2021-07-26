@@ -71,7 +71,7 @@ function Profileform2(props) {
 											name="fullname"
 											pattern=""
 											placeholder="Enter Name Here"
-											// value={props.profileInfo.fullname}
+											value={props.profileInfo.fullname}
 											onChange={props.handleInputChange}
 										/>
 
