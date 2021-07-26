@@ -22,7 +22,7 @@ function Nav() {
           <a className="nav-link active" aria-current="page" href="/">Home </a>
           <a className="nav-link" href="/dashboard">Dashboard</a>
           <a className="nav-link" href="/profile">Profile</a>
-          <a className="nav-link" href="/editprofile">Edit Profile</a>
+          {/* <a className="nav-link" href="/editprofile">Edit Profile</a> */}
           <Logoutbutton className = "text-end"/>
       </div>
       </div>
