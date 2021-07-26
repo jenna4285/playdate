@@ -126,18 +126,26 @@ function Dashboard() {
 	return (
 		<div>
 			<div>
-				<Sidebar visible={visibleLeft} style={{width:'100%'}}onHide={() => setVisibleLeft(false)}>
+				<Sidebar visible={visibleLeft} style={{ width: '30em' }} onHide={() => setVisibleLeft(false)}>
 					<h3>Social</h3>
 					<div className="row no-gut">
-					<YourFriends user={dbUser} distance={calculateDistance} />
+						<YourFriends user={dbUser} distance={calculateDistance} />
+
+						{/*--------- KID CARDS-------------  */}
+
+						{/* 
 					<div className="d-flex flex-wrap justify-content-center col-sm-12 col-md-6 col-lg-6">
 						<KidCardContainer user={dbUser} />
-					</div>
-					<div className="row">
-						<div className="col">
-							{/* <Chat client={chatClient} theme="team light">
+					</div> */}
+
+
+					{/* ---------CHAT CLIENT----------- */}
+
+						<div className="row">
+							<div className="col">
+								{/* <Chat client={chatClient} theme="team light">
 								<Channel channel={channel}>
-									<Window>
+									<Window >
 										<ChannelHeader />
 										<MessageList hideDeletedMessages={true} />
 										<MessageInput />
@@ -146,9 +154,9 @@ function Dashboard() {
 									<Thread />
 								</Channel>
 							</Chat> */}
+							</div>
 						</div>
 					</div>
-				</div>
 				</Sidebar>
 
 				<Sidebar visible={visibleRight} position="right" onHide={() => setVisibleRight(false)}>
@@ -175,33 +183,36 @@ function Dashboard() {
 					<h3>Sidebar with custom icons</h3>
 				</Sidebar>
 
-				<Button onClick={() => setVisibleLeft(true)} className="p-mr-2">Social</Button>
-				<Button icon="pi pi-arrow-left" onClick={() => setVisibleRight(true)} className="p-mr-2" />
+				<Button onClick={() => setVisibleLeft(true)} className="p-mr-2 position-sticky">
+					Social
+				</Button>
+				{/* ----------Buttons for other sidebars (still on the page, just not visible) ---------*/}
+				
+				{/* <Button icon="pi pi-arrow-left" onClick={() => setVisibleRight(true)} className="p-mr-2" />
 				<Button icon="pi pi-arrow-down" onClick={() => setVisibleTop(true)} className="p-mr-2" />
 				<Button icon="pi pi-arrow-up" onClick={() => setVisibleBottom(true)} className="p-mr-2" />
 				<Button icon="pi pi-th-large" onClick={() => setVisibleFullScreen(true)} className="p-mr-2" />
-				<Button icon="pi pi-plus" onClick={() => setVisibleCustomToolbar(true)} />
+				<Button icon="pi pi-plus" onClick={() => setVisibleCustomToolbar(true)} /> */}
 
-			<h1 id="dashboard-header">Your Dashboard</h1>
-			<div className="container">
-				<div className="row">
-					<div className="col">
-						<Usercard user={dbUser} />
+				<h1 id="dashboard-header">Your Dashboard</h1>
+				<div className="container">
+					<div className="row">
+						<div className="col">
+							<Usercard user={dbUser} />
+						</div>
 					</div>
-				</div>
 
-				
-				<div className="d-flex row">
-					<YourActivities
-						distance={calculateDistance}
-						setActivity={setActivity}
-						setUuid={setUuid}
-						activity={activity}
-						deleteActivity={deleteActivity}
-					/>
+					<div className="d-flex row">
+						<YourActivities
+							distance={calculateDistance}
+							setActivity={setActivity}
+							setUuid={setUuid}
+							activity={activity}
+							deleteActivity={deleteActivity}
+						/>
+					</div>
+					<div>{userLat && <LeafletMap userLat={userLat} userLng={userLng} activity={activity} />}</div>
 				</div>
-				<div>{userLat && <LeafletMap userLat={userLat} userLng={userLng} activity={activity} />}</div>
-			</div>
 			</div>
 		</div>
 	);
