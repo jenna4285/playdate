@@ -125,7 +125,7 @@ function Dashboard() {
 	return (
 		<div>
 			<div>
-				<Sidebar visible={visibleLeft} style={{ width: '30em' }} onHide={() => setVisibleLeft(false)}>
+				<Sidebar visible={visibleLeft} onHide={() => setVisibleLeft(false)}>
 					<h3>Social</h3>
 					<h5>Recent Messages</h5>
 					{dbUser.messages ? (
