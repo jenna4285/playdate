@@ -51,10 +51,10 @@ function YourFriends(props) {
 	//     }
 
 	return (
-		<div className="col-sm-12 col-md-6 col-lg-6">
+		<div className="col mr-2">
 			<div className="row no-gut">
 				<div className="card">
-					<h1>Your Friends</h1>
+					<h3>Your Friends</h3>
 					<ScrollPanel style={{ width: '100%', height: 'min-content' }}>
 						{dbUser.friends ? (
 							dbUser.friends.map((item) => (
@@ -62,17 +62,18 @@ function YourFriends(props) {
 									<Link className="no-dec" to={'/profile/' + item._id}>
 										<Chip
 											key={item._id}
-											label={`${item.fullname} - ${props.distance(lat1, lon1, item.lat, item.lng, 'M')} miles `}
+											label={`${item.fullname} - ${props.distance(
+												lat1,
+												lon1,
+												item.lat,
+												item.lng,
+												'M'
+											)} miles `}
 											image={item.picture}
 											style={{ display: 'block' }}
 											className="friend-chip"
 										/>
 									</Link>{' '}
-									{/* <Chip
-										style={{ display: 'inline' }}
-										label={props.distance(lat1, lon1, item.lat, item.lng, 'M')}
-										className="friend-chip"
-									/> */}
 								</div>
 							))
 						) : (
@@ -83,7 +84,7 @@ function YourFriends(props) {
 			</div>
 			<div className="row no-gut">
 				<div className="card">
-					<h1>Your Neighbors</h1>
+					<h3>Your Neighbors</h3>
 					<SearchBar handleChange={handleChange} />
 					<ScrollPanel style={{ width: '100%', height: '200px' }}>
 						{filteredUsers ? (
@@ -93,7 +94,13 @@ function YourFriends(props) {
 										<div key={item._id}>
 											<Link className="no-dec" to={'/profile/' + item._id}>
 												<Chip
-													label={item.fullname}
+													label={`${item.fullname} - ${props.distance(
+														lat1,
+														lon1,
+														item.lat,
+														item.lng,
+														'M'
+													)} miles `}
 													image={item.picture}
 													className="friend-chip"
 												/>
