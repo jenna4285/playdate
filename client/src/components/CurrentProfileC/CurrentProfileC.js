@@ -12,7 +12,7 @@ function CurrentProfileCard(props) {
 
   return (
     <div>
-      <div className=" mart-100 card mb-3 dynamic-profile-card">
+      <div className="card mb-3 dynamic-profile-card">
         <div className="card-body">
           <div className="row">
             <div className="col-sm-3">
