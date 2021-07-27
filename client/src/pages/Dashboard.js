@@ -125,7 +125,7 @@ function Dashboard() {
 	return (
 		<div>
 			<div>
-				<Sidebar visible={visibleLeft} onHide={() => setVisibleLeft(false)}>
+				<Sidebar className="custom" visible={visibleLeft} onHide={() => setVisibleLeft(false)}>
 					<h3>Social</h3>
 					<h5>Recent Messages</h5>
 					{dbUser.messages ? (
@@ -193,7 +193,7 @@ function Dashboard() {
 					<h3>Sidebar with custom icons</h3>
 				</Sidebar>
 
-				<Button onClick={() => setVisibleLeft(true)} className="p-mr-2 position-sticky">
+				<Button onClick={() => setVisibleLeft(true)} className="p-mr-2" id="fixed-button">
 					Social
 				</Button>
 				{/* ----------Buttons for other sidebars (still on the page, just not visible) ---------*/}
