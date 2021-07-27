@@ -62,7 +62,7 @@ function ActivityCard(props) {
 								<h7 className="mt-3">{props.activity.location}</h7>
 							</div>
 							<div className="col-12 mt-3">
-								<p style={{ textAlign: 'center', verticalAlign: 'center' }}>{props.activity.description}</p>
+								<p style={{ textAlign: 'center', verticalAlign: 'center' }}>{props.activity.description.length>250 ? `${props.activity.description.substring(0,250)}...` : props.activity.description }</p>
 							</div>
 							{props.activity.hostId._id === dbUser._id ? (
 								<div className="row justify-content-center">

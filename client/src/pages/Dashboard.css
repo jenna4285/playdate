@@ -50,6 +50,23 @@
     background: #086375; 
   }
 
-.p-sidebar-left{
-  width: 30em !important;
+.p-sidebar-left.custom{
+  width: 30em;
+}
+
+@media only screen and (max-width: 772px){
+  .p-sidebar-left.custom
+  {
+  width: 100%;
+}
+}
+
+#fixed-button{
+  position: fixed;
+  top: 50%;
+  padding: 10px;
+  left: 0%;
+  margin: 0;
+  z-index:1;
+
 }
