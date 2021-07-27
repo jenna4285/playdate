@@ -79,7 +79,7 @@ function ActivityPage() {
 					<h1>{activityInfo.title}</h1>
 					<h5>{calculateDistance(dbUser.lat, dbUser.lng, activityInfo.actLat, activityInfo.actLng, "M")} Miles Away</h5>
 					<h4>{activityInfo.hostName}'s Activity</h4>
-					<h4>{activityInfo.description}</h4>
+					<h6>{activityInfo.description}</h6>
 					<hr />
 				</div>
 				<div id="map-attendees" class="row">

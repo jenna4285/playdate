@@ -59,7 +59,7 @@ function LeafletMap(props) {
 								<br/>
 								<div>Scheduled Date: {new Date(data.date).toLocaleDateString()}</div>
 								<br />
-								{data.description}
+								{data.description.length>250 ? `${data.description.substring(0,180)}...` : data.description }
 								<br />
 								<br />
 								{data.attendees.length} attendee(s) so far!
