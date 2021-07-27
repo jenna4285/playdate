@@ -1,0 +1,39 @@
+.comment-h5 {
+    font-weight: bolder;
+    text-align: left;
+}
+
+.comment-p {
+    text-align: left !important;
+}
+
+.comment-date {
+    text-align: left !important;
+}
+
+.rounded-small {
+    display: block;
+    max-width:80px;
+    max-height:80px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.comment-link{
+    color:black
+}
+
+@media only screen and (max-width: 767px) {
+    .rounded-small {
+        display: block;
+        max-width:40px;
+        max-height:40px;
+        width: auto;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto
+    }
+  }
