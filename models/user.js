@@ -23,17 +23,17 @@ const userSchema = new Schema({
     description:String,
     lat: Number,
     lng: Number,
-    loc: {
-        type: {
-          type: String,
-          enum: ['Point'],
-          default: 'Point',
-        },
-        coordinates: {
-          type: [Number],
-          default: [0, 0],
-        }
-      },
+    // loc: {
+    //     type: {
+    //       type: String,
+    //       enum: ['Point'],
+    //       default: 'Point',
+    //     },
+    //     coordinates: {
+    //       type: [Number],
+    //       default: [0, 0],
+    //     }
+    //   },
     child: [{
         kidname: String,
         kidage: Number,
@@ -48,7 +48,12 @@ const userSchema = new Schema({
     messages:[{
         sender:String,
         content: String,
-        timestamp: Date
+        timestamp: Date,
+        isRead:  {
+          type: Boolean,
+          default: false
+        }
+        
     }],
     activities: [{type: Schema.Types.ObjectId, ref: "Activity"}]
 });
