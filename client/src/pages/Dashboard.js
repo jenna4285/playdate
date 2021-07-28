@@ -9,6 +9,8 @@ import YourFriends from '../components/YourFriends/YourFriends';
 import API from '../utils/API';
 import { Sidebar } from 'primereact/sidebar';
 import { Button } from 'primereact/button';
+import { Badge } from 'primereact/badge';
+
 import { useAuth0 } from '@auth0/auth0-react';
 import './Dashboard.css';
 import { StreamChat } from 'stream-chat';
@@ -122,6 +124,19 @@ function Dashboard() {
 	// }
 	// bring in activities array & pass to map component and activities component
 
+	const unreadCounter = (messages) =>{
+		let count = 0; 
+		messages.forEach(message => {
+			if (!message.isRead) {
+				count++; 
+			}
+		
+		})
+		return count;
+
+	}
+
+
 	return (
 		<div>
 			<div>
@@ -192,10 +207,10 @@ function Dashboard() {
 				>
 					<h3>Sidebar with custom icons</h3>
 				</Sidebar>
-
-				<Button onClick={() => setVisibleLeft(true)} className="p-mr-2" id="fixed-button">
+				<Button onClick={() => setVisibleLeft(true)} type="button" label="Social" className="p-mr-2" id="fixed-button"><Badge value={unreadCounter(dbUser.messages)} id="fixed-button"></Badge></Button>
+				{/* <Button  className="p-mr-2" id="whatever">
 					Social
-				</Button>
+				</Button> */}
 				{/* ----------Buttons for other sidebars (still on the page, just not visible) ---------*/}
 
 				{/* <Button icon="pi pi-arrow-left" onClick={() => setVisibleRight(true)} className="p-mr-2" />
