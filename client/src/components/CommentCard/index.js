@@ -3,6 +3,16 @@ import "./style.css"
 import {Link} from "react-router-dom"
 
 function CommentCard(props) {
+    const options = {
+        weekday: "long",
+        year: "numeric",
+        month:"long",
+        day:"numeric",
+        timeZone:"Canada/Central",
+        hour12 : true,
+        hour:  "numeric",
+        minute: "numeric",seconds:"numeric"
+   };
 
   return (
     // <div className="card mb-3" style="max-width: 540px;">
@@ -18,7 +28,7 @@ function CommentCard(props) {
               {props.comment.comment}
             </p>
             <p className = "comment-p">
-              <small className="comment-date text-muted">{props.comment.createdAt}</small>
+              <small className="comment-date text-muted">{new Date(props.comment.createdAt).toLocaleDateString('en-US', options)}</small>
             </p>
           </div>
         </div>

@@ -1,25 +1,29 @@
 .comment-h5 {
     font-weight: bolder;
     text-align: left;
+    font-size: 16px;
 }
 
 .comment-p {
     text-align: left !important;
+    font-size: 12px;
+    font-style:inherit !important;
 }
 
 .comment-date {
     text-align: left !important;
+    font-size: 10px;
 }
 
 .rounded-small {
     display: block;
-    max-width:80px;
-    max-height:80px;
+    max-width:60px;
+    max-height:60px;
     width: auto;
     height: auto;
     text-align: center;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
 }
 
 .comment-link{
@@ -34,6 +38,8 @@
         width: auto;
         height: auto;
         margin-left: auto;
-        margin-right: auto
+        margin-right: auto;
+        margin-top: auto;
+        margin-bottom: auto;
     }
   }
