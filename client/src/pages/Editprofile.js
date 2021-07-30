@@ -12,7 +12,7 @@ import axios from "axios"
 
 
 
-function Editprofile() {
+function Editprofile(props) {
     const toast = useRef(null);
     const { user } = useAuth0();
     const {dbUser}=useContext(UserContext);
@@ -90,6 +90,7 @@ function saveToDatabase(){
             .catch(err => console.log(err));
             // window.location.replace('/dashboard')
     }
+    props.pullFromDb()
 }
 
 function handleProfileBtnClick(event) {
@@ -142,7 +143,7 @@ function imgUpload (event){
             <div className="row">
                 <div className="col">
                     <br />
-                        <Kids2 handleChange={handleInputChange} handleBtnClick={handleBtnClick} kidInfo={kidInfo} displaySuccess={displayKidSuccess}/>
+                        <Kids2 handleChange={handleInputChange} handleBtnClick={handleBtnClick} kidInfo={kidInfo} displaySuccess={displayKidSuccess} handleProfileBtnClick={handleProfileBtnClick}/>
                 </div>
                 <div id="kid-column" className="col">
                     <div id="kid-card-container">
