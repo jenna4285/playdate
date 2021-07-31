@@ -21,16 +21,16 @@ const [dbUser, setDbUser]=useState({});
 const { isAuthenticated, user, isLoading } = useAuth0();
 
 
-useEffect(() => {
-  if(!user) return;
-  const pullFromDb = async () => {await API.getUserByEmail(user.email).then(userInfo => {
-    if(!userInfo.data) {
-      API.saveUser(user);
-      window.location.replace('/editprofile')
-    }
-    setDbUser(userInfo.data);
+const pullFromDb = async () => {await API.getUserByEmail(user.email).then(userInfo => {
+  if(!userInfo.data) {
+    API.saveUser(user);
+    window.location.replace('/editprofile')
+  }
+  setDbUser(userInfo.data);
   });
 }
+useEffect(() => {
+  if(!user) return;
 pullFromDb();
 }, [isAuthenticated]);
 
@@ -61,7 +61,9 @@ if (isLoading || (isAuthenticated && !dbUser.email)){
         : isAuthenticated && dbUser.email && !dbUser.signedUp ?
         <Switch>
           <Route exact path={["/", "/home"]} component={Home}/>
-          <Route path="/editprofile" component={Editprofile}/>
+          <Route path="/editprofile">
+            <Editprofile pullFromDb = {pullFromDb}/>
+          </Route>
           <Route>
             <NoMatch />
           </Route>

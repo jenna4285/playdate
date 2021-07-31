@@ -46,7 +46,7 @@ function Kids2(props) {
                                 </div>
 
                                 <div className="col text-secondary">
-                                    <Link to="/dashboard"><button id="complete-family" type="button" className="btn btn-success px-4" value="Family Complete">Family Complete</button></Link>
+                                    <Link to="/dashboard"><button id="complete-family" type="button" className="btn btn-success px-4" value="Family Complete" >Family Complete</button></Link>
                                 </div>
                             </div>
                         </div>
