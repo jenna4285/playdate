@@ -2,6 +2,16 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+const message = new Schema({
+    sender:String,
+    content: String,
+    timestamp: Date,
+    isRead:  {
+      type: Boolean,
+      default: false
+    }
+}, {timestamps:true})
+
 const userSchema = new Schema({
     username: String,
     password: String,
@@ -45,16 +55,7 @@ const userSchema = new Schema({
         // name: String,
         // picture: String
     }],
-    messages:[{
-        sender:String,
-        content: String,
-        timestamp: Date,
-        isRead:  {
-          type: Boolean,
-          default: false
-        }
-        
-    }],
+    messages:[message],
     activities: [{type: Schema.Types.ObjectId, ref: "Activity"}]
 });
 

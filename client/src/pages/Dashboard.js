@@ -115,6 +115,11 @@ function Dashboard() {
 		API.removeActivity(event.target.name).then((res) => setUuid(res.id));
 	};
 
+	const toggleRead = (messageId)=>{
+		console.log(messageId)
+		API.markMessageAsRead(messageId)
+	}
+
 	const getActivity = () => {
 		API.getActivity().then((res) => setActivity(res.data));
 	};
@@ -124,18 +129,15 @@ function Dashboard() {
 	// }
 	// bring in activities array & pass to map component and activities component
 
-	const unreadCounter = (messages) =>{
-		let count = 0; 
-		messages.forEach(message => {
+	const unreadCounter = (messages) => {
+		let count = 0;
+		messages.forEach((message) => {
 			if (!message.isRead) {
-				count++; 
+				count++;
 			}
-		
-		})
+		});
 		return count;
-
-	}
-
+	};
 
 	return (
 		<div>
@@ -146,9 +148,14 @@ function Dashboard() {
 					{dbUser.messages ? (
 						dbUser.messages.map((data) => (
 							<div className="card">
+							{console.log(data)}
 								<span className="message-sender">Sender:</span> {data.sender} <br />
 								<span className="message-sender">Message: </span>
 								{data.content}
+								<div className="row justify-content-center">
+									{' '}
+									<button className="btn btn-warning mark-as-read text-center" onClick={()=>toggleRead(data._id)}>Mark as read</button>
+								</div>
 							</div>
 						))
 					) : (
@@ -207,7 +214,15 @@ function Dashboard() {
 				>
 					<h3>Sidebar with custom icons</h3>
 				</Sidebar>
-				<Button onClick={() => setVisibleLeft(true)} type="button" label="Social" className="p-mr-2" id="fixed-button"><Badge value={unreadCounter(dbUser.messages)} id="fixed-button"></Badge></Button>
+				<Button
+					onClick={() => setVisibleLeft(true)}
+					type="button"
+					label="Social"
+					className="p-mr-2"
+					id="fixed-button"
+				>
+					<Badge value={unreadCounter(dbUser.messages)} id="fixed-button" />
+				</Button>
 				{/* <Button  className="p-mr-2" id="whatever">
 					Social
 				</Button> */}
@@ -236,7 +251,16 @@ function Dashboard() {
 							deleteActivity={deleteActivity}
 						/>
 					</div>
-					<div>{userLat && <LeafletMap userLat={userLat} userLng={userLng} activity={activity} distance={calculateDistance} />}</div>
+					<div>
+						{userLat && (
+							<LeafletMap
+								userLat={userLat}
+								userLng={userLng}
+								activity={activity}
+								distance={calculateDistance}
+							/>
+						)}
+					</div>
 				</div>
 			</div>
 		</div>

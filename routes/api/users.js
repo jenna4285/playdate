@@ -29,6 +29,11 @@ router
   .get(userController.findMessagesByEmail)
 
   router
+  .route("/email/messages/status/:id")
+  .put(userController.markMessageAsRead)
+  .get(userController.findMessagesByEmail)
+
+  router
   .route("/email/friends/:email")
   .put(userController.removeFriendByEmail)
   .get(userController.findByEmail)
