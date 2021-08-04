@@ -67,6 +67,14 @@ module.exports = {
       
       .catch(err => res.status(422).json(err));
   },
+  markMessageAsRead: function(req, res) {
+    console.log(req.body)
+    console.log(req.params.id)
+    db.User 
+      .updateOne({ _id: req.params.id }, {isRead: true})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   removeFriendByEmail: function(req,res){
     db.User
       .findOneAndUpdate({ email: req.params.email }, {$pull: {friends: req.body.id}})

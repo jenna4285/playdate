@@ -59,6 +59,11 @@ addMessageByEmail: function(userData){
   return axios.put("api/users/email/messages/" + userData.messages.recipient, userData)
 },
 
+//message Route
+markMessageAsRead: function(messageId){
+  return axios.put("api/users/email/messages/status/" + messageId)
+},
+
 //Activity Comment Route
 addCommentByActivityID: function(activityId,comment){
   return axios.put("/api/activity/comment/"+activityId, comment)
