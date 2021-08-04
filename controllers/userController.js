@@ -71,7 +71,10 @@ module.exports = {
     console.log(req.body)
     console.log(req.params.id)
     db.User 
-      .updateOne({ _id: req.params.id }, {isRead: true})
+      .updateOne({ "_id": req.params.id, 'messages._id': req.body.message}, 
+        {
+          $set: { 'messages.$.isRead': true },
+        })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

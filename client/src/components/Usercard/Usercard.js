@@ -15,7 +15,7 @@ function Usercard (props){
 
   const[message, setMessage]=useState({
     recipient:id,
-    sender:user.email,
+    sender:props.user.email,
     content:"",
     timestamp:"",
   });
@@ -33,7 +33,7 @@ function Usercard (props){
       messages:
 			{ 
         recipient:id,
-				sender:user.email,
+				sender:props.user.fullname,
 				content:message.content,
 				timestamp:message.timestamp
 			}

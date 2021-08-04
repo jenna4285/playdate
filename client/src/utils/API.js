@@ -60,8 +60,8 @@ addMessageByEmail: function(userData){
 },
 
 //message Route
-markMessageAsRead: function(messageId){
-  return axios.put("api/users/email/messages/status/" + messageId)
+markMessageAsRead: function(userId, messageId){
+  return axios.put("api/users/email/messages/status/" + userId, messageId)
 },
 
 //Activity Comment Route

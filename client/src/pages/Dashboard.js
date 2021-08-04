@@ -115,9 +115,11 @@ function Dashboard() {
 		API.removeActivity(event.target.name).then((res) => setUuid(res.id));
 	};
 
-	const toggleRead = (messageId)=>{
+	const toggleRead = (userId,messageId)=>{
+		console.log(dbUser._id)
 		console.log(messageId)
-		API.markMessageAsRead(messageId)
+		const messageData = {message:messageId}
+		API.markMessageAsRead(userId, messageData)
 	}
 
 	const getActivity = () => {
@@ -154,7 +156,7 @@ function Dashboard() {
 								{data.content}
 								<div className="row justify-content-center">
 									{' '}
-									<button className="btn btn-warning mark-as-read text-center" onClick={()=>toggleRead(data._id)}>Mark as read</button>
+									<button className="btn btn-warning mark-as-read text-center" onClick={()=>toggleRead(dbUser._id, data._id)}>Mark as read</button>
 								</div>
 							</div>
 						))
