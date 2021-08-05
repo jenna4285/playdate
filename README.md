@@ -14,8 +14,8 @@
 ## Usage:
   Simply create an account on PlayDate to get started. You can see global / neihborhood activities, add your own events, as well as add and message friends.
 
-  [Demo Video Link]("https://drive.google.com/file/d/1OIXWost4WTVtlDbq9bH3mut-asDd9xxO/view?usp=sharing")<br />
-  [Deployed Application]("https://ut-playdate.herokuapp.com/")
+  [Demo Video Link](https://drive.google.com/file/d/1OIXWost4WTVtlDbq9bH3mut-asDd9xxO/view?usp=sharing)<br />
+  [Deployed Application](https://ut-playdate.herokuapp.com/)
   ## Guidelines to Contribute:
   If you would like to contribute to the application, add features, or correct any bugs, please clone the repo, create a feature branch to push, and create a pull request for review and approval.
 
